@@ -1,0 +1,80 @@
+doctype html
+
+
+html(lang='en')
+
+    head
+
+        // Meta attributes
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description' content='North Carolina Anthropomorphic Society, Inc. Website.')
+        meta(name='author' content='North Carolina Anthropomorphic Society, Inc.')
+
+        // Page title
+        title Bewhiskered
+
+        // Bootstrap core CSS
+        link(href='/vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet')
+
+        // Custom fonts for this template
+        link(href='/vendor/fontawesome-free/css/all.min.css' rel='stylesheet')
+        link(href='https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2' rel='preload' as='font' crossorigin)
+
+        // Custom styles for this template
+        link(href='/css/main.min.css' rel='stylesheet')
+
+    body(id='page-top')
+
+        // Navbar
+        nav(id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top")
+
+            a(class="navbar-brand js-scroll-trigger" href="/")
+                img(src='', alt="Bewhiskered Logo")
+
+            // Navbar links
+            button(class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation")
+                i(class="fas fa-bars")
+            div(class="collapse navbar-collapse" id="navbarResponsive")
+                ul(id="navbar-block-links" class="navbar-nav ml-auto")
+                    block navbar-page-links
+                ul(id='common-links' class='navbar-nav')
+                    li(class='nav-item')
+                        a(class='nav-link' href='https://ncanthrosociety.com') NCAS
+
+        // Main body
+        div(id='content' class='container-fluid' role="main")
+            block content
+
+        // Footer
+        footer(id='footer')
+
+            div(class='icon-box')
+                a(class='icon-link' href='')
+                    i(class='fab fa-3x fa-twitter' title="Twitter")
+                a(class='icon-link' href='')
+                    i(class='fab fa-3x fa-facebook' title="Facebook")
+                a(class='icon-link' href='')
+                    i(class='fab fa-3x fa-telegram' title="Telegram Chat")
+                a(class='icon-link' href='')
+                    i(class='fab fa-3x fa-telegram' title="Telegram Announcements Channel")
+
+            p North Carolina Anthropomorphic Society, Inc.
+            p Copyright #{ new Date().getFullYear() }
+
+        // Bootstrap core JavaScript
+
+        script(src='/vendor/jquery/jquery.min.js')
+        script(src='/vendor/bootstrap/js/bootstrap.bundle.min.js')
+
+        // Plugin JavaScript
+        script(src='/vendor/jquery-easing/jquery.easing.min.js')
+        script(src='/vendor/lodash/lodash.min.js')
+
+        // Google Analytics
+        script(src="https://www.googletagmanager.com/gtag/js?id=UA-148960561-1")
+
+        // Custom scripts
+        script(src='/js/main.min.js')
+        script(src='/js/google-analytics.min.js')

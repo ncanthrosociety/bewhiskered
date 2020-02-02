@@ -1,0 +1,133 @@
+// Bootstrap mixins
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+
+// Style for elements in base.pug.
+@import 'variables';
+
+// Vertical dimensions
+$nav-height: 56px;
+$content-vertical-padding: 30px;
+$footer-height: 100px;
+$content-min-height: calc(100vh - (#{$nav-height} + #{$footer-height}));
+
+// Navigation
+#navbar {
+  background: $ncas-color-primary-white;
+  height: $nav-height;
+  box-shadow: 0 3px 3px $ncas-color-accent-90-grey;
+
+  .navbar-brand {
+    img {
+      height: $navbar-brand-height;
+    }
+  }
+
+  .navbar-collapse {
+    @include media-breakpoint-down(md) {
+      background-color: $ncas-color-primary-white;
+
+      &.show, &.collapsing {
+        max-height: calc((var(--vh, 1vh) * 100) - #{$nav-height});
+        overflow-y: scroll;
+        z-index: 9999;
+
+        margin-left: -$navbar-padding-x;
+        padding-left: $navbar-padding-x;
+        margin-right: -$navbar-padding-x;
+        padding-right: $navbar-padding-x;
+
+        box-shadow: 0 3px 3px $ncas-color-accent-90-grey;
+      }
+    }
+
+    #navbar-block-links:not(:empty){
+      border-right: 0.5px solid $ncas-color-accent-60-grey;
+
+      @include media-breakpoint-down(md) {
+        border-right: none;
+        border-bottom: 0.5px solid $ncas-color-accent-60-grey;
+      }
+    }
+
+    .navbar-nav {
+      $internal-padding: 10px;
+
+      padding-left: $internal-padding;
+      padding-right: $internal-padding;
+
+      @include media-breakpoint-down(md) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      &:first-of-type {
+        padding-left: 0;
+      }
+
+      &:last-of-type {
+        padding-right: 0;
+      }
+    }
+
+    .nav-item {
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+// Main content
+#content {
+  $content-horizontal-padding: 100px;
+
+  margin-top: $nav-height;
+  padding: $content-vertical-padding $content-horizontal-padding;
+  min-height: $content-min-height;
+
+  @include media-breakpoint-down(md) {
+    padding-left: 0.5 * $content-horizontal-padding;
+    padding-right: 0.5 * $content-horizontal-padding;
+  }
+
+  @include media-breakpoint-down(xs) {
+    padding-left: 0.25 * $content-horizontal-padding;
+    padding-right: 0.25 * $content-horizontal-padding;
+  }
+
+  section {
+    $section-padding: 10px;
+    $section-margin-bottom: 30px;
+
+    padding-left: $section-padding;
+    padding-right: $section-padding;
+    margin-bottom: $section-margin-bottom;
+
+    @include media-breakpoint-down(xs) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Footer
+footer {
+  $border-size: 3px;
+
+  height: $footer-height;
+  color: $ncas-color-accent-40-grey;
+  background-color: $secondary-background-color;
+  border-top: $border-size solid $accent-color;
+  text-align: center;
+  font-size: $footer-font-size;
+
+  p {
+    margin: 0;
+  }
+}

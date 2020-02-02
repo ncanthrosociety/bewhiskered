@@ -1,0 +1,44 @@
+// Global website style. Also import individual components.
+@import 'base';
+@import 'variables';
+@import url($font-url);
+
+// Body
+body {
+  font-family: $font-family;
+  font-size: $primary-font-size;
+  color: $primary-font-color;
+  background-color: $primary-background-color;
+}
+
+// Icons and links containing icons
+.icon-link {
+  &,
+  &:link,
+  &:visited,
+  &:hover,
+  &:focus,
+  &:active {
+    color: $secondary-font-color;
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: $accent-color;
+  }
+}
+
+.icon-box {
+  $internal-margin: 10px;
+
+  margin-top: $internal-margin;
+  margin-bottom: $internal-margin;
+
+  .icon-link {
+    margin-right: $internal-margin;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

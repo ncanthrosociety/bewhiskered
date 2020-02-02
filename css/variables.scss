@@ -1,0 +1,45 @@
+// Navbar variables
+
+// NCAS primary colors
+$ncas-color-primary-blue: rgba(34, 100, 169, 1);
+$ncas-color-primary-black: rgba(0, 0, 0, 1);
+$ncas-color-primary-white: rgba(255, 255, 255, 1);
+
+// NCAS accent greys
+$ncas-color-accent-40-grey: rgba(103, 103, 103, 1);
+$ncas-color-accent-60-grey: rgba(153, 153, 153, 1);
+$ncas-color-accent-90-grey: rgba(230, 230, 230, 1);
+
+// NCAS secondary colors
+$ncas-color-secondary-smoky-mountains-purple: rgba(100, 86, 170, 1);
+$ncas-color-secondary-piedmont-teal: rgba(57, 170, 190, 1);
+$ncas-color-secondary-coastal-blue: rgba(59, 173, 221, 1);
+$ncas-color-secondary-tiger-orange: rgba(252, 142, 47, 1);
+$ncas-color-secondary-cheetah-gold: rgba(245, 202, 52, 1);
+$ncas-color-secondary-sparkle-dog-fuschia: rgba(165, 35, 157, 1);
+
+// NCAS tertiary colors
+$ncas-color-tertiary-purple: rgba(175, 151, 245, 1);
+$ncas-color-tertiary-blue: rgba(92, 113, 203, 1);
+$ncas-color-tertiary-cyan: rgba(145, 214, 230, 1);
+$ncas-color-tertiary-gold: rgba(250, 212, 126, 1);
+$ncas-color-tertiary-green: rgba(179, 240, 153, 1);
+$ncas-color-tertiary-salmon: rgba(234, 84, 106, 1);
+
+// Other colors
+$transparent: rgba(0, 0, 0, 0);
+
+// Background color
+$primary-background-color: $ncas-color-primary-white;
+$secondary-background-color: $ncas-color-accent-90-grey;
+
+// Accent color
+$accent-color: $ncas-color-secondary-piedmont-teal;
+
+// Fonts
+$primary-font-color: #222;
+$secondary-font-color: #444;
+$primary-font-size: 1rem;
+$footer-font-size: 0.75rem;
+$font-url: 'https://fonts.googleapis.com/css?family=Montserrat&display=swap';
+$font-family: 'Montserrat', sans-serif;
