@@ -23,21 +23,20 @@ $content-min-height: calc(100vh - (#{$nav-height} + #{$footer-height}));
       height: $navbar-brand-height;
     }
   }
-
   .navbar-collapse {
     @include media-breakpoint-down(md) {
       background-color: $ncas-color-primary-white;
 
       &.show, &.collapsing {
+        position: absolute;
+        left: 0;
+        top: $nav-height;
+        width: 100%;
         max-height: calc((var(--vh, 1vh) * 100) - #{$nav-height});
         overflow-y: scroll;
         z-index: 9999;
-
-        margin-left: -$navbar-padding-x;
         padding-left: $navbar-padding-x;
-        margin-right: -$navbar-padding-x;
         padding-right: $navbar-padding-x;
-
         box-shadow: 0 3px 3px $ncas-color-accent-90-grey;
       }
     }
