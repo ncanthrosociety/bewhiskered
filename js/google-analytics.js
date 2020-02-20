@@ -14,7 +14,6 @@ function gtag () { window.dataLayer.push(arguments) }
  */
 (() => {
   window.dataLayer = window.dataLayer || []
-  // TODO
-  // gtag('js', new Date())
-  // gtag('config', 'UA-148960561-1')
+  gtag('js', new Date())
+  gtag('config', 'UA-148960561-2')
 })()
