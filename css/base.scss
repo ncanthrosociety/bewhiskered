@@ -2,15 +2,9 @@
 @import 'node_modules/bootstrap/scss/functions';
 @import 'node_modules/bootstrap/scss/variables';
 @import 'node_modules/bootstrap/scss/mixins';
-
-// Style for elements in base.pug.
 @import 'variables';
 
-// Vertical dimensions
-$nav-height: 56px;
-$content-vertical-padding: 30px;
-$footer-height: 100px;
-$content-min-height: calc(100vh - (#{$nav-height} + #{$footer-height}));
+// Base style
 
 // Navigation
 #navbar {
@@ -80,20 +74,18 @@ $content-min-height: calc(100vh - (#{$nav-height} + #{$footer-height}));
 
 // Main content
 #content {
-  $content-horizontal-padding: 100px;
-
   margin-top: $nav-height;
   padding: $content-vertical-padding $content-horizontal-padding;
   min-height: $content-min-height;
 
   @include media-breakpoint-down(md) {
-    padding-left: 0.5 * $content-horizontal-padding;
-    padding-right: 0.5 * $content-horizontal-padding;
+    padding-left: $content-horizontal-padding-md-scale * $content-horizontal-padding;
+    padding-right: $content-horizontal-padding-md-scale * $content-horizontal-padding;
   }
 
   @include media-breakpoint-down(xs) {
-    padding-left: 0.25 * $content-horizontal-padding;
-    padding-right: 0.25 * $content-horizontal-padding;
+    padding-left: $content-horizontal-padding-xs-scale * $content-horizontal-padding;
+    padding-right: $content-horizontal-padding-xs-scale * $content-horizontal-padding;
   }
 
   section {

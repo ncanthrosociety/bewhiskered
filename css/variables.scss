@@ -43,3 +43,14 @@ $primary-font-size: 1rem;
 $footer-font-size: 0.75rem;
 $font-url: 'https://fonts.googleapis.com/css?family=Montserrat&display=swap';
 $font-family: 'Montserrat', sans-serif;
+
+// Vertical dimensions
+$nav-height: 56px;
+$footer-height: 100px;
+$content-min-height: calc(100vh - (#{$nav-height} + #{$footer-height}));
+
+// Content padding
+$content-vertical-padding: 30px;
+$content-horizontal-padding: 100px;
+$content-horizontal-padding-md-scale: 0.5;
+$content-horizontal-padding-xs-scale: 0.25;
