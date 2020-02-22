@@ -4,6 +4,11 @@
 @import 'variables';
 @import url($font-url);
 
+@font-face {
+  font-family: 'NASA';
+  src: url('/fonts/nasa.ttf');
+}
+
 // Body
 body {
   font-family: $font-family;

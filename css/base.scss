@@ -11,7 +11,7 @@
   background-color: $ncas-color-primary-white;
   transition: background-color 0.3s ease-in-out;
   height: $nav-height;
-  box-shadow: 0 3px 3px $ncas-color-accent-40-grey;
+  box-shadow: 0 3px 2px $ncas-color-accent-40-grey;
 
   @include media-breakpoint-up(lg) {
     &.navbar-splash:not(.navbar-splash-scrolled) {
@@ -32,14 +32,14 @@
       &.show, &.collapsing {
         position: absolute;
         left: 0;
-        top: $nav-height;
+        top: $nav-height - 1;
         width: 100%;
         max-height: calc((var(--vh, 1vh) * 100) - #{$nav-height});
         overflow-y: scroll;
         z-index: 9999;
         padding-left: $navbar-padding-x;
         padding-right: $navbar-padding-x;
-        box-shadow: 0 3px 3px $ncas-color-accent-40-grey;
+        box-shadow: 0 3px 2px $ncas-color-accent-40-grey;
       }
     }
 
