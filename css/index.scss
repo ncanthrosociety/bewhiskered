@@ -26,12 +26,15 @@
   }
 
   // Set minimum height to fill all the space but the footer.
-  min-height: 100vh;
+  height: 100vh;
 
   // Set display as flexbox. Vertically and horizontally center items.
   display: flex;
   justify-content: center;
   align-items: center;
+  @include media-breakpoint-down(sm) {
+    align-items: flex-start;
+  }
 
   // Background style
   // The inverted selection assumes that the browser can handle webp and tries to render it immediately.
