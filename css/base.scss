@@ -11,7 +11,7 @@
   background-color: $ncas-color-primary-white;
   transition: background-color 0.3s ease-in-out;
   height: $nav-height;
-  box-shadow: 0 3px 3px $ncas-color-accent-90-grey;
+  box-shadow: 0 3px 3px $ncas-color-accent-40-grey;
 
   @include media-breakpoint-up(lg) {
     &.navbar-splash:not(.navbar-splash-scrolled) {
@@ -39,7 +39,7 @@
         z-index: 9999;
         padding-left: $navbar-padding-x;
         padding-right: $navbar-padding-x;
-        box-shadow: 0 3px 3px $ncas-color-accent-90-grey;
+        box-shadow: 0 3px 3px $ncas-color-accent-40-grey;
       }
     }
 
