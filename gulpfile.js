@@ -10,9 +10,11 @@ const cleanCSS = require('gulp-clean-css')
 const composer = require('gulp-uglify/composer')
 const eslint = require('gulp-eslint')
 const express = require('express')
+const file = require('gulp-file')
 const gulp = require('gulp')
 const gulpStylelint = require('gulp-stylelint')
 const header = require('gulp-header')
+const modernizr = require('modernizr')
 const pug = require('gulp-pug')
 const pugLinter = require('gulp-pug-linter')
 const rename = require('gulp-rename')
@@ -73,12 +75,15 @@ const LODASH_DEST = './vendor/lodash'
 const LODASH_SRC = [
   './node_modules/lodash/lodash.min.js'
 ]
+const MODERNIZR_DEST = './vendor/modernizr'
+const MODERNIZR_FILE = 'modernizr.js'
 const VENDOR_SRC = _.concat(BOOTSTRAP_SRC, FA_SRC, JQUERY_SRC, EASING_SRC)
 const VENDOR_BOOTSTRAP_TASK = 'vendor-bootstrap'
 const VENDOR_EASING_TASK = 'vendor-easing'
 const VENDOR_FA_TASK = 'vendor-fa'
 const VENDOR_JQUERY_TASK = 'vendor-jquery'
 const VENDOR_LODASH_TASK = 'vendor-lodash'
+const VENDOR_MODERNIZR_TASK = 'vendor-modernizr'
 const VENDOR_TASK = 'vendor'
 
 // Lint
@@ -174,6 +179,24 @@ gulp.task(JS_TASK, () => {
 })
 
 // Copy third party libraries from /node_modules into /vendor
+gulp.task(VENDOR_MODERNIZR_TASK, (cb) => {
+  // https://github.com/Modernizr/Modernizr/blob/HEAD/lib/config-all.json
+  modernizr.build(
+    {
+      'feature-detects': [
+        'img/webp'
+      ]
+    },
+    (res) => {
+      file(MODERNIZR_FILE, res, { src: true })
+        .pipe(uglify())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest(MODERNIZR_DEST))
+        .on('finish', cb)
+    }
+  )
+})
+
 gulp.task(VENDOR_BOOTSTRAP_TASK, () => gulp.src(BOOTSTRAP_SRC).pipe(gulp.dest(BOOTSTRAP_DEST)))
 
 gulp.task(VENDOR_LODASH_TASK, () => gulp.src(LODASH_SRC).pipe(gulp.dest(LODASH_DEST)))
@@ -186,7 +209,9 @@ gulp.task(VENDOR_EASING_TASK, () => gulp.src(EASING_SRC).pipe(gulp.dest(EASING_D
 
 gulp.task(
   VENDOR_TASK,
-  gulp.parallel(VENDOR_BOOTSTRAP_TASK, VENDOR_LODASH_TASK, VENDOR_FA_TASK, VENDOR_JQUERY_TASK, VENDOR_EASING_TASK)
+  gulp.parallel(
+    VENDOR_MODERNIZR_TASK, VENDOR_BOOTSTRAP_TASK, VENDOR_LODASH_TASK, VENDOR_FA_TASK, VENDOR_JQUERY_TASK, VENDOR_EASING_TASK
+  )
 )
 
 // Serve files over a local http server
