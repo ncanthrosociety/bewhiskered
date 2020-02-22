@@ -5,6 +5,11 @@ block append variables
     - var hasSplash = true
 
 
+block navbar-page-links
+    li(class='nav-item')
+        a(class='nav-link js-scroll-trigger' href='#index-convention-details') Convention Details
+
+
 block content
 
     section(id='index-splash' title='Index Page Splash' class='')
@@ -30,9 +35,9 @@ block content
                         a(class='btn btn-lg btn-outline-primary w-100' href='') Room Block
                 div(class='row')
                     div(class='col text-center')
-                        a(class='btn btn-lg btn-outline-primary w-100' href='') Full Details
+                        a(class='btn btn-lg btn-outline-primary w-100 js-scroll-trigger' href='#index-convention-details') Convention Details
 
-    section(id='index-details')
+    section(id='index-convention-details' title='Convetion Details')
 
-        h1 Full Details
+        h1 NC Anthro Society Presents: #[br] Bewhiskered
         p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

@@ -12,7 +12,7 @@
   // Overriding margin and padding from base.scss
   // This makes the splash section expand to fill the entire screen, even though the base container appears below the
   // the nav bar and has some vertical and horizontal padding.
-  margin: -($nav-height + $content-vertical-padding) (-$content-horizontal-padding) 0 !important;
+  margin: -($nav-height + $content-vertical-padding) (-$content-horizontal-padding) $section-margin-bottom !important;
   padding: ($nav-height + $splash-vertical-padding) $splash-horizontal-padding $splash-vertical-padding !important;
 
   @include media-breakpoint-down(md) {
