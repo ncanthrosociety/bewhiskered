@@ -1,15 +1,18 @@
 // Mixins
 @import 'node_modules/bootstrap/scss/mixins';
+@import 'node_modules/bootstrap/scss/variables';
 @import 'variables';
 
 // Index style
 
 #index-splash {
+  $splash-horizontal-padding: 10px;
+
   // Overriding margin and padding from base.scss
   // This makes the splash section expand to fill the entire screen, even though the base container appears below the
   // the nav bar and has some vertical and horizontal padding.
   margin: -($nav-height + $content-vertical-padding) (-$content-horizontal-padding) (-$content-vertical-padding) !important;
-  padding: 0 50px !important;
+  padding: 0 $splash-horizontal-padding !important;
 
   @include media-breakpoint-down(md) {
     margin-left: -$content-horizontal-padding-md-scale * $content-horizontal-padding !important;
@@ -26,13 +29,14 @@
 
   // Set display as flexbox. Vertically and horizontally center items.
   display: flex;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
 
   // Other style
   background-color: $ncas-color-accent-90-grey;
-}
 
-#index-splash-info-box {
-
+  #index-splash-info-box {
+    width: map-get($grid-breakpoints, 'lg') - 2 * $splash-horizontal-padding;
+    border: 1px solid black;
+  }
 }

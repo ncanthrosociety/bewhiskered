@@ -1,3 +1,8 @@
+block variables
+    - var hasSplash = false
+    - var title = ''
+
+
 doctype html
 
 
@@ -9,11 +14,11 @@ html(lang='en')
         meta(charset='utf-8')
         meta(http-equiv='X-UA-Compatible' content='IE=edge')
         meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(name='description' content='North Carolina Anthropomorphic Society, Inc. Website.')
+        meta(name='description' content='Bewhiskered Website.')
         meta(name='author' content='North Carolina Anthropomorphic Society, Inc.')
 
         // Page title
-        title Bewhiskered
+        title Bewhiskered #{title}
 
         // Bootstrap core CSS
         link(href='/vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet')
@@ -28,7 +33,7 @@ html(lang='en')
     body(id='page-top')
 
         // Navbar
-        nav(id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top")
+        nav(id="navbar" class=`navbar navbar-expand-lg navbar-light fixed-top ${hasSplash ? 'navbar-splash' : ''}`)
 
             a(class="navbar-brand js-scroll-trigger" href="/")
                 img(src='', alt="Bewhiskered Logo")
@@ -60,8 +65,7 @@ html(lang='en')
                 a(class='icon-link' href='')
                     i(class='fab fa-3x fa-telegram' title="Telegram Announcements Channel")
 
-            p North Carolina Anthropomorphic Society, Inc.
-            p Copyright #{ new Date().getFullYear() }
+            p Copyright #{ new Date().getFullYear() }, #[a(href='https://ncanthrosociety.com') NCAS].
 
         // Bootstrap core JavaScript
 

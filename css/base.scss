@@ -12,6 +12,10 @@
   height: $nav-height;
   box-shadow: 0 3px 3px $ncas-color-accent-90-grey;
 
+  &.navbar-splash {
+    background: none;
+  }
+
   .navbar-brand {
     img {
       height: $navbar-brand-height;
