@@ -7,21 +7,40 @@
  * Self-invoking function to configure smooth scrolling.
  */
 (($) => {
-  // Navbar constants
-  const NAV_SELECTOR = '#navbar'
-  const NAV_OFFSET = 100
-  const SHRINK_CLASS = 'navbar-shrink'
+  // Viewport height
 
   /**
-   * Collapse navbar if greater than some offset from the top.
+   * Set the --vh style property to be exactly equal to 1 viewport unit in pixels.
    */
-  function navbarCollapse () {
-    const nav = $(NAV_SELECTOR)
-    if (nav.offset().top > NAV_OFFSET) {
-      nav.addClass(SHRINK_CLASS)
-    } else {
-      nav.removeClass(SHRINK_CLASS)
+  const getViewportHeight = () => {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`)
+  }
+
+  // Set debounced getViewportHeight on resize, then invoke immediately.
+  $(window).resize(_.debounce(getViewportHeight, 100, { leading: true, trailing: true }))
+  getViewportHeight()
+
+  // Navbar hiding.
+
+  // Navbar constants
+  const NAVBAR_SPLASH_SCROLLED = 'navbar-splash-scrolled'
+  const nav = $('#navbar.navbar-splash')
+
+  if (nav.length) {
+    /**
+     * Collapse navbar if greater than some offset from the top.
+     */
+    const navbarSplashTop = () => {
+      if (nav.offset().top > 0) {
+        nav.addClass(NAVBAR_SPLASH_SCROLLED)
+      } else {
+        nav.removeClass(NAVBAR_SPLASH_SCROLLED)
+      }
     }
+
+    // Set debounced navbar splash top on scroll, then invoke immediately
+    $(window).scroll(_.debounce(navbarSplashTop, 100, { leading: true, trailing: true }))
+    navbarSplashTop()
   }
 
   // Configure smooth scrolling
@@ -46,28 +65,4 @@
   $('.js-scroll-trigger').click(function () {
     $('.navbar-collapse').collapse('hide')
   })
-
-  // NOTE: Disabled for now due to short content length.
-  // // Activate scrollspy to add active class to navbar items on scroll
-  // $('body').scrollspy({ target: '#navbar', offset: NAV_OFFSET })
-  $('section').hover(
-    function () {
-      $(`.nav-link[href$='#${$(this).attr('id')}']`).addClass('active')
-    },
-    function () {
-      $(`.nav-link[href$='#${$(this).attr('id')}']`).removeClass('active')
-    }
-  )
-
-  // Collapse now if page is not at top
-  navbarCollapse()
-
-  // Collapse the navbar when page is scrolled
-  $(window).scroll(navbarCollapse)
-
-  // Set viewport height.
-  $(window).on('resize', _.debounce(
-    () => document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`),
-    200
-  ))
 })(jQuery)
