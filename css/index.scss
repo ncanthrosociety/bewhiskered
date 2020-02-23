@@ -26,7 +26,10 @@
   }
 
   // Set minimum height to fill all the space but the footer.
-  height: 100vh;
+  min-height: 100vh;
+
+  // Hide any overflow (to clip images that extend over)
+  overflow: hidden;
 
   // Set display as flexbox. Vertically and horizontally center items.
   display: flex;
@@ -39,21 +42,46 @@
   // Background style
   // The inverted selection assumes that the browser can handle webp and tries to render it immediately.
   // If webp-support fails, the html element will be given the class .no-webp sometime after load.
-  background-position: center;
-  background-size: cover;
-  background-color: #fffdf0;
-  html:not(.no-webp) & {
-    //background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)), url('/img/index-splash/index-splash.webp');
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-color: #fffdf0;
   }
-  html.no-webp & {
-    //background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)), url('/img/index-splash/index-splash.png');
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: contain;
+    background-color: inherit;
+    opacity: 0.4;
+    html:not(.no-webp) & {
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url('/img/index-splash/index-splash.png');
+    }
+    html.no-webp & {
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url('/img/index-splash/index-splash.png');
+    }
   }
 
   #index-splash-info-box {
+    position: relative;
     padding: 20px;
     max-width: map-get($grid-breakpoints, 'lg') - 2 * $splash-horizontal-padding;
     border-radius: 30px;
-    border: 5px solid rgba(183, 35, 35, 0.5);
+    border: 5px solid rgba(183, 35, 35, 0.7);
+    border-right: none;
 
     h1 {
       font-family: 'NASA', $font-family;
@@ -66,9 +94,24 @@
     }
 
     .btn {
-      color: rgba(183, 35, 35, 0.5);
-      border-color: rgba(183, 35, 35, 0.5);
+      color: rgba(183, 35, 35, 1);
+      border-color: rgba(183, 35, 35, 0.7);
       border-radius: 10px;
+    }
+
+    #index-splash-rocket {
+      position: absolute;
+      right: 0;
+      top: 50%;
+
+      source,
+      img {
+        width: 150px;
+        height: 300px;
+        margin-right: -75px;
+        margin-top: -145px;
+        opacity: 0.3;
+      }
     }
   }
 }
