@@ -44,6 +44,7 @@
   }
 
   // Configure smooth scrolling
+  const navbar = $('#navbar')
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
     const locationPathname = location.pathname.replace(/^\//, '')
     const thisPathname = this.pathname.replace(/^\//, '')
@@ -54,7 +55,7 @@
 
       if (target.length) {
         $('html, body').animate({
-          scrollTop: (target.offset().top - 70)
+          scrollTop: (target.offset().top - navbar.outerHeight())
         }, 1000, 'easeInOutExpo')
         return false
       }
