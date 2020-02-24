@@ -83,33 +83,27 @@
 // Main content
 #content {
   margin-top: $nav-height;
-  padding: $content-vertical-padding $content-horizontal-padding;
+  padding: 0;
   min-height: $content-min-height;
 
-  @include media-breakpoint-down(md) {
-    padding-left: $content-horizontal-padding-md-scale * $content-horizontal-padding;
-    padding-right: $content-horizontal-padding-md-scale * $content-horizontal-padding;
-  }
-
-  @include media-breakpoint-down(xs) {
-    padding-left: $content-horizontal-padding-xs-scale * $content-horizontal-padding;
-    padding-right: $content-horizontal-padding-xs-scale * $content-horizontal-padding;
-  }
-
   section {
-    $section-padding: 10px;
+    padding: $section-vertical-padding $section-horizontal-padding;
 
-    padding-left: $section-padding;
-    padding-right: $section-padding;
-    margin-bottom: $section-margin-bottom;
-
-    @include media-breakpoint-down(xs) {
-      padding-left: 0;
-      padding-right: 0;
+    @include media-breakpoint-down(md) {
+      padding-left: $section-horizontal-padding-md-scale * $section-horizontal-padding;
+      padding-right: $section-horizontal-padding-md-scale * $section-horizontal-padding;
     }
 
-    &:last-child {
-      margin-bottom: 0;
+    @include media-breakpoint-down(xs) {
+      padding-left: $section-horizontal-padding-xs-scale * $section-horizontal-padding;
+      padding-right: $section-horizontal-padding-xs-scale * $section-horizontal-padding;
+    }
+
+    &:nth-child(even) {
+      //background-color: ;
+    }
+    &:nth-child(odd) {
+      //background-color: ;
     }
   }
 }

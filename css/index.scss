@@ -6,24 +6,11 @@
 // Index style
 
 #index-splash {
-  $splash-vertical-padding: 5px;
   $splash-horizontal-padding: 10px;
 
-  // Overriding margin and padding from base.scss
-  // This makes the splash section expand to fill the entire screen, even though the base container appears below the
-  // the nav bar and has some vertical and horizontal padding.
-  margin: -($nav-height + $content-vertical-padding) (-$content-horizontal-padding) $section-margin-bottom !important;
-  padding: ($nav-height + $splash-vertical-padding) $splash-horizontal-padding $splash-vertical-padding !important;
-
-  @include media-breakpoint-down(md) {
-    margin-left: -$content-horizontal-padding-md-scale * $content-horizontal-padding !important;
-    margin-right: -$content-horizontal-padding-md-scale * $content-horizontal-padding !important;
-  }
-
-  @include media-breakpoint-down(xs) {
-    margin-left: -$content-horizontal-padding-xs-scale * $content-horizontal-padding !important;
-    margin-right: -$content-horizontal-padding-xs-scale * $content-horizontal-padding !important;
-  }
+  // Stretch the splash to the top of the page, but add padding so content appears below.
+  margin-top: -$nav-height;
+  padding: $nav-height $splash-horizontal-padding 0;
 
   // Set minimum height to fill all the space but the footer.
   min-height: 100vh;
@@ -31,7 +18,8 @@
   // Hide any overflow (to clip images that extend over)
   overflow: hidden;
 
-  // Set display as flexbox. Vertically and horizontally center items.
+  // Set display as flexbox. Vertically and horizontally center items, except on mobile sizes where it should appear
+  // at the top of the screen.
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,7 +66,7 @@
   #index-splash-info-box {
     position: relative;
     padding: 20px;
-    max-width: map-get($grid-breakpoints, 'lg') - 2 * $splash-horizontal-padding;
+    max-width: map-get($grid-breakpoints, 'lg');
     border-radius: 30px;
     border: 5px solid rgba(183, 35, 35, 0.7);
     border-right: none;

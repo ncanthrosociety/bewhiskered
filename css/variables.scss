@@ -49,11 +49,8 @@ $nav-height: 56px;
 $footer-height: 70px;
 $content-min-height: calc(100vh - (#{$nav-height} + #{$footer-height}));
 
-// Content padding
-$content-vertical-padding: 30px;
-$content-horizontal-padding: 100px;
-$content-horizontal-padding-md-scale: 0.5;
-$content-horizontal-padding-xs-scale: 0.25;
-
-// Margins
-$section-margin-bottom: 30px;
+// Section padding
+$section-vertical-padding: 30px;
+$section-horizontal-padding: 100px;
+$section-horizontal-padding-md-scale: 0.5;
+$section-horizontal-padding-xs-scale: 0.25;
