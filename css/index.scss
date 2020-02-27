@@ -103,3 +103,7 @@
     }
   }
 }
+
+#index-convention-details {
+  min-height: calc(100vh - (#{$nav-height + $footer-height}));
+}
