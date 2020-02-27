@@ -54,9 +54,9 @@
       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']')
 
       if (target.length) {
-        $('html, body').animate({
-          scrollTop: (target.offset().top - navbar.outerHeight())
-        }, 1000, 'easeInOutExpo')
+        const max = $(document).height() - $(window).height()
+        const preferred = target.offset().top - navbar.outerHeight()
+        $('html, body').animate({ scrollTop: Math.min(max, preferred) }, 1000, 'easeInOutExpo')
         return false
       }
     }
