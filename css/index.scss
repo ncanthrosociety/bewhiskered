@@ -105,5 +105,7 @@
 }
 
 #index-convention-details {
-  min-height: calc(100vh - (#{$nav-height + $footer-height}));
+  // Override flex-basis. The index page is special because it has the full screen splash, so we make this
+  // section also full screen.
+  flex-basis: calc(100vh - (#{$nav-height + $footer-height})) !important;
 }
