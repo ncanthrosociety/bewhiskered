@@ -8,7 +8,7 @@
 
 // Navigation
 #navbar {
-  background-color: $ncas-color-primary-white;
+  background-color: $bws-background-cream;
   transition: background-color 0.3s ease-in-out;
   height: $nav-height;
   box-shadow: 0 3px 2px $ncas-color-accent-40-grey;
@@ -86,7 +86,16 @@
   padding: 0;
   min-height: $content-min-height;
 
+  // Set content display as flexbox in the column direction.
+  display: flex;
+  flex-direction: column;
   section {
+
+    // Set flex-grow and flex-basis. This makes all sections expand to fill #content and be equal height.
+    flex-grow: 1;
+    flex-basis: 0;
+
+    // Add padding
     padding: $section-vertical-padding $section-horizontal-padding;
 
     @include media-breakpoint-down(md) {
@@ -100,10 +109,10 @@
     }
 
     &:nth-child(even) {
-      //background-color: ;
+      background-color: $bws-background-blue;
     }
     &:nth-child(odd) {
-      //background-color: ;
+      background-color: $bws-background-teal;
     }
   }
 }
