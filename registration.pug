@@ -17,37 +17,62 @@ block navbar-page-links
 
 block content
 
-    section(id='registration-attending' title='Attendee Membership')
+    section(id='registration-attending')
 
-        div(class='row row-cols-1 row-cols-md-2')
-            div(class='col registration-membership-info')
-                h1 General
-                p
-                    | General membership gives you access to convention functions for the duration of the event.
-                p
-                    | Price
-                ul
-                    li $55&mdash;Early bird registration until 11:59 pm on Friday, July 3, 2020.
-                    li $60&mdash;Pre-registration until 11:59 pm on Friday, Sept. 25, 2020.
-                    li $65&mdash;On-site registration from Oct. 02, 2020 to Oct. 04, 2020.
-            div(class='col registration-membership-info')
-                h1 Sponsor
-                p
-                    | Sponsors are generous members who help make the convention a success. In addition to all the
-                    | perks of general membership, sponsors receive:
-                ul
-                    li Bewhiskered t-shirt.
-                    li A unique sponsor gift.
-                    li Access to the sponsor lounge.
-                p
-                    | Price
-                ul
-                    li $90&mdash;Early bird registration until 11:59 pm on Friday, July 3, 2020.
-                    li $95&mdash;Pre-registration until 11:59 pm on Friday, Sept. 25, 2020.
-                    li $100&mdash;On-site registration from Oct. 02, 2020 to Oct. 04, 2020.
-
-        div(class='row')
-            div(class='col registration-membership-info')
+        div(class='card-deck')
+            div(class='card')
+                div(class='card-body')
+                    h1 General
+                    p
+                        | General membership gives you access to convention functions for the duration of the event.
+                a(class='btn btn-lg btn-outline-primary w-100 mb-2') Register
+                table(class='table')
+                    tr
+                        th Type
+                        th Price
+                        th Available
+                    tr
+                        td Early-bird
+                        td $55
+                        td Until 11:59 pm on July 3, 2020.
+                    tr
+                        td Pre-reg
+                        td $60
+                        td Until 11:59 pm on Sept. 25, 2020.
+                    tr
+                        td On-site
+                        td $65
+                        td Oct. 02-04, 2020.
+            div(class='card')
+                div(class='card-body')
+                    h1 Sponsor
+                    p
+                        | Sponsors are generous members who help make the convention a success. In addition to all the
+                        | perks of general membership, sponsors receive:
+                    ul
+                        li Bewhiskered t-shirt.
+                        li A unique sponsor gift.
+                        li Access to the sponsor lounge.
+                a(class='btn btn-lg btn-outline-primary w-100 mb-2') Register
+                table(class='table')
+                    tr
+                        th Type
+                        th Price
+                        th Available
+                    tr
+                        td Early-bird
+                        td $90
+                        td Until 11:59 pm on July 3, 2020.
+                    tr
+                        td Pre-reg
+                        td $95
+                        td Until 11:59 pm on Sept. 25, 2020.
+                    tr
+                        td On-site
+                        td $100
+                        td Oct. 02-04, 2020.
+        div(class='card')
+            div(class='card-body')
                 h1 Super Sponsor
                 p
                     | Super sponsors are super generous members who go the extra mile to make the convention a success.
@@ -55,16 +80,24 @@ block content
                 ul
                     li A unique super sponsor gift.
                     li Super sponsor social.
-                p
-                    | Price
-                ul
-                    li $195&mdash;Early bird registration until 11:59 pm on Friday, July 3, 2020.
-                    li $200&mdash;Pre-registration until 11:59 pm on Friday, Sept. 25, 2020.
-                    li(class='font-weight-bold font-italic text-uppercase') Not available for on-site registration.
-
-
-        div(class='row')
-            div(class='col registration-membership-info')
+            a(class='btn btn-lg btn-outline-primary w-100 mb-2') Register
+            table(class='table')
+                tr
+                    th Type
+                    th Price
+                    th Available
+                tr
+                    td Early-bird
+                    td $195
+                    td Until 11:59 pm on July 3, 2020.
+                tr
+                    td Pre-reg
+                    td $200
+                    td Until 11:59 pm on Sept. 25, 2020.
+                tr
+                    td(colspan='3' class='text-center') #[span(class='font-weight-bold font-italic text-uppercase') Not available for on-site registration].
+        div(class='card')
+            div(class='card-body')
                 h1 Founder Add-on
                 p
                     | The founder add-on can be purchased by members at any membership level. Founders are amazing
@@ -73,15 +106,23 @@ block content
                 ul
                     li Founder t-shirt.
                     li Founder pin.
-                p
-                    | Price
-                ul
-                    li $200&mdash;Available during all registration times while supplies last.
+            table(class='table')
+                tr
+                    th Type
+                    th Price
+                    th Available
+                tr
+                    td Early-bird
+                    td $195
+                    td Until 11:59 pm on July 3, 2020.
+                tr
+                    td Pre-reg
+                    td $200
+                    td Until 11:59 pm on Sept. 25, 2020.
+                tr
+                    td(colspan='3' class='text-center') #[span(class='font-weight-bold font-italic text-uppercase') Available while supplies last].
 
-
-        a(class='btn btn-lg btn-outline-primary w-100') Register Now
-
-    section(id='registration-minors-and-children' title='Minor and Child Membership')
+    section(id='registration-minors-and-children')
 
         h1 Minors
         p
@@ -105,19 +146,19 @@ block content
         p
             | An optional convention badge may be purchased for children during on-site registration for $5.
 
-    section(id='registration-dealers' title='Dealer Membership')
+    section(id='registration-dealers')
 
         h1 Dealers
         p
             | Additional information for dealers looking to sell merchandise at Bewhiskered is coming soon!
 
-    section(id='registration-artists' title='Artist Membership')
+    section(id='registration-artists')
 
         h1 Artists
         p
             | Additional information about the Bewhiskered Artist's Alley is coming soon!
 
-    section(id='registration-faq' title='Frequently Asked Questions')
+    section(id='registration-faq')
 
         h1 Frequently Asked Questions
 
