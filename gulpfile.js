@@ -215,11 +215,17 @@ gulp.task(
 )
 
 // Serve files over a local http server
+// If a static file is not found, the server is configured to search for files with the `.html` extension. This allows
+// urls to be specified without an extension, which mirrors GitHub's default behavior. Other servers, such as nginx,
+// support similar functionality.
+//
+// https://expressjs.com/en/api.html.
+// https://stackoverflow.com/a/38238001
 gulp.task(SERVE_TASK, () => {
   const host = process.env[ENV_SERVE_HOST] || SERVE_HOST
   const port = process.env[ENV_SERVE_PORT] || SERVE_PORT
   const app = express()
-  app.use(express.static(SERVE_ROOT))
+  app.use(express.static(SERVE_ROOT, { extensions: ['html'] }))
   app.listen(port, host)
   console.log(`Serving website on http://${host}:${port}`)
 })
