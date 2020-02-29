@@ -1,0 +1,15 @@
+// Imports
+@import 'node_modules/bootstrap/scss/mixins';
+
+
+// Registration style
+
+#registration-attending {
+  .registration-membership-info {
+    @include media-breakpoint-up(md) {
+      h1 {
+        text-align: center;
+      }
+    }
+  }
+}

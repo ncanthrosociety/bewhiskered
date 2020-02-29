@@ -2,8 +2,131 @@ extends base
 
 
 block navbar-page-links
-    //li(class='nav-item')
-    //    a(class='nav-link js-scroll-trigger' href='#')
+
+    li(class='nav-item')
+        a(class='nav-link js-scroll-trigger' href='#registration-attending') Attending
+    li(class='nav-item')
+        a(class='nav-link js-scroll-trigger' href='#registration-minors-and-children') Minors
+    li(class='nav-item')
+        a(class='nav-link js-scroll-trigger' href='#registration-dealers') Dealers
+    li(class='nav-item')
+        a(class='nav-link js-scroll-trigger' href='#registration-artists') Artists
+    li(class='nav-item')
+        a(class='nav-link js-scroll-trigger' href='#registration-faq') FAQ
 
 
 block content
+
+    section(id='registration-attending' title='Attendee Membership')
+
+        div(class='row row-cols-1 row-cols-md-2')
+            div(class='col registration-membership-info')
+                h1 General
+                p
+                    | General membership gives you access to convention functions for the duration of the event.
+                p
+                    | Price
+                ul
+                    li $55&mdash;Early bird registration until 11:59 pm on Friday, July 3, 2020.
+                    li $60&mdash;Pre-registration until 11:59 pm on Friday, Sept. 25, 2020.
+                    li $65&mdash;On-site registration from Oct. 02, 2020 to Oct. 04, 2020.
+            div(class='col registration-membership-info')
+                h1 Sponsor
+                p
+                    | Sponsors are generous members who help make the convention a success. In addition to all the
+                    | perks of general membership, sponsors receive:
+                ul
+                    li Bewhiskered t-shirt.
+                    li A unique sponsor gift.
+                    li Access to the sponsor lounge.
+                p
+                    | Price
+                ul
+                    li $90&mdash;Early bird registration until 11:59 pm on Friday, July 3, 2020.
+                    li $95&mdash;Pre-registration until 11:59 pm on Friday, Sept. 25, 2020.
+                    li $100&mdash;On-site registration from Oct. 02, 2020 to Oct. 04, 2020.
+
+        div(class='row')
+            div(class='col registration-membership-info')
+                h1 Super Sponsor
+                p
+                    | Super sponsors are super generous members who go the extra mile to make the convention a success.
+                    | In addition to all perks of sponsor membership, super sponsors receive:
+                ul
+                    li A unique super sponsor gift.
+                    li Super sponsor social.
+                p
+                    | Price
+                ul
+                    li $195&mdash;Early bird registration until 11:59 pm on Friday, July 3, 2020.
+                    li $200&mdash;Pre-registration until 11:59 pm on Friday, Sept. 25, 2020.
+                    li(class='font-weight-bold font-italic text-uppercase') Not available for on-site registration.
+
+
+        div(class='row')
+            div(class='col registration-membership-info')
+                h1 Founder Add-on
+                p
+                    | The founder add-on can be purchased by members at any membership level. Founders are amazing
+                    | people who choose to directly help the convention succeed. As a token of our appreciation, all
+                    | founders will receive:
+                ul
+                    li Founder t-shirt.
+                    li Founder pin.
+                p
+                    | Price
+                ul
+                    li $200&mdash;Available during all registration times while supplies last.
+
+
+        a(class='btn btn-lg btn-outline-primary w-100') Register Now
+
+    section(id='registration-minors-and-children' title='Minor and Child Membership')
+
+        h1 Minors
+        p
+            | Minors aged 13-18 at the start of the event must purchase membership for admission. Membership is
+            | available on-site, or via pre-registration for minors who are at least 13 years of age. There is no
+            | discount on membership fees and dues for minors.
+        p
+            | A completed and notarized Parental Consent Form must be filed with registration for minors to be given
+            | their badge or other admission device. Minors under the age of 16 must be accompanied by a parent or
+            | guardian at all times. Membership is required of all accompanying adults.
+
+        h1 Children
+        p
+            | Children aged 0-12 at the start of the event are permitted only if accompanied by a parent or guardian.
+            | Please #[span(class='font-weight-bold font-italic') DO NOT] pre-register children under the age of 13.
+            | Membership is not required of children. Instead, if pre-registering, adults may indicate the number of
+            | children they will be bringing. Membership is required of all accompanying adults.
+        p
+            | A completed and notarized Parental Consent Form must be filed with registration for children to be given
+            | their badge or other admission device. Children must be accompanied by a parent or guardian at all times.
+        p
+            | An optional convention badge may be purchased for children during on-site registration for $5.
+
+    section(id='registration-dealers' title='Dealer Membership')
+
+        h1 Dealers
+        p
+            | Additional information for dealers looking to sell merchandise at Bewhiskered is coming soon!
+
+    section(id='registration-artists' title='Artist Membership')
+
+        h1 Artists
+        p
+            | Additional information about the Bewhiskered Artist's Alley is coming soon!
+
+    section(id='registration-faq' title='Frequently Asked Questions')
+
+        h1 Frequently Asked Questions
+
+        h4 Will I need my ID at registration?
+        p
+            | Yes. Please bring a valid, government-issued photo ID with you to registration. Your ID will be required
+            | to receive your badge.
+
+        h4 My plans have changed. Can I refund my membership?
+        p
+            | Refunds are available on request until Sept. 04, 2020. Please email
+            | #[a(href='mailto:contact@bewhiskeredcon.org') contact@bewhiskeredcon.org] with your request.

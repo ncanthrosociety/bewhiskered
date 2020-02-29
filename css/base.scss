@@ -106,10 +106,10 @@
     }
 
     &:nth-child(odd) {
-      //background-color: transparentize($bws-background-teal, 0.7);
+      background-color: transparentize($bws-background-teal, 0.75);
     }
     &:nth-child(even) {
-      //background-color: transparentize($bws-background-blue, 0.7);
+      background-color: transparentize($bws-background-blue, 0.75);
     }
   }
 }
