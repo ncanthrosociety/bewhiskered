@@ -1,3 +1,6 @@
+// Imports
+@import 'node_modules/bootstrap/scss/variables';
+
 // Site variables
 
 // NCAS primary colors
@@ -73,9 +76,3 @@ $font-family: 'Montserrat', sans-serif;
 $nav-height: 56px;
 $footer-height: 70px;
 $content-min-height: calc(100vh - (#{$nav-height} + #{$footer-height}));
-
-// Section padding
-$section-vertical-padding: 30px;
-$section-horizontal-padding: 100px;
-$section-horizontal-padding-md-scale: 0.5;
-$section-horizontal-padding-xs-scale: 0.25;

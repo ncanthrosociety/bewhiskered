@@ -1,9 +1,13 @@
-// Global website style. Also import individual components.
+// Imports
 @import 'base';
-@import 'index';
 @import 'variables';
+@import 'about';
+@import 'index';
 @import url($font-url);
 
+// Global website style.
+
+// Define NAS font
 @font-face {
   font-family: 'NASA';
   src: url('/fonts/nasa.ttf');
@@ -27,6 +31,11 @@ body {
   &:active {
     color: $secondary-font-color;
     text-decoration: none;
+    display: inline-block;
+
+    i {
+      vertical-align: middle;
+    }
   }
 
   &:hover {
