@@ -1,0 +1,30 @@
+// Imports
+@import 'node_modules/bootstrap/scss/mixins';
+
+// Travel style
+
+#travel-room-block {
+  #travel-hotel-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+
+    @include media-breakpoint-down(xs) {
+      text-align: left;
+    }
+
+    #travel-room-block-button {
+      flex-grow: 1;
+      margin-bottom: 1rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  table {
+    margin: 0 !important;
+  }
+}
