@@ -6,10 +6,7 @@ block navbar-page-links
     li(class='nav-item')
         a(class='nav-link js-scroll-trigger' href='#hotel-marriott-rtp') Hotel
     li(class='nav-item')
-        a(class='nav-link js-scroll-trigger' href='#hotel-driving') Driving
-    li(class='nav-item')
-        a(class='nav-link js-scroll-trigger' href='#hotel-flying') Flying
-
+        a(class='nav-link js-scroll-trigger' href='#hotel-directions') Directions
 
 block content
 
@@ -45,6 +42,30 @@ block content
                 a(id='hotel-room-block-button' class='btn bnt-lg btn-outline-primary w-100' href='') Room Block
                 a(href='https://goo.gl/maps/FXU21AZKcNvbpCLt9') 4700 Guardian Dr, Durham, NC 27703
 
-    section(id='hotel-driving')
+    section(id='hotel-directions')
 
-    section(id='hotel-flying')
+        h1 Directions
+
+        p
+            | Marriott at Research Triangle Park is located in Durham, NC just off of I-40. Take exit 281 onto Miami
+            | Blvd, then take the next right onto Guardian Dr. Parking in the hotel lot is complimentary for all
+            | Bewhiskered guests.
+        p
+            | A complimentary airport shuttle is provided by the hotel on the following schedule.
+
+        div(id='hotel-shuttle-schedule' class='row row-cols-1 row-cols-md-2')
+            div(class='col')
+                table(class='table')
+                    tr
+                        th Day
+                        th Time
+                    tr
+                        th Mon - Fri
+                        td 5:00 AM - 11:00 PM
+                    tr
+                        th Sat - Sun
+                        td 8:00 AM - 11:00 PM
+            div(id='hotel-shuttle-schedule-additional' class='col')
+                p
+                    | For additional travel information, please refer to the hotel
+                    | #[a(href='https://www.marriott.com/hotels/maps/travel/rducp-marriott-at-research-triangle-park/') website].
