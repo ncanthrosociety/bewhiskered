@@ -90,17 +90,17 @@
   display: flex;
   flex-direction: column;
   section {
-    $section-vertical-padding: 30px;
+    $section-padding: 30px;
 
     // Set flex-grow and flex-basis. This makes all sections expand to fill #content and be equal height.
     flex-grow: 1;
     flex-basis: 0;
 
     // Add padding
-    padding: $section-vertical-padding;
+    padding: $section-padding;
 
     @include media-breakpoint-up(xl) {
-      $section-horizontal-padding: calc(((100vw - #{map-get($grid-breakpoints, 'xl')}) / 2));
+      $section-horizontal-padding: calc(((100vw - #{map-get($grid-breakpoints, 'xl')}) / 2) + #{$section-padding});
       padding-left: $section-horizontal-padding;
       padding-right: $section-horizontal-padding;
     }
