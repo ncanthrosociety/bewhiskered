@@ -1,10 +1,10 @@
 // Imports
 @import 'node_modules/bootstrap/scss/mixins';
 
-// Travel style
+// Hotel style
 
-#travel-room-block {
-  #travel-hotel-links {
+#hotel-room-block {
+  #hotel-hotel-links {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -14,7 +14,7 @@
       text-align: left;
     }
 
-    #travel-room-block-button {
+    #hotel-room-block-button {
       flex-grow: 1;
       margin-bottom: 1rem;
 
