@@ -39,7 +39,6 @@
     left: 0;
     right: 0;
     z-index: -1;
-    background-color: #fffdf0;
   }
   &:after {
     content: '';
@@ -68,7 +67,7 @@
     padding: 20px;
     max-width: map-get($grid-breakpoints, 'lg');
     border-radius: 30px;
-    border-right: none;
+    //border-right: none;
 
     legend {
       font-weight: bold;

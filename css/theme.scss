@@ -1,5 +1,8 @@
 // Imports
+@import 'node_modules/bootstrap/scss/mixins';
 @import 'variables';
+
+// Style related to the convention theme
 
 // Define additional font
 @font-face {
@@ -12,28 +15,74 @@
   src: url('/fonts/axaxax-bd.ttf');
 }
 
-// Style related to the convention theme
-body {
-  font-family: 'axaxax', $fallback-font-family, sans-serif !important;
-}
-
 // Overrides for bootstrap elements
 .btn {
   color: $bws-supplementary-red;
   border-color: $bws-supplementary-red;
   border-radius: 10px;
-  border-width: 2px;
+  border-width: 4px;
 
   &:hover {
-    background-color: $bws-supplementary-navy-blue;
-    border-color: $bws-supplementary-yellow;
+    //background-color: $bws-supplementary-navy-blue;
+    background-color: $bws-supplementary-red;
+    //border-color: $bws-supplementary-yellow;
+    border-color: $bws-text-white;
+  }
+}
+
+// Global
+body {
+  font-family: 'axaxax', $fallback-font-family, sans-serif !important;
+  h1 {
+    font-size: $primary-font-size * 2;
+  }
+  h2 {
+    font-size: $primary-font-size * 1.75;
+  }
+  h3 {
+    font-size: $primary-font-size * 1.5;
+  }
+  h4 {
+    font-size: $primary-font-size * 1.25;
+  }
+  h5 {
+    font-size: $primary-font-size * 1.125;
+  }
+  h6 {
+    font-size: $primary-font-size;
+  }
+}
+
+// Base
+#navbar {
+  @include media-breakpoint-up(lg) {
+    &.navbar-splash:not(.navbar-splash-scrolled) {
+      a {
+        color: $bws-text-white !important;
+      }
+    }
+  }
+  .navbar-collapse {
+    #navbar-block-links:not(:empty){
+      border-right: 5px solid $ncas-color-primary-white;
+
+      @include media-breakpoint-down(md) {
+        border-right: none;
+        border-bottom: 0.5px solid $ncas-color-accent-60-grey;
+      }
+    }
   }
 }
 
 // Index page
 #index-splash {
+  &:before {
+    background-color: rgba(6, 6, 6, 1);
+  }
+
   #index-splash-info-box {
     border: 5px solid $bws-supplementary-red;
+    color: $bws-text-white;
 
     h1 {
       font-family: 'NASA', $fallback-font-family, sans-serif;
