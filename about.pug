@@ -1,6 +1,10 @@
 extends base
 
 
+block variables
+    - var title = 'About'
+
+
 block navbar-page-links
 
     li(class='nav-item')
@@ -11,7 +15,7 @@ block navbar-page-links
 
 block content
 
-    section(id='about-bewhiskered' title='About Bewhiskered')
+    section(id='about-bewhiskered')
 
         h1 Bewhiskered
         p
@@ -54,7 +58,7 @@ block content
             | You can also reach us via email at
             | #[a(href='mailto:contact@bewhiskeredcon.org') contact@bewhiskeredcon.org].
 
-    section(id='about-ncas' title='About NCAS')
+    section(id='about-ncas')
 
         h1 NC Anthro Society
         p
