@@ -1,0 +1,43 @@
+// Imports
+@import 'variables';
+
+// Define additional font
+@font-face {
+  font-family: 'NASA';
+  src: url('/fonts/nasalization-rg.ttf');
+}
+
+@font-face {
+  font-family: 'axaxax';
+  src: url('/fonts/axaxax-bd.ttf');
+}
+
+// Style related to the convention theme
+body {
+  font-family: 'axaxax', $fallback-font-family, sans-serif !important;
+}
+
+// Overrides for bootstrap elements
+.btn {
+  color: $bws-supplementary-red;
+  border-color: $bws-supplementary-red;
+  border-radius: 10px;
+  border-width: 2px;
+
+  &:hover {
+    background-color: $bws-supplementary-navy-blue;
+    border-color: $bws-supplementary-yellow;
+  }
+}
+
+// Index page
+#index-splash {
+  #index-splash-info-box {
+    border: 5px solid $bws-supplementary-red;
+
+    h1 {
+      font-family: 'NASA', $fallback-font-family, sans-serif;
+      text-shadow: 2px 1px $ncas-color-accent-40-grey;
+    }
+  }
+}

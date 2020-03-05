@@ -68,23 +68,11 @@
     padding: 20px;
     max-width: map-get($grid-breakpoints, 'lg');
     border-radius: 30px;
-    border: 5px solid rgba(183, 35, 35, 0.7);
     border-right: none;
-
-    h1 {
-      font-family: 'NASA', $font-family;
-      text-shadow: 2px 1px $ncas-color-accent-40-grey;
-    }
 
     legend {
       font-weight: bold;
       text-transform: uppercase;
-    }
-
-    .btn {
-      color: rgba(183, 35, 35, 1);
-      border-color: rgba(183, 35, 35, 0.7);
-      border-radius: 10px;
     }
 
     #index-splash-rocket {
