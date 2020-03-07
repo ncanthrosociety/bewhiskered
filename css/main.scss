@@ -26,17 +26,12 @@ body {
   &:hover,
   &:focus,
   &:active {
-    color: $secondary-font-color;
     text-decoration: none;
     display: inline-block;
 
     i {
       vertical-align: middle;
     }
-  }
-
-  &:hover {
-    color: $accent-color;
   }
 }
 

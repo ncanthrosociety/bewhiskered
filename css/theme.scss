@@ -17,22 +17,34 @@
 
 // Overrides for bootstrap elements
 .btn {
-  color: $bws-supplementary-red;
-  border-color: $bws-supplementary-red;
+  color: $bws-text-white !important;
+  background-color: $bws-supplementary-red;
+  border-color: $bws-text-white;
   border-radius: 10px;
   border-width: 4px;
 
   &:hover {
-    //background-color: $bws-supplementary-navy-blue;
-    background-color: $bws-supplementary-red;
-    //border-color: $bws-supplementary-yellow;
-    border-color: $bws-text-white;
+    background-color: $bws-supplementary-navy-blue;
+    border-color: $bws-supplementary-yellow;
+  }
+}
+.card,
+.btn-outline-primary {
+  border-width: 5px;
+  border-style: solid;
+}
+.card {
+  padding: 10px;
+}
+.table{
+  th {
+    border-top: none;
   }
 }
 
 // Global
+
 body {
-  font-family: 'axaxax', $fallback-font-family, sans-serif !important;
   h1 {
     font-size: $primary-font-size * 2;
   }
@@ -51,33 +63,84 @@ body {
   h6 {
     font-size: $primary-font-size;
   }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .nav-link {
+    font-family: 'axaxax', $fallback-font-family, sans-serif !important;
+  }
+}
+
+.icon-link {
+  &,
+  &:link,
+  &:visited,
+  &:hover,
+  &:focus,
+  &:active {
+    color: $bws-text-white;
+  }
+  &:hover {
+    color: $bws-supplementary-cyan;
+  }
 }
 
 // Base
 #navbar {
+  background-color: $bws-supplementary-orange;
+
   @include media-breakpoint-up(lg) {
     &.navbar-splash:not(.navbar-splash-scrolled) {
       a {
         color: $bws-text-white !important;
       }
+      #navbar-block-links:not(:empty){
+        border-color: $ncas-color-primary-white;
+      }
+    }
+  }
+  .navbar-toggler {
+    border-color: $bws-text-black;
+
+    i {
+      color: $bws-text-black;
     }
   }
   .navbar-collapse {
+    @include media-breakpoint-down(md) {
+      background-color: $bws-supplementary-orange;
+    }
+  }
+  .nav-link {
+    color: $bws-text-black !important;
+  }
+  .navbar-collapse {
     #navbar-block-links:not(:empty){
-      border-right: 5px solid $ncas-color-primary-white;
+      border-right: 5px solid $ncas-color-primary-black;
 
       @include media-breakpoint-down(md) {
         border-right: none;
-        border-bottom: 0.5px solid $ncas-color-accent-60-grey;
+        border-bottom: 3px solid $ncas-color-primary-black;
       }
     }
   }
 }
 
+footer {
+  $border-size: 2px;
+
+  color: $bws-text-white;
+  background-color: $bws-space-grey;
+  border-top: $border-size solid $bws-supplementary-orange;
+}
+
 // Index page
 #index-splash {
   &:before {
-    background-color: rgba(6, 6, 6, 1);
+    background-color: $bws-space-grey;
   }
 
   #index-splash-info-box {
@@ -86,7 +149,85 @@ body {
 
     h1 {
       font-family: 'NASA', $fallback-font-family, sans-serif;
-      text-shadow: 2px 1px $ncas-color-accent-40-grey;
+      //text-shadow: 2px 1px $ncas-color-accent-40-grey;
+    }
+  }
+}
+
+#content {
+  section {
+    &:nth-of-type(odd) {
+      background-color: transparentize($bws-space-grey, 0);
+
+        &,
+        .icon-link,
+        .icon-link:link,
+        .icon-link:hover,
+        .icon-link:focus,
+        .icon-link:active,
+        .table {
+          color: $bws-supplementary-green;
+        }
+        .icon-link:hover {
+          color: $bws-supplementary-cyan;
+        }
+        ::selection {
+          background: $bws-supplementary-green;
+          color: $bws-supplementary-cyan;
+        }
+        ::-moz-selection {
+          background: $bws-supplementary-green;
+          color: $bws-supplementary-cyan;
+        }
+        .card {
+          border-color: $bws-supplementary-green;
+        }
+        .table {
+          td {
+            border-top: 3px solid $bws-supplementary-dark-green;
+          }
+        }
+        .btn-outline-primary {
+          border-color: white;
+          background-color: $bws-background-teal;
+
+          &:hover {
+            border-color: $bws-supplementary-cyan;
+            background-color: $bws-background-blue;
+          }
+        }
+      }
+
+    &:nth-of-type(even) {
+      background-color: transparentize($bws-space-grey, 0);
+
+      &,
+      .icon-link,
+      .icon-link:link,
+      .icon-link:hover,
+      .icon-link:focus,
+      .icon-link:active,
+      .table {
+        color: $bws-supplementary-blue;
+      }
+      .icon-link:hover {
+        color: $bws-supplementary-cyan;
+      }
+      ::selection {
+        background: $bws-supplementary-blue;
+        color: $bws-supplementary-cyan;
+      }
+      ::-moz-selection {
+        background: $bws-background-teal;
+      }
+      .card {
+        border-color: $bws-supplementary-blue;
+      }
+      .table {
+        td {
+          border-top: 3px solid $bws-supplementary-navy-blue;
+        }
+      }
     }
   }
 }

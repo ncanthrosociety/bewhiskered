@@ -52,12 +52,12 @@
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
-    background-color: inherit;
+    //background-color: inherit;
     html:not(.no-webp) & {
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url('/img/index-splash/index-splash.webp');
+      background-image: url('/img/index-splash/index-splash.webp');
     }
     html.no-webp & {
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url('/img/index-splash/index-splash.png');
+      background-image: url('/img/index-splash/index-splash.png');
     }
   }
 

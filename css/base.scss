@@ -8,10 +8,8 @@
 
 // Navigation
 #navbar {
-  background-color: $bws-background-cream;
   transition: background-color 0.3s ease-in-out;
   height: $nav-height;
-  box-shadow: 0 3px 2px $ncas-color-accent-40-grey;
 
   @include media-breakpoint-up(lg) {
     &.navbar-splash:not(.navbar-splash-scrolled) {
@@ -27,8 +25,6 @@
   }
   .navbar-collapse {
     @include media-breakpoint-down(md) {
-      background-color: $ncas-color-primary-white;
-
       &.show, &.collapsing {
         position: absolute;
         left: 0;
@@ -39,7 +35,6 @@
         z-index: 9999;
         padding-left: $navbar-padding-x;
         padding-right: $navbar-padding-x;
-        box-shadow: 0 3px 2px $ncas-color-accent-40-grey;
       }
     }
 
@@ -104,24 +99,12 @@
       padding-left: $section-horizontal-padding;
       padding-right: $section-horizontal-padding;
     }
-
-    &:nth-child(odd) {
-      background-color: transparentize($bws-background-teal, 0.75);
-    }
-    &:nth-child(even) {
-      background-color: transparentize($bws-background-blue, 0.75);
-    }
   }
 }
 
 // Footer
 footer {
-  $border-size: 3px;
-
   height: $footer-height;
-  color: $ncas-color-accent-40-grey;
-  background-color: $secondary-background-color;
-  border-top: $border-size solid $accent-color;
   text-align: center;
   font-size: $footer-font-size;
 
