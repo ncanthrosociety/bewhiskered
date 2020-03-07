@@ -137,23 +137,6 @@ footer {
   border-top: $border-size solid $bws-supplementary-orange;
 }
 
-// Index page
-#index-splash {
-  &:before {
-    background-color: $bws-space-grey;
-  }
-
-  #index-splash-info-box {
-    border: 5px solid $bws-supplementary-red;
-    color: $bws-text-white;
-
-    h1 {
-      font-family: 'NASA', $fallback-font-family, sans-serif;
-      //text-shadow: 2px 1px $ncas-color-accent-40-grey;
-    }
-  }
-}
-
 #content {
   section {
     &:nth-of-type(odd) {
@@ -229,5 +212,31 @@ footer {
         }
       }
     }
+  }
+}
+
+// Index page
+#index-splash {
+  &:before {
+    background-color: $bws-space-grey;
+  }
+
+  #index-splash-info-box {
+    border: 5px solid $bws-supplementary-red;
+    color: $bws-text-white;
+
+    h1 {
+      font-family: 'NASA', $fallback-font-family, sans-serif;
+      //text-shadow: 2px 1px $ncas-color-accent-40-grey;
+    }
+  }
+}
+
+#index-convention-details {
+  display: flex;
+  flex-direction: column;
+
+  picture {
+    align-self: center;
   }
 }

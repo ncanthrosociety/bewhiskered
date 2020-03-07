@@ -56,10 +56,10 @@
     background-size: cover;
     //background-color: inherit;
     html:not(.no-webp) & {
-      background-image: url('/img/index-splash/index-splash.webp');
+      background-image: url('/img/index/index-splash.webp');
     }
     html.no-webp & {
-      background-image: url('/img/index-splash/index-splash.png');
+      background-image: url('/img/index/index-splash.png');
     }
   }
 
