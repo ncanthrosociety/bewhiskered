@@ -233,10 +233,10 @@ footer {
 }
 
 #index-convention-details {
-  display: flex;
-  flex-direction: column;
-
   picture {
-    align-self: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 760px;
   }
 }
