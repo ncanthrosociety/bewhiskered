@@ -10,17 +10,26 @@
 #navbar {
   transition: background-color 0.3s ease-in-out;
   height: $nav-height;
+  padding-top: 0;
+  padding-bottom: 0;
 
   @include media-breakpoint-up(lg) {
     &.navbar-splash:not(.navbar-splash-scrolled) {
       background: none;
       box-shadow: none;
+
+      .navbar-brand {
+        display: none;
+      }
     }
   }
 
   .navbar-brand {
+    margin: 0;
+    padding: 0;
+
     img {
-      height: $navbar-brand-height;
+      height: $nav-height;
     }
   }
   .navbar-collapse {

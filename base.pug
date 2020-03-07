@@ -36,7 +36,10 @@ html(lang='en')
         nav(id="navbar" class=`navbar navbar-expand-lg navbar-light fixed-top ${hasSplash ? 'navbar-splash' : ''}`)
 
             a(class="navbar-brand js-scroll-trigger" href="/")
-                img(src='', alt="Bewhiskered")
+                picture
+                    source(srcset='/img/bewhiskered-logo-no-alpha.webp' type='image/webp')
+                    source(srcset='/img/bewhiskered-logo-no-alpha.png' type='image/png')
+                    img(src='/img/bewhiskered-logo-no-alpha.png' alt='Bewhiskered')
 
             // Navbar links
             button(class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation")
