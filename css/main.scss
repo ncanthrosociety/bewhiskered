@@ -56,6 +56,10 @@ body {
   background: none;
 }
 
+li {
+  margin-bottom: 1em;
+}
+
 @include media-breakpoint-down(md) {
   .js-scroll-trigger:hover {
     background: none;
