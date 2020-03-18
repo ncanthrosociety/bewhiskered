@@ -42,6 +42,18 @@
   }
 }
 
+.dropdown-menu {
+  background-color: $bws-space-grey;
+  border: 5px solid white;
+  .dropdown-item {
+    color: $bws-text-white !important;
+    &:hover {
+      background: $bws-supplementary-blue;
+      color: $bws-supplementary-cyan !important;
+    }
+  }
+}
+
 // Global
 
 body {
