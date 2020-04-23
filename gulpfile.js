@@ -226,6 +226,7 @@ gulp.task(SERVE_TASK, () => {
   const port = process.env[ENV_SERVE_PORT] || SERVE_PORT
   const app = express()
   app.use(express.static(SERVE_ROOT, { extensions: ['html'] }))
+  app.use((req, res, next) => res.status(404).sendFile('404.html', { root: SERVE_ROOT }))
   app.listen(port, host)
   console.log(`Serving website on http://${host}:${port}`)
 })

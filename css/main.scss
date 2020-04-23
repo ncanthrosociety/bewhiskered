@@ -5,6 +5,7 @@
 @import 'index';
 @import 'registration';
 @import 'hotel';
+@import 'member-code-of-conduct';
 @import 'theme';
 @import url($fallback-font-url);
 
@@ -54,6 +55,10 @@ body {
 .card-deck {
   margin-bottom: 1rem;
   background: none;
+}
+
+li {
+  margin-bottom: 1em;
 }
 
 @include media-breakpoint-down(md) {
