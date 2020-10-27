@@ -12,8 +12,9 @@
   margin-top: -$nav-height;
   padding: $nav-height $splash-horizontal-padding 0;
 
-  // Set minimum height to fill all the space but the footer.
+  // Set height to fill all the space but the footer.
   min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
 
   // Hide any overflow (to clip images that extend over)
   overflow: hidden;
@@ -24,10 +25,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  @include media-breakpoint-down(sm) {
-    justify-content: flex-start;
-  }
 
   // Background style
   // The inverted selection assumes that the browser can handle webp and tries to render it immediately.

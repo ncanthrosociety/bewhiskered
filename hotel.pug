@@ -23,12 +23,19 @@ block content
             source(srcset='/img/hotel/marriott-lobby.jpg' type='image/jpeg')
             img(class='img-fluid mt-3 mb-3' src='/img/hotel/marriott-lobby.webp' alt='Marriott at RTP')
 
+        div(class='alert alert-danger')
+            p
+                | #[i(class='fas fa-exclamation-triangle')] A one-night deposit (plus current taxes of 13.5%) is required to make a reservation. This deposit is non-refundable so please be certain of your attendance before booking. It may take three business days for the deposit to appear on your bank statement.
+
         p
-            | Bewhiskered 2020 will be hosted in the Marriott at Research Triangle Park, just a few minutes drive away
+            | Bewhiskered 2021 will be hosted in the Marriott at Research Triangle Park, just a few minutes drive away
             | from the state’s capital and RDU airport. The hotel has a lot to offer, including modern guest rooms,
             | a spacious lobby and adjacent courtyard, and an on-site restaurant and market for those who don't want to
             | miss a minute of the action. Multiple food options are within easy driving distance for parties that want
             | to get out and explore.
+
+        p
+            | The rate below is available until 2021 (TBD). If the room block fills up, we will communicate updates over our social media accounts.
 
         div(id='hotel-room-block' class='row row-cols-1 row-cols-md-2')
             div(class='col')
@@ -36,18 +43,24 @@ block content
                     tr
                         th Room Type
                         th Price
+                        th Max People
                     tr
                         td Double
                         td $89/night
+                        td 4
                     tr
                         td King
                         td $89/night
-            div(id='hotel-hotel-links' class='col')
-                //a(id='hotel-room-block-button' class='btn bnt-lg btn-outline-primary w-100' href='') Room Block
-                p(id='hotel-room-block-button' class='w-100')
-                    | Standby for launch, ground crew is running through the pre-flight checklist. The room block will
-                    | open once all tasks are complete.
-                a(href='https://goo.gl/maps/FXU21AZKcNvbpCLt9') 4700 Guardian Dr, Durham, NC 27703
+                        td 2
+            //- div(id='hotel-hotel-links' class='col')
+            //-     a(id='hotel-room-block-button' class='btn bnt-lg btn-outline-primary w-100' href='https://www.marriott.com/event-reservations/reservation-link.mi?id=1583850257301&key=GRP&app=resvlink)') Reserve a Room
+                
+
+        div(class='maps-responsive')
+            iframe(width='100%' height='400' frameborder='0' style='border:0' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3232.2216595252366!2d-78.84866978438033!3d35.89258652595816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89acefdda7dbf5e1%3A0xbd6431afdd529ef7!2sMarriott%20at%20Research%20Triangle%20Park!5e0!3m2!1sen!2sus!4v1587922145989!5m2!1sen!2sus" allowfullscreen)
+
+        p
+            | If you are having trouble making a reservation, please reach out to us at #[a(href='mailto:contact@bewhiskeredcon.org') contact@bewhiskeredcon.org].
 
     section(id='hotel-directions')
 
@@ -76,3 +89,27 @@ block content
                 p
                     | For additional travel information, please refer to the hotel
                     | #[a(href='https://www.marriott.com/hotels/maps/travel/rducp-marriott-at-research-triangle-park/') website].
+
+    section(id='hotel-faq')
+
+        h1 Frequently Asked Questions
+
+        h4 What if COVID-19 prevents me from attending?
+        p
+            | Should COVID-19 affect Bewhiskered 2021, or prevent you from attending the convention, please reach out to the hotel directly. The Marriott will refund your deposit if this occurs.
+
+        h4 I just made a reservation, when will I see the deposit on my bank statement?
+        p
+            | Please give the hotel three business days to process the deposit. If you’re waiting longer than that please reach out to us at #[a(href='contact@bewhiskeredcon.org') contact@bewhiskeredcon.org].
+
+        h4 Does the hotel have any rollaway beds, cribs, or sleeper sofas?
+        p
+            | The hotel does not have rollaway beds nor do the rooms have a sleeper sofa in them. Cribs are available upon request but may be subject to availability. Please reach out to the hotel before you arrive should you need a crib.
+
+        h4 What is the earliest time I can check into my room?
+        p
+            | Check in is at 4 PM, the Marriott will do its best to accommodate attendees should they arrive earlier.
+
+        h4 How old do I have to be to check into my room?
+        p
+            | The hotel requires that you are at least 21 years old to check into your hotel.
