@@ -29,7 +29,7 @@
     padding: 0;
 
     img {
-      height: $nav-height;
+      height: 0.8 * $nav-height;
     }
   }
   .navbar-collapse {
@@ -94,7 +94,7 @@
   display: flex;
   flex-direction: column;
   section {
-    $section-padding: 30px;
+    $section-padding: 50px;
 
     // Set flex-grow and flex-basis. This makes all sections expand to fill #content and be equal height.
     flex-grow: 1;
@@ -103,11 +103,11 @@
     // Add padding
     padding: $section-padding;
 
-    @include media-breakpoint-up(xl) {
-      $section-horizontal-padding: calc(((100vw - #{map-get($grid-breakpoints, 'xl')}) / 2) + #{$section-padding});
-      padding-left: $section-horizontal-padding;
-      padding-right: $section-horizontal-padding;
-    }
+    //@include media-breakpoint-up(xl) {
+    //  $section-horizontal-padding: calc(((100vw - #{map-get($grid-breakpoints, 'xl')}) / 2) + #{$section-padding});
+    //  padding-left: $section-horizontal-padding;
+    //  padding-right: $section-horizontal-padding;
+    //}
   }
 }
 

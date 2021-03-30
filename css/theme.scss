@@ -10,53 +10,62 @@
   src: url('/fonts/nasalization-rg.ttf');
 }
 
-@font-face {
-  font-family: 'axaxax';
-  src: url('/fonts/axaxax-bd.ttf');
-}
+//@font-face {
+//  font-family: 'axaxax';
+//  src: url('/fonts/axaxax-bd.ttf');
+//}
 
 // Overrides for bootstrap elements
-.btn {
-  color: $bws-text-white !important;
-  background-color: $bws-supplementary-red;
-  border-color: $bws-text-white;
-  border-radius: 10px;
-  border-width: 4px;
-
-  &:hover {
-    background-color: $bws-supplementary-navy-blue;
-    border-color: $bws-supplementary-yellow;
-  }
-}
-.card,
-.btn-outline-primary {
-  border-width: 5px;
-  border-style: solid;
-}
-.card {
-  padding: 10px;
-}
-.table{
-  th {
-    border-top: none;
-  }
-}
-
-.dropdown-menu {
-  background-color: $bws-space-grey;
-  border: 5px solid white;
-  .dropdown-item {
-    color: $bws-text-white !important;
-    &:hover {
-      background: $bws-supplementary-blue;
-      color: $bws-supplementary-cyan !important;
-    }
-  }
-}
-
-// Global
-
+//.btn {
+//  color: $bws-text-white !important;
+//  background-color: $bws-supplementary-red;
+//  border-color: $bws-text-white;
+//  border-radius: 10px;
+//  border-width: 4px;
+//
+//  &:hover {
+//    background-color: $bws-supplementary-navy-blue;
+//    border-color: $bws-supplementary-yellow;
+//  }
+//}
+//.card,
+//.btn-outline-primary {
+//  border-width: 5px;
+//  border-style: solid;
+//}
+//.card {
+//  padding: 10px;
+//}
+//.table{
+//  th {
+//    border-top: none;
+//  }
+//}
+//
+//.dropdown-menu {
+//  background-color: $bws-space-grey;
+//  border: 5px solid white;
+//  .dropdown-item {
+//    color: $bws-text-white !important;
+//    &:hover {
+//      background: $bws-supplementary-blue;
+//      color: $bws-supplementary-cyan !important;
+//    }
+//  }
+//}
+//
+//// Global
+//
 body {
+  html:not(.no-webp) & {
+    background-image: url('/img/background.webp');
+  }
+  html.no-webp & {
+    background-image: url('/img/background.jpg');
+  }
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   h1 {
     font-size: $primary-font-size * 2;
   }
@@ -82,27 +91,28 @@ body {
   h5,
   h6,
   .nav-link {
-    font-family: 'axaxax', $fallback-font-family, sans-serif !important;
+    font-family: 'NASA', $fallback-font-family, sans-serif !important;
+    color: $bws-supplementary-yellow;
   }
 }
 
-.icon-link {
-  &,
-  &:link,
-  &:visited,
-  &:hover,
-  &:focus,
-  &:active {
-    color: $bws-text-white;
-  }
-  &:hover {
-    color: $bws-supplementary-cyan;
-  }
-}
+//.icon-link {
+//  &,
+//  &:link,
+//  &:visited,
+//  &:hover,
+//  &:focus,
+//  &:active {
+//    color: $bws-text-white;
+//  }
+//  &:hover {
+//    color: $bws-supplementary-cyan;
+//  }
+//}
 
 // Base
 #navbar {
-  background-color: $bws-supplementary-orange;
+  background-color: $bws-background-teal;
 
   @include media-breakpoint-up(lg) {
     &.navbar-splash:not(.navbar-splash-scrolled) {
@@ -123,11 +133,15 @@ body {
   }
   .navbar-collapse {
     @include media-breakpoint-down(md) {
-      background-color: $bws-supplementary-orange;
+      background-color: $bws-background-teal;
     }
   }
   .nav-link {
-    color: $bws-text-black !important;
+    color: $bws-text-white !important;
+    font-family: 'NASA', $fallback-font-family, sans-serif;
+  }
+  .dropdown-menu {
+    background-color: $bws-background-teal;
   }
   .navbar-collapse {
     #navbar-block-links:not(:empty){
@@ -141,114 +155,125 @@ body {
   }
 }
 
-footer {
-  $border-size: 2px;
-
-  color: $bws-text-white;
-  background-color: $bws-space-grey;
-  border-top: $border-size solid $bws-supplementary-orange;
-}
-
+//footer {
+//  $border-size: 2px;
+//
+//  color: $bws-text-white;
+//  background-color: $bws-space-grey;
+//  border-top: $border-size solid $bws-supplementary-orange;
+//}
+//
 #content {
-  section {
-    &:nth-of-type(odd) {
-      background-color: transparentize($bws-space-grey, 0);
+  $content-width: 75%;
+  $content-background-alpha: .7;
 
-        &,
-        .icon-link,
-        .icon-link:link,
-        .icon-link:hover,
-        .icon-link:focus,
-        .icon-link:active,
-        .table {
-          color: $bws-supplementary-green;
-        }
-        .icon-link:hover {
-          color: $bws-supplementary-cyan;
-        }
-        ::selection {
-          background: $bws-supplementary-green;
-          color: $bws-supplementary-cyan;
-        }
-        ::-moz-selection {
-          background: $bws-supplementary-green;
-          color: $bws-supplementary-cyan;
-        }
-        .card {
-          border-color: $bws-supplementary-green;
-        }
-        .table {
-          td {
-            border-top: 3px solid $bws-supplementary-dark-green;
-          }
-        }
-        .btn-outline-primary {
-          border-color: white;
-          background-color: $bws-background-teal;
+  width: $content-width;
+  background-color: rgba(0, 0, 0, $content-background-alpha);
+  border-color: rgba(255, 255, 255, 0.15);
+  border-style: solid;
+  border-width: 0 2px 0 2px;
+  //border-left: 1px solid white;
+  color: white !important;  // TODO Remove?
 
-          &:hover {
-            border-color: $bws-supplementary-cyan;
-            background-color: $bws-background-blue;
-          }
-        }
-      }
-
-    &:nth-of-type(even) {
-      background-color: transparentize($bws-space-grey, 0);
-
-      &,
-      .icon-link,
-      .icon-link:link,
-      .icon-link:hover,
-      .icon-link:focus,
-      .icon-link:active,
-      .table {
-        color: $bws-supplementary-blue;
-      }
-      .icon-link:hover {
-        color: $bws-supplementary-cyan;
-      }
-      ::selection {
-        background: $bws-supplementary-blue;
-        color: $bws-supplementary-cyan;
-      }
-      ::-moz-selection {
-        background: $bws-background-teal;
-      }
-      .card {
-        border-color: $bws-supplementary-blue;
-      }
-      .table {
-        td {
-          border-top: 3px solid $bws-supplementary-navy-blue;
-        }
-      }
-    }
-  }
+//  section {
+//    &:nth-of-type(odd) {
+//      background-color: transparentize($bws-space-grey, 0);
+//
+//        &,
+//        .icon-link,
+//        .icon-link:link,
+//        .icon-link:hover,
+//        .icon-link:focus,
+//        .icon-link:active,
+//        .table {
+//          color: $bws-supplementary-green;
+//        }
+//        .icon-link:hover {
+//          color: $bws-supplementary-cyan;
+//        }
+//        ::selection {
+//          background: $bws-supplementary-green;
+//          color: $bws-supplementary-cyan;
+//        }
+//        ::-moz-selection {
+//          background: $bws-supplementary-green;
+//          color: $bws-supplementary-cyan;
+//        }
+//        .card {
+//          border-color: $bws-supplementary-green;
+//        }
+//        .table {
+//          td {
+//            border-top: 3px solid $bws-supplementary-dark-green;
+//          }
+//        }
+//        .btn-outline-primary {
+//          border-color: white;
+//          background-color: $bws-background-teal;
+//
+//          &:hover {
+//            border-color: $bws-supplementary-cyan;
+//            background-color: $bws-background-blue;
+//          }
+//        }
+//      }
+//
+//    &:nth-of-type(even) {
+//      background-color: transparentize($bws-space-grey, 0);
+//
+//      &,
+//      .icon-link,
+//      .icon-link:link,
+//      .icon-link:hover,
+//      .icon-link:focus,
+//      .icon-link:active,
+//      .table {
+//        color: $bws-supplementary-blue;
+//      }
+//      .icon-link:hover {
+//        color: $bws-supplementary-cyan;
+//      }
+//      ::selection {
+//        background: $bws-supplementary-blue;
+//        color: $bws-supplementary-cyan;
+//      }
+//      ::-moz-selection {
+//        background: $bws-background-teal;
+//      }
+//      .card {
+//        border-color: $bws-supplementary-blue;
+//      }
+//      .table {
+//        td {
+//          border-top: 3px solid $bws-supplementary-navy-blue;
+//        }
+//      }
+//    }
+//  }
 }
 
-// Index page
-#index-splash {
-  &:before {
-    background-color: $bws-space-grey;
-  }
-
-  #index-splash-info-box {
-    border: 5px solid $bws-supplementary-red;
-    color: $bws-text-white;
-
-    h1 {
-      font-family: 'NASA', $fallback-font-family, sans-serif;
-      //text-shadow: 2px 1px $ncas-color-accent-40-grey;
-    }
-  }
-}
-
-#index-convention-details {
-  picture {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 760px;
-  }
-}
+//// Index page
+//#index-splash {
+//  &:before {
+//    background-color: $bws-space-grey;
+//  }
+//
+//  #index-splash-info-box {
+//    border: 5px solid $bws-supplementary-red;
+//    color: $bws-text-white;
+//
+//    h1 {
+//      font-family: 'NASA', $fallback-font-family, sans-serif;
+//      //text-shadow: 2px 1px $ncas-color-accent-40-grey;
+//    }
+//  }
+//}
+//
+//#index-convention-details {
+//  picture {
+//    display: block;
+//    margin-left: auto;
+//    margin-right: auto;
+//    max-width: 760px;
+//  }
+//}
