@@ -8,6 +8,7 @@
 const _ = require('lodash')
 const cleanCSS = require('gulp-clean-css')
 const composer = require('gulp-uglify/composer')
+const data = require('gulp-data')
 const eslint = require('gulp-eslint')
 const express = require('express')
 const file = require('gulp-file')
@@ -15,6 +16,7 @@ const gulp = require('gulp')
 const gulpStylelint = require('gulp-stylelint')
 const header = require('gulp-header')
 const modernizr = require('modernizr')
+const path = require('path')
 const pug = require('gulp-pug')
 const pugLinter = require('gulp-pug-linter')
 const rename = require('gulp-rename')
@@ -39,7 +41,7 @@ const BANNER_JS = `/*\n * ${BANNER_TEXT.join('\n * ')}\n */\n`
 // Gulp task constants
 
 // Pug
-const PUG_SRC = ['**/*.pug', '!node_modules/**/*.js']
+const PUG_SRC = ['**/*.pug', '!mixins/**/*.pug', '!node_modules/**/*.js']
 const PUG_TASK = 'pug'
 const PUG_WATCH_SRC = ['**/*.pug', '!node_modules/**/*.pug']
 
@@ -149,6 +151,12 @@ gulp.task(LINT_TASK, gulp.parallel(LINT_SCSS_TASK, LINT_JS_TASK, LINT_PUG_TASK))
 gulp.task(PUG_TASK, () => {
   return gulp
     .src(PUG_SRC)
+    .pipe(data((file) => {
+      const ext = path.extname(file.path)
+      const relPath = path.relative(__dirname, file.path)
+      const fileUrl = path.join('/', relPath.substr(0, relPath.length - ext.length))
+      return { fileUrl }
+    }))
     .pipe(pug({
       basedir: __dirname
     }))
