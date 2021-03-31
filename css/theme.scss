@@ -66,6 +66,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  background-position: center;
   h1 {
     font-size: $primary-font-size * 2;
   }
@@ -94,6 +95,17 @@ body {
     font-family: 'NASA', $fallback-font-family, sans-serif !important;
     color: $bws-supplementary-yellow;
   }
+  .active-link {
+    color: $bws-supplementary-yellow !important;
+  }
+
+  a {
+    color: $bws-supplementary-cyan;
+
+    &:hover {
+      color: $bws-supplementary-blue;
+    }
+  }
 }
 
 //.icon-link {
@@ -117,7 +129,7 @@ body {
   @include media-breakpoint-up(lg) {
     &.navbar-splash:not(.navbar-splash-scrolled) {
       a {
-        color: $bws-text-white !important;
+        color: $bws-text-white;
       }
       #navbar-block-links:not(:empty){
         border-color: $ncas-color-primary-white;
@@ -136,8 +148,28 @@ body {
       background-color: $bws-background-teal;
     }
   }
+  .nav-item {
+    position: relative;
+    &:not(:first-of-type) {
+      padding-left: 20px;
+    }
+    &:not(:last-of-type) {
+      padding-right: 20px;
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 25%;
+        left: 0;
+        height: 50%;
+        width: 100%;
+        z-index: -1;
+        border-right: 3px solid white !important;
+      }
+    }
+  }
   .nav-link {
-    color: $bws-text-white !important;
+    color: $bws-text-white;
     font-family: 'NASA', $fallback-font-family, sans-serif;
   }
   .dropdown-menu {
@@ -145,7 +177,7 @@ body {
   }
   .navbar-collapse {
     #navbar-block-links:not(:empty){
-      border-right: 5px solid $ncas-color-primary-black;
+      border-right: 5px solid $ncas-color-primary-white;
 
       @include media-breakpoint-down(md) {
         border-right: none;
@@ -155,14 +187,6 @@ body {
   }
 }
 
-//footer {
-//  $border-size: 2px;
-//
-//  color: $bws-text-white;
-//  background-color: $bws-space-grey;
-//  border-top: $border-size solid $bws-supplementary-orange;
-//}
-//
 #content {
   $content-width: 75%;
   $content-background-alpha: .7;
@@ -171,85 +195,7 @@ body {
   background-color: rgba(0, 0, 0, $content-background-alpha);
   border-color: rgba(255, 255, 255, 0.15);
   border-style: solid;
-  border-width: 0 2px 0 2px;
-  //border-left: 1px solid white;
-  color: white !important;  // TODO Remove?
-
-//  section {
-//    &:nth-of-type(odd) {
-//      background-color: transparentize($bws-space-grey, 0);
-//
-//        &,
-//        .icon-link,
-//        .icon-link:link,
-//        .icon-link:hover,
-//        .icon-link:focus,
-//        .icon-link:active,
-//        .table {
-//          color: $bws-supplementary-green;
-//        }
-//        .icon-link:hover {
-//          color: $bws-supplementary-cyan;
-//        }
-//        ::selection {
-//          background: $bws-supplementary-green;
-//          color: $bws-supplementary-cyan;
-//        }
-//        ::-moz-selection {
-//          background: $bws-supplementary-green;
-//          color: $bws-supplementary-cyan;
-//        }
-//        .card {
-//          border-color: $bws-supplementary-green;
-//        }
-//        .table {
-//          td {
-//            border-top: 3px solid $bws-supplementary-dark-green;
-//          }
-//        }
-//        .btn-outline-primary {
-//          border-color: white;
-//          background-color: $bws-background-teal;
-//
-//          &:hover {
-//            border-color: $bws-supplementary-cyan;
-//            background-color: $bws-background-blue;
-//          }
-//        }
-//      }
-//
-//    &:nth-of-type(even) {
-//      background-color: transparentize($bws-space-grey, 0);
-//
-//      &,
-//      .icon-link,
-//      .icon-link:link,
-//      .icon-link:hover,
-//      .icon-link:focus,
-//      .icon-link:active,
-//      .table {
-//        color: $bws-supplementary-blue;
-//      }
-//      .icon-link:hover {
-//        color: $bws-supplementary-cyan;
-//      }
-//      ::selection {
-//        background: $bws-supplementary-blue;
-//        color: $bws-supplementary-cyan;
-//      }
-//      ::-moz-selection {
-//        background: $bws-background-teal;
-//      }
-//      .card {
-//        border-color: $bws-supplementary-blue;
-//      }
-//      .table {
-//        td {
-//          border-top: 3px solid $bws-supplementary-navy-blue;
-//        }
-//      }
-//    }
-//  }
+  border-width: 0 2px 2px 2px;
 }
 
 //// Index page

@@ -86,8 +86,10 @@
 
 // Main content
 #content {
+  $content-padding: 50px;
+
   margin-top: $nav-height;
-  padding: 0;
+  padding: $content-padding;
   min-height: $content-min-height;
 
   // Set content display as flexbox in the column direction.
@@ -100,9 +102,6 @@
     flex-grow: 1;
     flex-basis: 0;
 
-    // Add padding
-    padding: $section-padding;
-
     //@include media-breakpoint-up(xl) {
     //  $section-horizontal-padding: calc(((100vw - #{map-get($grid-breakpoints, 'xl')}) / 2) + #{$section-padding});
     //  padding-left: $section-horizontal-padding;
@@ -114,8 +113,11 @@
 // Footer
 footer {
   height: $footer-height;
-  text-align: center;
   font-size: $footer-font-size;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   p {
     margin: 0;

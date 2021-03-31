@@ -68,14 +68,14 @@ $secondary-background-color: $ncas-color-accent-90-grey;
 $accent-color: $ncas-color-secondary-piedmont-teal;
 
 // Fonts
-$primary-font-color: #222;
-$secondary-font-color: #444;
+$primary-font-color: $bws-text-white;
+$secondary-font-color: $bws-text-white;
 $primary-font-size: 1rem;
 $footer-font-size: 0.75rem;
 $fallback-font-url: 'https://fonts.googleapis.com/css?family=Montserrat&display=swap';
 $fallback-font-family: 'Montserrat';
 
 // Vertical dimensions
-$nav-height: 75px;
+$nav-height: 100px;
 $footer-height: 70px;
 $content-min-height: calc(100vh - (#{$nav-height} + #{$footer-height}));
