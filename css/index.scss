@@ -3,94 +3,70 @@
 @import 'node_modules/bootstrap/scss/variables';
 @import 'variables';
 
-// Index style
-
-#index-splash {
-  $splash-horizontal-padding: 10px;
-
-  // Stretch the splash to the top of the page, but add padding so content appears below.
-  margin-top: -$nav-height;
-  padding: $nav-height $splash-horizontal-padding 0;
-
-  // Set height to fill all the space but the footer.
-  min-height: 100vh;
-  min-height: calc(var(--vh, 1vh) * 100);
-
-  // Hide any overflow (to clip images that extend over)
-  overflow: hidden;
-
-  // Set display as flexbox. Vertically and horizontally center items, except on mobile sizes where it should appear
-  // at the top of the screen.
+#index-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
-  // Background style
-  // The inverted selection assumes that the browser can handle webp and tries to render it immediately.
-  // If webp-support fails, the html element will be given the class .no-webp sometime after load.
-  position: relative;
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
-  }
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-    //background-color: inherit;
-    html:not(.no-webp) & {
-      background-image: url('/img/index/index-splash.webp');
-    }
-    html.no-webp & {
-      background-image: url('/img/index/index-splash.png');
-    }
-  }
-
-  #index-splash-info-box {
-    position: relative;
-    padding: 20px;
-    max-width: map-get($grid-breakpoints, 'lg');
-    border-radius: 30px;
-    //border-right: none;
-
-    legend {
-      font-weight: bold;
+  #index-presents {
+    #index-ncas-presents,
+    #index-bewhiskered-title {
+      text-align: center;
       text-transform: uppercase;
     }
+    #index-ncas-presents {
+      font-size: 35px;
+    }
+    #index-bewhiskered-title {
+      font-family: 'NASA', $fallback-font-family, sans-serif !important;
+      font-size: 39px;  // 40 doesn't quite fit on one line at the lg breakpoint.
+      color: $bws-supplementary-yellow;
+    }
 
-    #index-splash-rocket {
-      position: absolute;
-      right: 0;
-      top: 50%;
+    @include media-breakpoint-down(md) {
+      #index-ncas-presents {
+        font-size: 25px;
+      }
+      #index-bewhiskered-title {
+        font-size: 30px;
+      }
+    }
 
-      source,
-      img {
-        width: 150px;
-        height: 300px;
-        margin-right: -75px;
-        margin-top: -145px;
-        opacity: 0.3;
+    @include media-breakpoint-down(sm) {
+      #index-ncas-presents {
+        font-size: 15px;
+      }
+      #index-bewhiskered-title {
+        font-size: 20px;
+      }
+    }
+
+    @include media-breakpoint-down(xs) {
+      #index-ncas-presents,
+      #index-bewhiskered-title {
+        text-align: left;
       }
     }
   }
-}
 
-#index-convention-details {
-  // Override flex-basis. The index page is special because it has the full screen splash, so we make this
-  // section also full screen.
-  flex-basis: calc(100vh - (#{$nav-height + $footer-height})) !important;
+  @include media-breakpoint-down(xs) {
+    #index-presents {
+      order: 1;
+    }
+    #index-header {
+      order: 2;
+      flex-direction: column;
+      #index-reg-link {
+        order: 1;
+      }
+      #index-hotel-link {
+        order: 2;
+      }
+      #index-mission-patch {
+        order: 3;
+      }
+    }
+    #index-info {
+      order: 3;
+    }
+  }
 }
