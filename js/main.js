@@ -68,4 +68,47 @@
     $(this).blur()
     $('.navbar-collapse').collapse('hide')
   })
+
+  const overflow = $('#navbar-block-links-overflow')
+  const dropdown = $('#navbar-block-links-overflow-dropdown')
+
+  function navbarOverflow () {
+    const nav = $('#navbar')
+    const links = $('#navbar-block-links')
+
+    if (nav.prop('scrollWidth') > nav.outerWidth()) {
+      links.append(overflow)
+      const children = links.children('li:not(:last-of-type)').toArray()
+      while (children.length > 0 && nav.prop('scrollWidth') > nav.outerWidth()) {
+        const child = $(children.pop())
+        child.addClass('dropdown-item')
+        child.prependTo(dropdown)
+      }
+    } else {
+      const children = dropdown.children('li').toArray().reverse()
+      while (children.length > 0) {
+        const child = $(children.pop())
+        child.removeClass('dropdown-item')
+        overflow.before(child)
+        if (children.length === 0) {
+          overflow.remove()
+        }
+        if (nav.prop('scrollWidth') > nav.outerWidth()) {
+          child.addClass('dropdown-item')
+          child.prependTo(dropdown)
+          links.append(overflow)
+          break
+        }
+      }
+    }
+  }
+
+  const links = $('#navbarResponsive')
+  links.css('visibility', 'hidden')
+  $(window).on('load', () => {
+    overflow.remove()
+    navbarOverflow()
+    links.css('visibility', 'visible')
+  })
+  $(window).on('resize', _.debounce(navbarOverflow, 50))
 })(jQuery)

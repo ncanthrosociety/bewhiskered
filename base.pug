@@ -56,31 +56,35 @@ html(lang='en' prefix='og: http://ogp.me/ns#')
             button(class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation")
                 i(class="fas fa-bars")
             div(class="collapse navbar-collapse" id="navbarResponsive")
-                ul(id="navbar-block-links" class="navbar-nav ml-auto")
-                    block navbar-page-links
-                ul(id='common-links' class='navbar-nav')
-                    +navActiveLinkDropdown('about', 'About', [
-                      { href: '/about/bewhiskered',          text: 'Bewhiskered' },
-                      { href: '/about/faq',                  text: 'FAQ' },
-                      { href: '/about/staff-volunteer-info', text: 'Staff/Volunteer Info' },
-                      { href: '/code-of-conduct/member',     text: 'Member Code of Conduct' },
-                      { href: '/code-of-conduct/volunteer',  text: 'Volunteer Code of Conduct' },
-                      { href: '/code-of-conduct/vendor',     text: 'Vendor Code of Conduct' },
-                      { href: '/about/covid-19',             text: 'COVID-19' },
-                      { href: '/about/what-is-a-furry',      text: 'What is a Furry?' },
-                    ])
-                    li(class='nav-item')
-                        +activeLink('/registration', 'Registration')(class='nav-link')
-                    li(class='nav-item')
-                        +activeLink('/hotel', 'Hotel')(class='nav-link')
-                    li(class='nav-item dropdown')
-                        a(id='navbar-forms-dropdown-toggle' class='nav-link dropdown-toggle' href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Forms
-                        div(id='navbar-forms-dropdown-menu' class='dropdown-menu dropdown-menu-right' aria-labelledby='navbar-forms-dropdown-toggle')
-                            a(class='dropdown-item' href='https://forms.gle/i6HTCEKxLH4D6bgT7' target='_blank') Panel Submission Form
-                            // a(class='dropdown-item' href='/') Volunteer Submission Form
-                            // a(class='dropdown-item' href='/') Vendor Submission Form
-                    li(class='nav-item')
-                        a(class='nav-link' href='https://ncanthrosociety.com' target='_blank') NCAS#[i(class='fas fa-angle-double-right')]
+                div(id='navbar-links-container' class='ml-auto')
+                    ul(id='common-links' class='navbar-nav w-100')
+                        +navActiveLinkDropdown('about', 'About', [
+                          { href: '/about/bewhiskered',          text: 'Bewhiskered' },
+                          { href: '/about/faq',                  text: 'FAQ' },
+                          { href: '/about/staff-volunteer-info', text: 'Staff/Volunteer Info' },
+                          { href: '/code-of-conduct/member',     text: 'Member Code of Conduct' },
+                          { href: '/code-of-conduct/volunteer',  text: 'Volunteer Code of Conduct' },
+                          { href: '/code-of-conduct/vendor',     text: 'Vendor Code of Conduct' },
+                          { href: '/about/covid-19',             text: 'COVID-19' },
+                          { href: '/about/what-is-a-furry',      text: 'What is a Furry?' },
+                        ])
+                        li(class='nav-item')
+                            +activeLink('/registration', 'Registration')(class='nav-link')
+                        li(class='nav-item')
+                            +activeLink('/hotel', 'Hotel')(class='nav-link')
+                        li(class='nav-item dropdown')
+                            a(id='navbar-forms-dropdown-toggle' class='nav-link dropdown-toggle' href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Forms
+                            div(id='navbar-forms-dropdown-menu' class='dropdown-menu dropdown-menu-right' aria-labelledby='navbar-forms-dropdown-toggle')
+                                a(class='dropdown-item' href='https://forms.gle/i6HTCEKxLH4D6bgT7' target='_blank') Panel Submission Form
+                                // a(class='dropdown-item' href='/') Volunteer Submission Form
+                                // a(class='dropdown-item' href='/') Vendor Submission Form
+                        li(class='nav-item')
+                            a(class='nav-link' href='https://ncanthrosociety.com' target='_blank') NCAS#[i(class='fas fa-angle-double-right')]
+                    ul(id="navbar-block-links" class='navbar-nav w-100')
+                        block navbar-page-links
+                        li(id='navbar-block-links-overflow' class='nav-item dropdown')
+                            a(id='navbar-block-links-overflow-toggle' class='nav-link dropdown-toggle' href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') More
+                            div(id='navbar-block-links-overflow-dropdown' class='dropdown-menu dropdown-menu-right' aria-labelledby='navbar-block-links-overflow-dropdown-toggle')
 
         // Main body
         div(id='content' class='container-fluid' role="main")

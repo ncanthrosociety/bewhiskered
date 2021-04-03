@@ -39,9 +39,9 @@
 .dropdown-menu {
   border: 5px solid $bws-supplementary-navy-blue;
   .dropdown-item {
+    color: $bws-text-white;
     &:hover {
       background: $bws-supplementary-blue;
-      color: $bws-text-white !important;
     }
   }
 }
@@ -158,16 +158,6 @@ body {
   .dropdown-menu {
     background-color: $bws-background-teal;
   }
-  .navbar-collapse {
-    #navbar-block-links:not(:empty){
-      border-right: 5px solid $ncas-color-primary-white;
-
-      @include media-breakpoint-down(md) {
-        border-right: none;
-        border-bottom: 3px solid $ncas-color-primary-black;
-      }
-    }
-  }
 }
 
 #content {
@@ -178,29 +168,3 @@ body {
   border-style: solid;
   border-width: 0 2px 2px 2px;
 }
-
-//// Index page
-//#index-splash {
-//  &:before {
-//    background-color: $bws-space-grey;
-//  }
-//
-//  #index-splash-info-box {
-//    border: 5px solid $bws-supplementary-red;
-//    color: $bws-text-white;
-//
-//    h1 {
-//      font-family: 'NASA', $fallback-font-family, sans-serif;
-//      //text-shadow: 2px 1px $ncas-color-accent-40-grey;
-//    }
-//  }
-//}
-//
-//#index-convention-details {
-//  picture {
-//    display: block;
-//    margin-left: auto;
-//    margin-right: auto;
-//    max-width: 760px;
-//  }
-//}
