@@ -41,21 +41,19 @@
 //    border-top: none;
 //  }
 //}
-//
-//.dropdown-menu {
-//  background-color: $bws-space-grey;
-//  border: 5px solid white;
-//  .dropdown-item {
-//    color: $bws-text-white !important;
-//    &:hover {
-//      background: $bws-supplementary-blue;
-//      color: $bws-supplementary-cyan !important;
-//    }
-//  }
-//}
-//
-//// Global
-//
+
+.dropdown-menu {
+  border: 5px solid $bws-supplementary-navy-blue;
+  .dropdown-item {
+    &:hover {
+      background: $bws-supplementary-blue;
+      color: $bws-text-white !important;
+    }
+  }
+}
+
+// Global
+
 body {
   html:not(.no-webp) & {
     background-image: url('/img/background.webp');
