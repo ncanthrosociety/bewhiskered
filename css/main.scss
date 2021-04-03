@@ -64,9 +64,3 @@ li {
 table {
   color: unset !important;  // Override bootstrap default table color.
 }
-
-@include media-breakpoint-down(md) {
-  .js-scroll-trigger:hover {
-    background: none;
-  }
-}
