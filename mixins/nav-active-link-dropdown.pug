@@ -1,0 +1,15 @@
+include /mixins/active-link
+
+mixin navActiveLinkDropdown(name, text, items)
+    -
+        items = items || []
+        const activeItem = items.find((item) => item.href === fileUrl)
+        let dropdownClass = 'nav-link dropdown-toggle'
+        if (activeItem) {
+          dropdownClass += ' active-link'
+        }
+    li(class='nav-item dropdown')&attributes(attributes)
+        a(id=`navbar-dropdown-toggle-${name}` class=dropdownClass href='#', role='button', data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')=text
+        div(id=`navbar-dropdown-menu-${name}` class='dropdown-menu dropdown-menu-right' aria-labelledby=`navbar-staff-dropdown-${name}`)
+            for item in items
+                +activeLink(item.href, item.text)(class='dropdown-item')

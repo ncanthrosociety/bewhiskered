@@ -1,7 +1,7 @@
-mixin activeLink(href, name)
+mixin activeLink(href, text)
     -
         attributes.class = attributes.class || ''
-        if (fileUrl.startsWith(href)) {
+        if (href === fileUrl) {
           attributes.class += ' active-link'
         }
-    a(href=href)&attributes(attributes)=name
+    a(href=href)&attributes(attributes)=text

@@ -1,4 +1,5 @@
 include mixins/active-link
+include mixins/nav-active-link-dropdown
 
 block variables
     - var hasSplash = false
@@ -58,21 +59,20 @@ html(lang='en' prefix='og: http://ogp.me/ns#')
                 ul(id="navbar-block-links" class="navbar-nav ml-auto")
                     block navbar-page-links
                 ul(id='common-links' class='navbar-nav')
-                    li(class='nav-item dropdown')
-                        +activeLink('/about/', 'About')(id='navbar-about-dropdown-toggle' class='nav-link dropdown-toggle' href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                        div(id='navbar-about-dropdown-menu' class='dropdown-menu dropdown-menu-right' aria-labelledby='navbar-staff-dropdown-toggle')
-                            +activeLink('/about/bewhiskered', 'Bewhiskered')(class='dropdown-item')
-                            +activeLink('/about/faq', 'FAQ')(class='dropdown-item')
-                            +activeLink('/about/staff-volunteer-info', 'Staff/Volunteer Info')(class='dropdown-item')
-                            +activeLink('/code-of-conduct/member', 'Member Code of Conduct')(class='dropdown-item')
-                            +activeLink('/code-of-conduct/volunteer', 'Volunteer Code of Conduct')(class='dropdown-item')
-                            +activeLink('/code-of-conduct/vendor', 'Vendor Code of Conduct')(class='dropdown-item')
-                            +activeLink('/about/covid-19', 'COVID-19')(class='dropdown-item')
-                            +activeLink('/about/what-is-a-furry', 'What is a Furry?')(class='dropdown-item')
+                    +navActiveLinkDropdown('about', 'About', [
+                      { href: '/about/bewhiskered',          text: 'Bewhiskered' },
+                      { href: '/about/faq',                  text: 'FAQ' },
+                      { href: '/about/staff-volunteer-info', text: 'Staff/Volunteer Info' },
+                      { href: '/code-of-conduct/member',     text: 'Member Code of Conduct' },
+                      { href: '/code-of-conduct/volunteer',  text: 'Volunteer Code of Conduct' },
+                      { href: '/code-of-conduct/vendor',     text: 'Vendor Code of Conduct' },
+                      { href: '/about/covid-19',             text: 'COVID-19' },
+                      { href: '/about/what-is-a-furry',      text: 'What is a Furry?' },
+                    ])
                     li(class='nav-item')
-                        +activeLink('/registration', 'Registration')(class='nav-link' href='/registration')
+                        +activeLink('/registration', 'Registration')(class='nav-link')
                     li(class='nav-item')
-                        +activeLink('/hotel', 'Hotel')(class='nav-link' href='/hotel')
+                        +activeLink('/hotel', 'Hotel')(class='nav-link')
                     li(class='nav-item dropdown')
                         a(id='navbar-forms-dropdown-toggle' class='nav-link dropdown-toggle' href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Forms
                         div(id='navbar-forms-dropdown-menu' class='dropdown-menu dropdown-menu-right' aria-labelledby='navbar-forms-dropdown-toggle')
