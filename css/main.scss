@@ -74,3 +74,22 @@ li {
 table {
   color: unset !important;  // Override bootstrap default table color.
 }
+
+blockquote {
+  padding-left: 30px;
+  border-left: 5px solid $ncas-color-primary-white;
+}
+
+ol.reference-list {
+  padding: 0;
+  counter-reset: list;
+
+  li {
+    list-style: none;
+  }
+
+  li::before {
+    content: "[" counter(list) "] ";
+    counter-increment: list;
+  }
+}
