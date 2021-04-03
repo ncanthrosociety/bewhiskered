@@ -20,6 +20,13 @@ body {
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
+
+  button,
+  .btn {
+    overflow-wrap: normal !important;
+    word-wrap: normal !important;
+    hyphens: none !important;
+  }
 }
 
 // Icons and links containing icons
