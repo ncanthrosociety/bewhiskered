@@ -86,27 +86,27 @@
 
 // Main content
 #content {
-  $content-padding: 50px;
-
   margin-top: $nav-height;
-  padding: $content-padding;
   min-height: $content-min-height;
 
   // Set content display as flexbox in the column direction.
   display: flex;
   flex-direction: column;
-  section {
-    $section-padding: 50px;
 
+  @include media-breakpoint-up(lg) {
+    width: 75%;
+    padding: 50px;
+  }
+
+  @include media-breakpoint-down(lg) {
+    width: 95%;
+    padding: 20px;
+  }
+
+  section {
     // Set flex-grow and flex-basis. This makes all sections expand to fill #content and be equal height.
     flex-grow: 1;
     flex-basis: 0;
-
-    //@include media-breakpoint-up(xl) {
-    //  $section-horizontal-padding: calc(((100vw - #{map-get($grid-breakpoints, 'xl')}) / 2) + #{$section-padding});
-    //  padding-left: $section-horizontal-padding;
-    //  padding-right: $section-horizontal-padding;
-    //}
   }
 }
 

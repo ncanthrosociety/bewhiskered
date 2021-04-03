@@ -82,8 +82,7 @@ body {
   h3,
   h4,
   h5,
-  h6,
-  .nav-link {
+  h6 {
     font-family: 'NASA', $fallback-font-family, sans-serif !important;
     color: $bws-supplementary-yellow;
   }
@@ -128,22 +127,28 @@ body {
   }
   .nav-item {
     position: relative;
-    &:not(:first-of-type) {
-      padding-left: 20px;
-    }
-    &:not(:last-of-type) {
-      padding-right: 20px;
-      &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 25%;
-        left: 0;
-        height: 50%;
-        width: 100%;
-        z-index: -1;
-        border-right: 3px solid white !important;
+    @include media-breakpoint-up(lg) {
+      &:not(:first-of-type) {
+        padding-left: 20px;
       }
+      &:not(:last-of-type) {
+        padding-right: 20px;
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 25%;
+          left: 0;
+          height: 50%;
+          width: 100%;
+          z-index: -1;
+          border-right: 3px solid white !important;
+        }
+      }
+    }
+    @include media-breakpoint-down(lg) {
+      margin: 0;
+      padding: 0;
     }
   }
   .nav-link {
@@ -166,10 +171,8 @@ body {
 }
 
 #content {
-  $content-width: 75%;
   $content-background-alpha: .7;
 
-  width: $content-width;
   background-color: rgba(0, 0, 0, $content-background-alpha);
   border-color: rgba(255, 255, 255, 0.15);
   border-style: solid;

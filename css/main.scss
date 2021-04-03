@@ -17,6 +17,9 @@ body {
   font-size: $primary-font-size;
   color: $primary-font-color;
   background-color: $primary-background-color;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 // Icons and links containing icons

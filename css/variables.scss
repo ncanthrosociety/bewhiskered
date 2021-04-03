@@ -76,6 +76,6 @@ $fallback-font-url: 'https://fonts.googleapis.com/css?family=Montserrat&display=
 $fallback-font-family: 'Montserrat';
 
 // Vertical dimensions
-$nav-height: 100px;
+$nav-height: 75px;
 $footer-height: 70px;
 $content-min-height: calc(100vh - (#{$nav-height} + #{$footer-height}));
