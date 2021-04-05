@@ -1,70 +1,45 @@
 extends base
 
 
-block append variables
-    - var hasSplash = true
-
-
-block navbar-page-links
-    li(class='nav-item')
-        a(class='nav-link js-scroll-trigger' href='#index-convention-details') Convention Details
-
-
 block content
 
-    div(id='index-splash' class='')
-        fieldset(id='index-splash-info-box')
-            legend(class='w-auto') NCAS Presents
-            //picture(id='index-splash-rocket')
-            //    source(srcset='/img/index/rocket.webp' type='image/webp')
-            //    source(srcset='/img/index/rocket.png' type='image/png')
-            //    img(src='/img/index/rocket.png' alt='Rocket Launch')
-            div(class='')
-                div(class='row')
-                    div(class='col text-center')
-                        h1 Bewhiskered
-                        h1 Prepare for Blast Off!
-                div(class='row')
-                    div(class='col text-center')
-                        p Whisky and Cassie invite you to join them on their journey.
-                div(class='row')
-                    div(class='col text-center')
-                        p 2021 (TBD)
-                    div(class='col text-center')
-                        p Durham, NC
-                div(class='row')
-                    a(class='col text-center alert alert-danger' href='/about/covid-19')
-                        | #[i(class='fas fa-exclamation-triangle')] See important information regarding COVID-19. #[i(class='fas fa-exclamation-triangle')]
-                div(class='row')
-                    div(class='col text-center mb-2')
-                        a(class='btn btn-lg btn-outline-primary w-100 h-100' href='/registration') Registration
-                    div(class='col text-center mb-2')
-                        a(class='btn btn-lg btn-outline-primary w-100 h-100' href='/hotel') Hotel
-                div(class='row')
-                    div(class='col text-center')
-                        a(class='btn btn-lg btn-outline-primary w-100 h-100 js-scroll-trigger' href='#index-convention-details') Convention Details
-
-    section(id='index-convention-details')
-
-        h1 NC Anthro Society Presents #[br] Bewhiskered: Prepare for Blast Off!
-        p
-            | Furs have gazed in wonder at the stars for as long as we can remember, ever since the very first of us
-            | thought to look up at the night sky and saw the stars twinkling back at them. For generations we have
-            | dreamed of setting sail on this new sea. The time has come to make that dream a reality. On 2021, join
-            | Commander Whisky and Flight Engineer Cassie as they prepare for the launch of a lifetime!
-        p
-            | The #[a(href='https://ncanthrosociety.com') NC Anthro Society (NCAS)] is proud to bring you Bewhiskered
-            | 2021, a convention hosted by the furs of North Carolina for furs of all parts of the world. Located in
-            | the lovely Marriott at Research Triangle Park, Bewhiskered is in the heart of The Triangle and is just a
-            | few minutes drive away from the state’s capital and RDU airport.
-        p
-            | Our inaugural theme is “Blast Off” both for the convention’s official debut, and in honor of the 50th
-            | anniversary of Apollo 13. Join us as we hearken back to the retro futurism of the Apollo era and celebrate
-            | the start of an epic journey in the only way we know how: a three day weekend full of friends,
-            | entertainment, and much much more.
-
-        picture
-            source(srcset='/img/index/whisky-rocket.webp' type='image/webp')
-            source(srcset='/img/index/whisky-rocket.png' type='image/png')
-            img(id='index-whisky-rocket' class='img-fluid' src='/img/index/whisky-rocket.png' alt='Whisky')
-
+    div(id='index-container')
+        div(id='index-header' class='row align-items-center')
+            div(id='index-reg-link' class='col text-center mb-2')
+                a(class='btn btn-lg btn-outline-primary w-100' href='/registration') Registration
+            div(id='index-mission-patch' class='col')
+                picture
+                    source(srcset='/img/bewhiskered-mission-patch.svg' type='image/svg+xml')
+                    source(srcset='/img/bewhiskered-mission-patch.webp' type='image/webp')
+                    img(class='img-fluid mt-3 mb-3' src='/img/bewhiskered-mission-patch.png' alt='Bewhiskered Mission Patch')
+            div(id='index-hotel-link' class='col text-center mb-2')
+                a(class='btn btn-lg btn-outline-primary w-100' href='/hotel') Hotel
+        div(id='index-presents')
+            p(id='index-ncas-presents').
+                NC Anthro Society Presents
+            p(id='index-bewhiskered-title').
+                Bewhiskered: Prepare for Blast Off!
+            div(class='row row-cols-1 row-cols-sm-2')
+                div(class='col text-center')
+                    p November 12-14, 2021
+                div(class='col text-center')
+                    p Durham, NC
+            div(class='row')
+                a(class='col text-center alert alert-danger' href='/about/covid-19')
+                    | #[i(class='fas fa-exclamation-triangle')] See important information regarding COVID-19. #[i(class='fas fa-exclamation-triangle')]
+        div(id='index-info')
+            p.
+                Furs have gazed in wonder at the stars for as long as we can remember, ever since the very first of us
+                thought to look up at the night sky and saw the stars twinkling back at them. For generations we have
+                dreamed of setting sail on this new sea. The time has come to make that dream a reality. On 2021, join
+                Commander Whisky and Flight Engineer Cassie as they prepare for the launch of a lifetime!
+            p.
+                The #[a(href='https://ncanthrosociety.com') NC Anthro Society (NCAS)] is proud to bring you Bewhiskered
+                2021, a convention hosted by the furs of North Carolina for furs of all parts of the world. Located in
+                the lovely Marriott at Research Triangle Park, Bewhiskered is in the heart of The Triangle and is just a
+                few minutes drive away from the state’s capital and RDU airport.
+            p.
+                Our inaugural theme is “Blast Off” both for the convention’s official debut, and in honor of the 50th
+                anniversary of Apollo 13. Join us as we hearken back to the retro futurism of the Apollo era and
+                celebrate the start of an epic journey in the only way we know how: a three day weekend full of friends,
+                entertainment, and much much more.

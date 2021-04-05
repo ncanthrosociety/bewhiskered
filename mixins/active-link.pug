@@ -1,0 +1,7 @@
+mixin activeLink(href, text)
+    -
+        attributes.class = attributes.class || ''
+        if (href === fileUrl) {
+          attributes.class += ' active-link'
+        }
+    a(href=href)&attributes(attributes)=text

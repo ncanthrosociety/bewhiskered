@@ -17,6 +17,16 @@ body {
   font-size: $primary-font-size;
   color: $primary-font-color;
   background-color: $primary-background-color;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+
+  button,
+  .btn {
+    overflow-wrap: normal !important;
+    word-wrap: normal !important;
+    hyphens: none !important;
+  }
 }
 
 // Icons and links containing icons
@@ -61,8 +71,25 @@ li {
   margin-bottom: 1em;
 }
 
-@include media-breakpoint-down(md) {
-  .js-scroll-trigger:hover {
-    background: none;
+table {
+  color: unset !important;  // Override bootstrap default table color.
+}
+
+blockquote {
+  padding-left: 30px;
+  border-left: 5px solid $ncas-color-primary-white;
+}
+
+ol.reference-list {
+  padding: 0;
+  counter-reset: list;
+
+  li {
+    list-style: none;
+  }
+
+  li::before {
+    content: "[" counter(list) "] ";
+    counter-increment: list;
   }
 }
