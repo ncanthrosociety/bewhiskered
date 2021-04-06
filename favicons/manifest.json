@@ -1,0 +1,20 @@
+{
+  "short_name": "BWS 2021",
+  "name": "Bewhiskered 2021",
+  "icons": [
+    {
+      "src": "/favicons/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/favicons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+  }
+  ],
+  "start_url": "/",
+  "background_color": "#6456AA",
+  "display": "browser",
+  "theme_color": "#2264A9"
+}
