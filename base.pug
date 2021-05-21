@@ -76,6 +76,9 @@ html(lang='en' prefix='og: http://ogp.me/ns#')
                           { href: '/about/covid-19',             text: 'COVID-19' },
                           { href: '/about/what-is-a-furry',      text: 'What is a Furry?' },
                         ])
+                        +navActiveLinkDropdown('forms', 'Forms', [
+                          { href: 'https://forms.gle/AdeBRth8PEHh8S7P9', text: 'Events' },
+                        ])
                         li(class='nav-item')
                             +activeLink('/registration', 'Registration')(class='nav-link')
                         li(class='nav-item')
