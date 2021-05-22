@@ -78,17 +78,14 @@ html(lang='en' prefix='og: http://ogp.me/ns#')
                         ])
                         +navActiveLinkDropdown('forms', 'Forms', [
                           { href: 'https://forms.gle/AdeBRth8PEHh8S7P9', text: 'Events' },
+                          { href: 'https://forms.gle/F35n6iALsLUceHj59', text: 'Volunteer Application' },
+                        ])
+                        +navActiveLinkDropdown('registration', 'Registration', [
+                          { href: '/registration',         text: 'Member Registration' },
+                          { href: '/registration/dealers', text: 'Dealer Registration' },
                         ])
                         li(class='nav-item')
-                            +activeLink('/registration', 'Registration')(class='nav-link')
-                        li(class='nav-item')
                             +activeLink('/hotel', 'Hotel')(class='nav-link')
-                        //- li(class='nav-item dropdown')
-                        //-     a(id='navbar-forms-dropdown-toggle' class='nav-link dropdown-toggle' href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Forms
-                        //-     div(id='navbar-forms-dropdown-menu' class='dropdown-menu dropdown-menu-right' aria-labelledby='navbar-forms-dropdown-toggle')
-                        //-         a(class='dropdown-item' href='https://forms.gle/i6HTCEKxLH4D6bgT7' target='_blank') Panel Submission Form
-                        //-         a(class='dropdown-item' href='/') Volunteer Submission Form
-                        //-         a(class='dropdown-item' href='/') Vendor Submission Form
                         li(class='nav-item')
                             a(class='nav-link' href='https://ncanthrosociety.com' target='_blank') NCAS#[i(class='fas fa-angle-double-right')]
                     ul(id="navbar-block-links" class='navbar-nav w-100')

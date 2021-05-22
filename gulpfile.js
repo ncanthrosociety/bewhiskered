@@ -12,6 +12,7 @@ const data = require('gulp-data')
 const eslint = require('gulp-eslint')
 const express = require('express')
 const file = require('gulp-file')
+const fs = require('fs')
 const gulp = require('gulp')
 const gulpStylelint = require('gulp-stylelint')
 const header = require('gulp-header')
@@ -233,8 +234,26 @@ gulp.task(SERVE_TASK, () => {
   const host = process.env[ENV_SERVE_HOST] || SERVE_HOST
   const port = process.env[ENV_SERVE_PORT] || SERVE_PORT
   const app = express()
-  app.use(express.static(SERVE_ROOT, { extensions: ['html'] }))
-  app.use((req, res, next) => res.status(404).sendFile('404.html', { root: SERVE_ROOT }))
+  app.use(express.static(SERVE_ROOT, { extensions: ['html'], redirect: false }))
+  app.use((req, res, next) => {
+    const dirPath = path.relative(__dirname, path.resolve(path.join(__dirname, req.path)))
+    const filePath = `${dirPath}.html`
+    const indexPath = path.join(dirPath, 'index.html')
+
+    // Static content serving automatically adds the .html extension if needed. However, express does not handle the
+    // situation where a file and directory have the same name (excluding the .html file extension). In this case,
+    // prefer the file over the directory. Send the 404 page as a last resort.
+    if (fs.existsSync(dirPath) &&
+      fs.statSync(dirPath).isDirectory() &&
+      fs.existsSync(filePath) &&
+      fs.statSync(filePath).isFile()) {
+      res.status(200).sendFile(path.join('/', filePath), { root: SERVE_ROOT })
+    } else if (fs.existsSync(indexPath) && fs.statSync(indexPath).isFile()) {
+      res.status(200).sendFile(path.join('/', indexPath), { root: SERVE_ROOT })
+    } else {
+      res.status(404).sendFile('404.html', { root: SERVE_ROOT })
+    }
+  })
   app.listen(port, host)
   console.log(`Serving website on http://${host}:${port}`)
 })
