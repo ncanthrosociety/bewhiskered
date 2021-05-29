@@ -78,12 +78,14 @@ html(lang='en' prefix='og: http://ogp.me/ns#')
                           { href: '/about/privacy-policy',      text: 'Privacy Policy' },
                         ])
                         +navActiveLinkDropdown('forms', 'Forms', [
-                          { href: 'https://forms.gle/AdeBRth8PEHh8S7P9', text: 'Events' },
+                          { href: 'https://forms.gle/AdeBRth8PEHh8S7P9', text: 'Panel Submission' },
+                          { href: 'https://forms.gle/b1KEsrQcYCLdQmDd8', text: 'DJ Application' },
                           { href: 'https://forms.gle/F35n6iALsLUceHj59', text: 'Volunteer Application' },
                         ])
                         +navActiveLinkDropdown('registration', 'Registration', [
-                          { href: '/registration',         text: 'Member Registration' },
-                          { href: '/registration/dealers', text: 'Dealer Registration' },
+                          { href: '/registration',                  text: 'Member Registration' },
+                          { href: '/registration/dealers',          text: 'Dealer Registration' },
+                          { href: '/registration#registration-djs', text: 'DJ Registration' },
                         ])
                         li(class='nav-item')
                             +activeLink('/hotel', 'Hotel')(class='nav-link')

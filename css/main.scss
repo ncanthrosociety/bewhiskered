@@ -93,3 +93,7 @@ ol.reference-list {
     counter-increment: list;
   }
 }
+
+:target {
+  scroll-margin-top: $nav-height;
+}
