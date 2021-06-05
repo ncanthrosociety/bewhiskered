@@ -24,10 +24,11 @@ block content
             img(id='hotel-img' class='my-3 mx-auto' src='/img/hotel/marriott-outside-dusk.jpg' alt='Marriott at RTP')
 
         div(class='alert alert-danger')
-            span.
-                Our hotel room block is not open for booking at this time.  It will be opened soon!
-            //- p.
-            //-     #[i(class='fas fa-exclamation-triangle')] A one-night deposit (plus current taxes of 13.5%) is required to make a reservation. This deposit is non-refundable so please be certain of your attendance before booking. It may take three business days for the deposit to appear on your bank statement.
+            p.
+                #[i(class='fas fa-exclamation-triangle')] A one-night deposit (plus tax) is required to make a
+                reservation. The Marriott at RTP will be processing these deposits approximately two months before BWS
+                2021. It may take several business days for the deposit to appear on your bank statement once processed
+                by the hotel. This deposit is non-refundable so please be certain of your attendance before booking.
 
         p
             | Bewhiskered 2021 will be hosted in the Marriott at Research Triangle Park, just a few minutes drive away
@@ -37,27 +38,26 @@ block content
             | to get out and explore.
 
         p.
-            Room block pricing for Bewhiskered 2021 will be featured here soon.
-        //- p
-        //-     | The rate below is available until 2021 (TBD). If the room block fills up, we will communicate updates over our social media accounts.
-        //-
-        //- div(id='hotel-room-block' class='row row-cols-1 row-cols-md-2')
-        //-     div(class='col')
-        //-         table(class='table')
-        //-             tr
-        //-                 th Room Type
-        //-                 th Price
-        //-                 th Max People
-        //-             tr
-        //-                 td Double
-        //-                 td $89/night
-        //-                 td 4
-        //-             tr
-        //-                 td King
-        //-                 td $89/night
-        //-                 td 2
-            //- div(id='hotel-hotel-links' class='col')
-            //-     a(id='hotel-room-block-button' class='btn bnt-lg btn-outline-primary w-100' href='https://www.marriott.com/event-reservations/reservation-link.mi?id=1583850257301&key=GRP&app=resvlink)') Reserve a Room
+            The rate below is available until November 11, 2021. If the room block fills up, we will communicate updates
+            over our social media accounts.
+
+        div(id='hotel-room-block' class='row row-cols-1 row-cols-md-2')
+            div(class='col')
+                table(class='table')
+                    tr
+                        th Room Type
+                        th Price
+                        th Max People
+                    tr
+                        td Double
+                        td $89/night
+                        td 4
+                    tr
+                        td King
+                        td $89/night
+                        td 2
+            div(id='hotel-hotel-links' class='col')
+                a(id='hotel-room-block-button' class='btn bnt-lg btn-outline-primary w-100' href='https://www.marriott.com/events/start.mi?id=1619549938591&key=GRP') Reserve a Room
                 
 
         div(class='maps-responsive')
@@ -72,39 +72,43 @@ block content
 
         p
             | Marriott at Research Triangle Park is located in Durham, NC just off of I-40. Take exit 281 onto Miami
-            | Blvd, then take the next right onto Guardian Dr. Parking in the hotel lot is complimentary for all
+            | Blvd, then take the next right onto Guardian Drive. Parking in the hotel lot is complimentary for all
             | Bewhiskered guests.
-        p
-            | A complimentary airport shuttle is provided by the hotel on the following schedule.
+        //- p
+        //-     | A complimentary airport shuttle is provided by the hotel on the following schedule.
 
-        div(id='hotel-shuttle-schedule' class='row row-cols-1 row-cols-md-2')
-            div(class='col')
-                table(class='table')
-                    tr
-                        th Day
-                        th Time
-                    tr
-                        td Mon - Fri
-                        td 5:00 AM - 11:00 PM
-                    tr
-                        td Sat - Sun
-                        td 8:00 AM - 11:00 PM
-            div(id='hotel-shuttle-schedule-additional' class='col')
-                p
-                    | For additional travel information, please refer to the hotel
-                    | #[a(href='https://www.marriott.com/hotels/maps/travel/rducp-marriott-at-research-triangle-park/') website].
+        //- div(id='hotel-shuttle-schedule' class='row row-cols-1 row-cols-md-2')
+        //-     div(class='col')
+        //-         table(class='table')
+        //-             tr
+        //-                 th Day
+        //-                 th Time
+        //-             tr
+        //-                 td Mon - Fri
+        //-                 td 5:00 AM - 11:00 PM
+        //-             tr
+        //-                 td Sat - Sun
+        //-                 td 8:00 AM - 11:00 PM
+        //-     div(id='hotel-shuttle-schedule-additional' class='col')
+        //-         p
+        //-             | For additional travel information, please refer to the hotel
+        //-             | #[a(href='https://www.marriott.com/hotels/maps/travel/rducp-marriott-at-research-triangle-park/') website].
 
     section(id='hotel-faq')
 
         h1 Frequently Asked Questions
 
         h4 What if COVID-19 prevents me from attending?
-        p
-            | Should COVID-19 affect Bewhiskered 2021, or prevent you from attending the convention, please reach out to the hotel directly. The Marriott will refund your deposit if this occurs.
+        p.
+            Should COVID-19 affect Bewhiskered 2021, or prevent you from attending the convention, please reach out to
+            the hotel directly.
 
         h4 I just made a reservation, when will I see the deposit on my bank statement?
-        p
-            | Please give the hotel three business days to process the deposit. If you’re waiting longer than that please reach out to us at #[a(href='contact@bewhiskeredcon.org') contact@bewhiskeredcon.org].
+        p.
+            The Marriott will not begin processing deposits until approximately two months before BWS 2021 due to our
+            pre-con COVID safety check (see our #[a(href='/about/covid-19') COVID policy]). After this point, please give
+            the hotel three business days to process the deposit. If you’re waiting longer than that please reach out to
+            us at #[a(href='contact@bewhiskeredcon.org') contact@bewhiskeredcon.org].
 
         h4 Does the hotel have any rollaway beds, cribs, or sleeper sofas?
         p
