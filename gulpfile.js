@@ -155,7 +155,11 @@ gulp.task(PUG_TASK, () => {
     .pipe(data((file) => {
       const ext = path.extname(file.path)
       const relPath = path.relative(__dirname, file.path)
-      const fileUrl = path.join('/', relPath.substr(0, relPath.length - ext.length))
+
+      // Normalizing path based for posix separators to resolve path mismatch on windows compile impacting mixins.
+      const relPathParts = relPath.substr(0, relPath.length - ext.length).split(path.sep)
+      const fileUrl = path.posix.join('/', ...relPathParts)
+
       return { fileUrl }
     }))
     .pipe(pug({
