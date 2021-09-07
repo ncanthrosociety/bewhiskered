@@ -66,6 +66,9 @@ html(lang='en' prefix='og: http://ogp.me/ns#')
             div(class="collapse navbar-collapse" id="navbarResponsive")
                 div(id='navbar-links-container' class='ml-auto')
                     ul(id='common-links' class='navbar-nav w-100')
+                        +navActiveLinkDropdown('events', 'Events', [
+                          { href: '/events/main',          text: 'Main Events' }
+                        ])
                         +navActiveLinkDropdown('about', 'About', [
                           { href: '/about/bewhiskered',          text: 'Bewhiskered' },
                           { href: '/about/faq',                  text: 'FAQ' },
