@@ -47,8 +47,17 @@ to be installed manually, but are listed for informational purposes.
 5. Open `http://localhost:3000`!
 
 Alternately, you can run `npx gulp watch` or `npm gulp-watch`. This will run
-the default build, set gulp to watch and rebuild files when the are edited,
+the default build, set gulp to watch and rebuild files when they are edited,
 then serve the website, all in one step!
+
+Or... you can do everything through Docker. Just install/launch Docker, then 
+run
+
+```
+$ rm -rf node_modules
+$ docker build -t bws .
+$ docker run --rm -it -v "$PWD:/bewhiskered" -p "3000:3000" bws
+```
 
 ## Deploying
 
