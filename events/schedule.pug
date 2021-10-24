@@ -1,0 +1,64 @@
+extends /base
+
+
+block variables
+  - var title = 'BWS 2021 Events Schedule'
+
+
+block content
+
+  include /mixins/schedule/events-list
+  include /mixins/schedule/event-tile
+
+  -
+    const sorted = events
+            .slice()
+            .sort((a, b) => a.type.localeCompare(b.type))
+            .sort((a, b) => a.start - b.start)
+
+    let timeBucket = []
+    let dateBucket = []
+    let buckets = []
+
+    if (sorted.length) {
+      let previousTime = sorted[0].start
+
+      for (let event of sorted) {
+        if (event.start.getDate() !== previousTime.getDate()) {
+          buckets.push([previousTime, dateBucket])
+          dateBucket = []
+        }
+
+        if (event.start.getTime() !== previousTime.getTime()) {
+          dateBucket.push([previousTime, timeBucket])
+          timeBucket = []
+        }
+
+        timeBucket.push(event)
+
+        previousTime = event.start
+      }
+    }
+
+
+  each dateEntry in buckets
+    - let date = dateEntry[0]
+    - let times = dateEntry[1]
+
+    h1=Intl.DateTimeFormat('en-us', { weekday: 'long', month: 'short', day: 'numeric' }).format(date)
+
+    table(class='table schedule-table')
+      thead(class='thead-light')
+        tr
+          th Time
+          th Events
+      tbody
+        each timeEntry in times
+          - let time = timeEntry[0]
+          - let events = timeEntry[1]
+
+          tr
+            td=Intl.DateTimeFormat('en-us', { timeStyle: 'short' }).format(time)
+            td
+              each event in events
+                +event-tile(event)

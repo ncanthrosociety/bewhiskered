@@ -1,0 +1,118 @@
+-
+    /**
+     * @typedef {Object} Event
+     *
+     * @property {string}        title               Event title.
+     * @property {string}        type                Event type. One of: main-event, guest-performance, panel,
+     *                                               after-dark-panel, social-event, general-open-hours, setup,
+     *                                               shutdown, or other.
+     * @property {Array[string]} hosts               Event host names.
+     * @property {string}        location            Event location.
+     * @property {Date}          start               Event start date.
+     * @property {Date}          end                 Event end date.
+     * @property {Object}        [streamPlatform]    Streaming platform if the event will be streamed.
+     * @property {string}        streamPlatform.name Streaming platform display name.
+     * @property {string}        streamPlatform.type Streaming platform type for styling (Twitch, MixCloud, etc.).
+     * @property {string}        streamPlatform.link Streaming platform link.
+     * @property {string}        description         Event description.
+     */
+
+    // TODO Get names for all the room locations.
+
+    // All times for BWS are in EST.
+    // Links:
+    // Twitch   - https://www.twitch.tv/ncanthrosociety
+    // MixCloud - https://www.mixcloud.com/live/NCAnthroSociety/
+    const events = [
+        {
+            title: 'Opening Ceremonies',
+            type: 'main-event',
+            hosts: ['NC Anthro Society Staff'],
+            location: '[MAIN STAGE]',
+            start: new Date('2021-11-12 12:00 PM EST'),
+            end: new Date('2021-11-12 1:00 PM EST'),
+            streamPlatform: {
+                name: 'Twitch',
+                type: 'twitch',
+                link: 'https://www.twitch.tv/ncanthrosociety',
+            },
+            description: '[Something about opening ceremonies.]',
+        },
+        {
+            title: 'Uncle Kage\'s Story Hour',
+            type: 'guest-performance',
+            hosts: ['Uncle Kage'],
+            location: '[PANEL ROOM 1]',
+            start: new Date('2021-11-12 9:00 PM EST'),
+            end: new Date('2021-11-12 10:30 PM EST'),
+            description: '[description]',
+        },
+        {
+            title: 'Marten Microbiology',
+            type: 'panel',
+            hosts: ['Chise'],
+            location: '[PANEL ROOM 1]',
+            start: new Date('2021-11-12 7:30 PM EST'),
+            end: new Date('2021-11-12 9:00 PM EST'),
+            streamPlatform: {
+                name: 'Twitch',
+                type: 'twitch',
+                link: 'https://www.twitch.tv/ncanthrosociety',
+            },
+            description: '[description]',
+        },
+        {
+            title: 'XXX Charades',
+            type: 'after-dark-panel',
+            hosts: ['Gypsy Rayne', 'Orrin ThunderHoof'],
+            location: '[PANEL ROOM 1]',
+            start: new Date('2021-11-14 12:30 AM EST'),
+            end: new Date('2021-11-14 2:00 AM EST'),
+            description: '[description]',
+        },
+        {
+            title: 'Car Meet',
+            type: 'social-event',
+            hosts: ['Gray'],
+            location: 'Parking Lot',
+            start: new Date('2021-11-13 10:30 AM EST'),
+            end: new Date('2021-11-13 12:00 PM EST'),
+            description: '[description]',
+        },
+        {
+            title: 'Game Room',
+            type: 'general-open-hours',
+            hosts: [],
+            location: '[GAME ROOM]',
+            start: new Date('2021-11-12 12:00 PM EST'),
+            end: new Date('2021-11-13 12:00 AM EST'),
+            description: '[description]',
+        },
+        {
+            title: 'Dealer Setup',
+            type: 'setup',
+            hosts: [],
+            location: '[DEALER DEN]',
+            start: new Date('2021-11-12 8:30 AM EST'),
+            end: new Date('2021-11-12 12:00 PM EST'),
+            description: '[description]',
+        },
+        {
+            title: 'Dealer Shutdown',
+            type: 'shutdown',
+            hosts: [],
+            location: '[DEALER DEN]',
+            start: new Date('2021-11-12 6:00 PM EST'),
+            end: new Date('2021-11-12 7:00 PM EST'),
+            description: '[description]',
+        },
+        {
+            title: 'Dance Comp Tryouts',
+            type: 'other',
+            hosts: ['NC Anthro Society Staff'],
+            location: '[PANEL ROOM 1]',
+            start: new Date('2021-11-12 5:30 PM'),
+            end: new Date('2021-11-12 7:00 PM'),
+            description: '[description]',
+        },
+    ];

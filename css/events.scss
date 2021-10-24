@@ -1,0 +1,58 @@
+// Imports
+@import 'node_modules/bootstrap/scss/mixins';
+
+.schedule-table {
+  td:first-of-type {
+    width: 100px;
+  }
+}
+
+.event-tile {
+  margin-bottom: 0.5em;
+
+  @include media-breakpoint-up(md) {
+    &:not(:last-of-type) {
+      margin-right: 0.5em;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    width: 100%;
+  }
+
+  &.event-main {
+    background-color: orange;
+  }
+  &.event-guest-performance {
+    background-color: blue;
+  }
+  &.event-panel {
+    background-color: yellow;
+  }
+  &.event-after-dark-panel {
+    background-color: purple;
+  }
+  &.event-social-event {
+    background-color: green;
+  }
+  &.event-general-open-hours {
+    background-color: lightgreen;
+  }
+  &.event-setup {
+    background-color: lightsalmon;
+  }
+  &.event-shutdown {
+    background-color: lightcoral;
+  }
+  &.event-other {
+    background-color: gray;
+  }
+}
+
+.popover {
+  a {
+    color: blue;
+  }
+  .popover-header {
+    color: $bws-text-black;
+  }
+}

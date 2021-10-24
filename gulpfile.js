@@ -19,6 +19,7 @@ const header = require('gulp-header')
 const modernizr = require('modernizr')
 const path = require('path')
 const pug = require('gulp-pug')
+const pugjs = require('./pug-js')
 const pugLinter = require('gulp-pug-linter')
 const rename = require('gulp-rename')
 const sass = require('gulp-sass')
@@ -163,7 +164,8 @@ gulp.task(PUG_TASK, () => {
       return { fileUrl }
     }))
     .pipe(pug({
-      basedir: __dirname
+      basedir: __dirname,
+      locals: pugjs
     }))
     .pipe(header(BANNER_HTML, { pkg }))
     .pipe(gulp.dest(_base))

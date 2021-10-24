@@ -1,0 +1,50 @@
+//-
+    An event tile mixin. Use this to template events on the schedule.
+
+    @param {Event} e Event definition.
+mixin event-tile(e)
+    -
+        let content = [`<div><p>${e.description}</p></div>`]
+
+        if (e.hosts && e.hosts.length) {
+          content.push(`
+          <div>
+            Hosted By: ${e.hosts.join(', ')}
+          </div>
+          `)
+        }
+
+        if (e.location) {
+          content.push(`
+          <div>
+            Location: ${e.location}
+          </div>
+          `)
+        }
+
+        let start = Intl.DateTimeFormat('en-us', {dateStyle: 'medium', timeStyle: 'short'}).format(e.start)
+        let end = isSameDay(e.start, e.end)
+            ? Intl.DateTimeFormat('en-us', {timeStyle: 'short'}).format(e.end)
+            : Intl.DateTimeFormat('en-us', {dateStyle: 'medium', timeStyle: 'short'}).format(e.end)
+        content.push(`
+        <div>
+            ${start} - ${end}
+        </div>
+        `)
+
+        if (e.streamPlatform) {
+          content.push(`
+          <div>
+            Streaming on <a href="${e.streamPlatform.link}">
+              <i class='fab fa-${e.streamPlatform.type}' title="Streaming Platform: ${e.streamPlatform.name}">
+                ${e.streamPlatform.name}
+              </i>
+            </a>
+          </div>
+          `)
+        }
+
+    button(
+        type='button' class=`btn event-tile event-${e.type}` data-container='body' data-toggle='popover'
+        data-trigger='focus' data-placement='bottom' data-html='true' title=e.title
+        data-content=content.join('\n'))=e.title
