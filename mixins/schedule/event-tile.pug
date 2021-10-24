@@ -35,7 +35,7 @@ mixin event-tile(e)
         if (e.streamPlatform) {
           content.push(`
           <div>
-            Streaming on <a href="${e.streamPlatform.link}">
+            Streaming on <a href="${e.streamPlatform.link}" target="_blank">
               <i class='fab fa-${e.streamPlatform.type}' title="Streaming Platform: ${e.streamPlatform.name}">
                 ${e.streamPlatform.name}
               </i>
