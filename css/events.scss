@@ -10,47 +10,53 @@
 .event-tile {
   margin-bottom: 0.5em;
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(sm) {
     &:not(:last-of-type) {
       margin-right: 0.5em;
     }
   }
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(sm) {
     width: 100%;
   }
 
-  &.event-main {
-    background-color: orange;
+  &.btn {
+    color: $bws-text-black !important;
+    font-weight: bolder;
+    border-color: transparent;
+  }
+
+  &.event-main-event {
+    background-color: $bws-supplementary-orange;
   }
   &.event-guest-performance {
-    background-color: blue;
+    background-color: $bws-supplementary-cyan;
   }
   &.event-panel {
-    background-color: yellow;
+    background-color: $bws-supplementary-yellow;
   }
   &.event-after-dark-panel {
-    background-color: purple;
+    background-color: $bws-supplementary-purple;
   }
   &.event-social-event {
-    background-color: green;
+    background-color: $bws-supplementary-dark-green;
   }
   &.event-general-open-hours {
-    background-color: lightgreen;
+    background-color: $bws-supplementary-green;
   }
   &.event-setup {
-    background-color: lightsalmon;
+    background-color: $bws-text-orange;
   }
   &.event-shutdown {
-    background-color: lightcoral;
+    background-color: $bws-supplementary-burgundy;
   }
   &.event-other {
-    background-color: gray;
+    background-color: $ncas-color-accent-60-grey;
   }
 }
 
 .popover {
   a {
-    color: blue;
+    color: $bws-supplementary-navy-blue;
   }
   .popover-header {
     color: $bws-text-black;
