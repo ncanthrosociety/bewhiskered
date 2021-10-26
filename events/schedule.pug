@@ -2,15 +2,20 @@ extends /base
 
 
 block variables
-  - var title = 'BWS 2021 Events Schedule'
-
-
-block content
 
   include /mixins/schedule/events-list
   include /mixins/schedule/event-tile
 
   -
+    var title = 'BWS 2021 Events Schedule'
+
+    function formatDateForID(dateString) {
+      return dateString.toLowerCase().replaceAll(' ', '-').replaceAll(',', '')
+    }
+
+    const dateFormat = Intl.DateTimeFormat('en-us', {weekday: 'long', month: 'short', day: 'numeric'})
+    const timeFormat = Intl.DateTimeFormat('en-us', {timeStyle: 'short'})
+
     const sorted = events
             .slice()
             .sort((a, b) => a.type.localeCompare(b.type))
@@ -21,44 +26,64 @@ block content
     let buckets = []
 
     if (sorted.length) {
-      let previousTime = sorted[0].start
+      let previousDate = dateFormat.format(sorted[0].start)
+      let previousTime = timeFormat.format(sorted[0].start)
 
       for (let event of sorted) {
-        if (event.start.getDate() !== previousTime.getDate()) {
-          buckets.push([previousTime, dateBucket])
-          dateBucket = []
-        }
+        const date = dateFormat.format(event.start)
+        const time = timeFormat.format(event.start)
 
-        if (event.start.getTime() !== previousTime.getTime()) {
+        if (time !== previousTime) {
           dateBucket.push([previousTime, timeBucket])
           timeBucket = []
         }
 
+        if (date !== previousDate) {
+          buckets.push([previousDate, dateBucket])
+          dateBucket = []
+        }
+
         timeBucket.push(event)
 
-        previousTime = event.start
+        previousDate = date
+        previousTime = time
       }
+
+      dateBucket.push([previousTime, timeBucket])
+      buckets.push([previousDate, dateBucket])
     }
 
+
+block navbar-page-links
+
+  each dateEntry in buckets
+    - let date = dateEntry[0]
+
+    li(class='nav-item')
+      a(class='nav-link js-scroll-trigger' href=`#events-schedule-${formatDateForID(date)}`)=date
+
+
+block content
 
   each dateEntry in buckets
     - let date = dateEntry[0]
     - let times = dateEntry[1]
 
-    h1=Intl.DateTimeFormat('en-us', { weekday: 'long', month: 'short', day: 'numeric' }).format(date)
+    section(id=`events-schedule-${formatDateForID(date)}`)
+      h1=date
 
-    table(class='table schedule-table')
-      thead(class='thead-light')
-        tr
-          th Time
-          th Events
-      tbody
-        each timeEntry in times
-          - let time = timeEntry[0]
-          - let events = timeEntry[1]
-
+      table(class='table schedule-table')
+        thead(class='thead-light')
           tr
-            td=Intl.DateTimeFormat('en-us', { timeStyle: 'short' }).format(time)
-            td
-              each event in events
-                +event-tile(event)
+            th Time
+            th Events
+        tbody
+          each timeEntry in times
+            - let time = timeEntry[0]
+            - let events = timeEntry[1]
+
+            tr
+              td=time
+              td
+                each event in events
+                  +event-tile(event)
