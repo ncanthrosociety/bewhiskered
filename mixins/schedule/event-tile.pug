@@ -4,7 +4,11 @@
     @param {Event} e Event definition.
 mixin event-tile(e)
     -
-        let content = [`<div><p>${e.description}</p></div>`]
+        let content = []
+
+        if (e.description && e.description !== '[description]') {
+          content.push(`<div><p>${e.description}</p></div>`)
+        }
 
         if (e.hosts && e.hosts.length) {
           content.push(`
