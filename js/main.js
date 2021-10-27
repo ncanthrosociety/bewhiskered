@@ -111,4 +111,9 @@
     links.css('visibility', 'visible')
   })
   $(window).on('resize', _.debounce(navbarOverflow, 50))
+
+  // Enable popovers.
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
 })(jQuery)
