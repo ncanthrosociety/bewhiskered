@@ -1,0 +1,30 @@
+extends /base
+
+
+block variables
+
+  include /mixins/contacts
+
+block navbar-page-links
+
+    li(class='nav-item')
+        a(class='nav-link js-scroll-trigger' href='#ncas') NCAS
+    li(class='nav-item')
+        a(class='nav-link js-scroll-trigger' href='#bewhiskered') Bewhiskered
+    li(class='nav-item')
+        a(class='nav-link js-scroll-trigger' href='#brff') BRFF
+
+block content
+
+    section(id='contact-us')
+
+        h1 Contact Us
+
+        each contact in contacts
+          section(id=contact.sectionId)
+          h2 !{contact.sectionTitle}
+          ul
+            each address in contact.addresses
+              li.
+                !{address.title}
+                #[a(href=`mailto:${address.address}`) !{'<br>' + address.address}]
