@@ -6,7 +6,7 @@ mixin event-tile(e)
     -
         let content = []
 
-        if (e.description && e.description !== '[description]') {
+        if (e.description) {
           content.push(`<div><p>${e.description}</p></div>`)
         }
 

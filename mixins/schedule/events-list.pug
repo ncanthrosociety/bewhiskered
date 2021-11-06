@@ -6,15 +6,15 @@
      * @property {string}        type                Event type. One of: main-event, guest-performance, panel,
      *                                               after-dark-panel, social-event, general-open-hours, setup,
      *                                               shutdown, or other.
-     * @property {Array[string]} hosts               Event host names.
-     * @property {string}        location            Event location.
+     * @property {Array[string]} [hosts]             Event host names.
+     * @property {string}        [location]          Event location.
      * @property {Date}          start               Event start date.
      * @property {Date}          end                 Event end date.
      * @property {Object}        [streamPlatform]    Streaming platform if the event will be streamed.
      * @property {string}        streamPlatform.name Streaming platform display name.
      * @property {string}        streamPlatform.type Streaming platform type for styling (Twitch, MixCloud, etc.).
      * @property {string}        streamPlatform.link Streaming platform link.
-     * @property {string}        description         Event description.
+     * @property {string}        [description]       Event description.
      */
 
     // TODO Get names for all the room locations.
@@ -28,29 +28,23 @@
         {
             title: 'Dealer Den Setup',
             type: 'setup',
-            hosts: [],
             location: 'Dealer Den',
             start: new Date('2021-11-11 4:00 PM EST'),
             end: new Date('2021-11-11 8:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Early Pre-Reg Pickup',
             type: 'general-open-hours',
-            hosts: [],
             location: 'Headless Lounge',
             start: new Date('2021-11-11 4:00 PM EST'),
             end: new Date('2021-11-11 7:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Convention Store Reg Swag Pickup',
             type: 'general-open-hours',
-            hosts: [],
             location: 'Convention Store',
             start: new Date('2021-11-11 4:00 PM EST'),
             end: new Date('2021-11-11 7:00 PM EST'),
-            description: '[description]',
         },
     // Friday
         // Main Stage
@@ -191,7 +185,6 @@
         {
             title: 'Game Room Setup',
             type: 'setup',
-            hosts: [],
             location: 'Game Room',
             start: new Date('2021-11-12 10:00 AM EST'),
             end: new Date('2021-11-12 12:00 PM EST'),
@@ -200,7 +193,6 @@
         {
             title: 'Game Room Open',
             type: 'general-open-hours',
-            hosts: [],
             location: 'Game Room',
             start: new Date('2021-11-12 12:00 PM EST'),
             end: new Date('2021-11-13 12:00 AM EST'),
@@ -209,16 +201,15 @@
         {
             title: 'Dealer Den Setup',
             type: 'setup',
-            hosts: [],
+
             location: 'Dealer Den',
             start: new Date('2021-11-12 8:30 AM EST'),
             end: new Date('2021-11-12 12:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Dealer Den Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Dealer Den',
             start: new Date('2021-11-12 12:00 PM EST'),
             end: new Date('2021-11-12 6:00 PM EST'),
@@ -227,34 +218,30 @@
         {
             title: 'Dealer Den Takedown',
             type: 'shutdown',
-            hosts: [],
+
             location: 'Dealer Den',
             start: new Date('2021-11-12 6:00 PM EST'),
             end: new Date('2021-11-12 7:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Sponsor Lounge Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Sponsor Lounge',
             start: new Date('2021-11-12 11:00 AM EST'),
             end: new Date('2021-11-12 9:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Zoo/Courtyard Open (24 Hours)',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Courtyard/Other',
             start: new Date('2021-11-12 10:00 AM EST'),
             end: new Date('2021-11-14 1:00 AM EST'),
-            description: '[description]',
         },
         {
             title: 'Charity Table Open',
             type: 'general-open-hours',
-            hosts: [],
             location: 'Charity Table',
             start: new Date('2021-11-12 12:00 PM EST'),
             end: new Date('2021-11-12 6:00 PM EST'),
@@ -263,16 +250,15 @@
         {
             title: 'Registration Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Registration',
             start: new Date('2021-11-12 10:00 AM EST'),
             end: new Date('2021-11-12 8:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Photo Booth Setup',
             type: 'setup',
-            hosts: [],
+
             location: 'Photo Booth',
             start: new Date('2021-11-12 8:30 AM EST'),
             end: new Date('2021-11-12 11:00 AM EST'),
@@ -281,7 +267,7 @@
         {
             title: 'Photo Booth Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Photo Booth',
             start: new Date('2021-11-12 11:00 AM EST'),
             end: new Date('2021-11-14 1:00 AM EST'),
@@ -290,61 +276,54 @@
         {
             title: 'Photo Booth Manned',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Photo Booth',
             start: new Date('2021-11-12 1:00 PM EST'),
             end: new Date('2021-11-12 4:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Headless Lounge Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Headless Lounge',
             start: new Date('2021-11-12 10:00 AM EST'),
             end: new Date('2021-11-13 2:00 AM EST'),
-            description: '[description]',
         },
         {
             title: 'Convention Store - Swag Pickup Only',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Convention Store',
             start: new Date('2021-11-12 10:00 AM EST'),
             end: new Date('2021-11-12 12:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Convention Store Full Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Convention Store',
             start: new Date('2021-11-12 12:00 PM EST'),
             end: new Date('2021-11-12 8:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Guest Services Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Guest Services',
             start: new Date('2021-11-12 10:00 AM EST'),
             end: new Date('2021-11-12 7:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Convention Operations (ConOps) Open (24 hours)',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Convention Operations (ConOps)',
             start: new Date('2021-11-12 9:00 AM EST'),
             end: new Date('2021-11-15 1:00 AM EST'),
-            description: '[description]',
         },
         {
             title: 'Artist Alley',
             type: 'general-open-hours',
-            hosts: [],
             location: 'Artist Alley',
             start: new Date('2021-11-12 10:00 AM EST'),
             end: new Date('2021-11-12 8:00 PM EST'),
@@ -398,7 +377,7 @@
             description: 'In a galaxy not so far away, pairs of furries compete for control of the galactic floor. These dance battles will be brought to you live on the main stage!<br/><br/>Dancers, please be there by 6 PM for check in and sign up early to claim a spot by filling out the form on the Bewhiskered website!',
         },
         {
-            title: 'Dances',
+            title: 'Saturday Dances',
             type: 'main-event',
             hosts: [''],
             location: 'Main Stage',
@@ -409,7 +388,7 @@
                 type: 'mixcloud',
                 link: 'https://www.mixcloud.com/live/NCAnthroSociety/',
             },
-            description: '<p<Time - DJ - Style</p><br/>10:00 PM to 11:00 PM - <a href="https://twitter.com/ryujindj">RyuJin</a> - Big Room, House, Electro, Hardstyle<br/>11:00 PM to 12:00 AM - <a href="https://twitter.com/loprov">Loprov</a> - Open Format / Genre Fluid<br/>12:00 AM to 1:00 AM - <a href="https://twitter.com/DefqonKangaroo">F3NN</a> - Heavy Bass Music<br/>1:00 AM to 2:00 AM - <a href="https://www.mixcloud.com/friccybiccy/">Biccy</a> - Hardcore, Jungle, Breakbeat, Happy Hardcore',
+            description: '<p>Time - DJ - Style</p><br/>10:00 PM to 11:00 PM - <a href="https://twitter.com/ryujindj">RyuJin</a> - Big Room, House, Electro, Hardstyle<br/>11:00 PM to 12:00 AM - <a href="https://twitter.com/loprov">Loprov</a> - Open Format / Genre Fluid<br/>12:00 AM to 1:00 AM - <a href="https://twitter.com/DefqonKangaroo">F3NN</a> - Heavy Bass Music<br/>1:00 AM to 2:00 AM - <a href="https://www.mixcloud.com/friccybiccy/">Biccy</a> - Hardcore, Jungle, Breakbeat, Happy Hardcore',
         },
         // Panel Room
         {
@@ -542,34 +521,31 @@
         {
             title: 'Game Room Setup',
             type: 'setup',
-            hosts: [],
+
             location: 'Game Room',
             start: new Date('2021-11-13 9:00 AM EST'),
             end: new Date('2021-11-13 10:00 AM EST'),
-            description: '[description]',
         },
         {
             title: 'Game Room Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Game Room',
             start: new Date('2021-11-13 10:00 AM EST'),
             end: new Date('2021-11-14 12:00 AM EST'),
-            description: '[description]',
         },
         {
             title: 'Dealer Den Setup',
             type: 'setup',
-            hosts: [],
+
             location: 'Dealer Den',
             start: new Date('2021-11-13 8:30 AM EST'),
             end: new Date('2021-11-13 10:00 AM EST'),
-            description: '[description]',
         },
         {
             title: 'Dealer Den Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Dealer Den',
             start: new Date('2021-11-13 10:00 AM EST'),
             end: new Date('2021-11-13 6:00 PM EST'),
@@ -578,25 +554,21 @@
         {
             title: 'Dealer Den Takedown',
             type: 'shutdown',
-            hosts: [],
+
             location: 'Dealer Den',
             start: new Date('2021-11-13 6:00 PM EST'),
             end: new Date('2021-11-13 7:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Sponsor Lounge Open',
             type: 'general-open-hours',
-            hosts: [],
             location: 'Sponsor Lounge',
             start: new Date('2021-11-13 11:00 AM EST'),
             end: new Date('2021-11-13 4:00 PM EST'),
-            description: 'Donate to SAFE Haven for Cats or bring items for the auction.<br/><br/>See <a href=\"https://2021.bewhiskeredcon.org/events/charity\">here for more info</a>',
         },
         {
             title: 'Super Sponsor Social',
             type: 'general-open-hours',
-            hosts: [],
             location: 'Sponsor Lounge',
             start: new Date('2021-11-13 4:30 PM EST'),
             end: new Date('2021-11-13 6:30 PM EST'),
@@ -605,11 +577,10 @@
         {
             title: 'Sponsor Lounge Open (again)',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Sponsor Lounge',
             start: new Date('2021-11-13 6:30 PM EST'),
             end: new Date('2021-11-13 9:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Car Meet',
@@ -632,61 +603,54 @@
         {
             title: 'Charity Table Open',
             type: 'general-open-hours',
-            hosts: [],
             location: 'Charity Table',
             start: new Date('2021-11-13 10:00 AM EST'),
             end: new Date('2021-11-13 6:00 PM EST'),
-            description: '[description]',
+            description: 'Donate to SAFE Haven for Cats or bring items for the auction.<br/><br/>See <a href=\"https://2021.bewhiskeredcon.org/events/charity\">here for more info</a>',
         },
         {
             title: 'Registration Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Registration',
             start: new Date('2021-11-13 10:00 AM EST'),
             end: new Date('2021-11-13 8:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Photo Booth Manned',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Photo Booth',
-            start: new Date('2021-11-12 2:30 PM EST'),
-            end: new Date('2021-11-12 5:30 PM EST'),
-            description: '[description]',
+            start: new Date('2021-11-13 2:30 PM EST'),
+            end: new Date('2021-11-13 5:30 PM EST'),
         },
         {
             title: 'Headless Lounge Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Headless Lounge',
             start: new Date('2021-11-13 9:30 AM EST'),
             end: new Date('2021-11-14 2:00 AM EST'),
-            description: '[description]',
         },
         {
             title: 'Convention Store Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Convention Store',
             start: new Date('2021-11-13 10:00 AM EST'),
             end: new Date('2021-11-13 8:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Guest Services Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Guest Services',
             start: new Date('2021-11-13 10:00 AM EST'),
             end: new Date('2021-11-13 7:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Artist Alley',
             type: 'general-open-hours',
-            hosts: [],
             location: 'Artist Alley',
             start: new Date('2021-11-13 10:00 AM EST'),
             end: new Date('2021-11-13 8:00 PM EST'),
@@ -706,11 +670,10 @@
         {
             title: 'Martian Dance Competition - Setup',
             type: 'setup',
-            hosts: [],
+
             location: 'Main Stage',
             start: new Date('2021-11-14 1:00 PM EST'),
             end: new Date('2021-11-14 2:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Martian Dance Competition',
@@ -761,7 +724,7 @@
         {
             title: 'Dead Dog Dance',
             type: 'main-event',
-            hosts: [],
+
             location: 'Main Stage',
             start: new Date('2021-11-14 10:00 PM EST'),
             end: new Date('2021-11-15 1:00 AM EST'),
@@ -849,34 +812,31 @@
         {
             title: 'Game Room Setup',
             type: 'setup',
-            hosts: [],
+
             location: 'Game Room',
             start: new Date('2021-11-14 9:00 AM EST'),
             end: new Date('2021-11-14 10:00 AM EST'),
-            description: '[description]',
         },
         {
             title: 'Game Room Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Game Room',
             start: new Date('2021-11-14 10:00 AM EST'),
             end: new Date('2021-11-14 6:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Dealer Den Setup',
             type: 'setup',
-            hosts: [],
+
             location: 'Dealer Den',
             start: new Date('2021-11-14 8:30 AM EST'),
             end: new Date('2021-11-14 10:00 AM EST'),
-            description: '[description]',
         },
         {
             title: 'Dealer Den Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Dealer Den',
             start: new Date('2021-11-14 10:00 AM EST'),
             end: new Date('2021-11-14 6:00 PM EST'),
@@ -885,25 +845,22 @@
         {
             title: 'Dealer Den Takedown',
             type: 'shutdown',
-            hosts: [],
+
             location: 'Dealer Den',
             start: new Date('2021-11-14 4:00 PM EST'),
             end: new Date('2021-11-14 6:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Sponsor Lounge Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Sponsor Lounge',
             start: new Date('2021-11-14 11:00 AM EST'),
             end: new Date('2021-11-14 2:30 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Charity Table Open',
             type: 'general-open-hours',
-            hosts: [],
             location: 'Charity Table',
             start: new Date('2021-11-14 10:00 AM EST'),
             end: new Date('2021-11-14 6:00 PM EST'),
@@ -912,61 +869,54 @@
         {
             title: 'Auction Pickups (Con Signage)',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Charity Table',
             start: new Date('2021-11-14 5:00 PM EST'),
             end: new Date('2021-11-14 6:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Registration Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Registration',
             start: new Date('2021-11-14 10:00 AM EST'),
             end: new Date('2021-11-14 2:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Photo Booth Manned',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Photo Booth',
             start: new Date('2021-11-14 10:00 AM EST'),
             end: new Date('2021-11-14 1:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Headless Lounge Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Headless Lounge',
             start: new Date('2021-11-14 9:30 AM EST'),
             end: new Date('2021-11-15 1:00 AM EST'),
-            description: '[description]',
         },
         {
             title: 'Convention Store Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Convention Store',
             start: new Date('2021-11-14 10:00 AM EST'),
             end: new Date('2021-11-14 7:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Guest Services Open',
             type: 'general-open-hours',
-            hosts: [],
+
             location: 'Guest Services',
             start: new Date('2021-11-14 10:00 AM EST'),
             end: new Date('2021-11-14 7:00 PM EST'),
-            description: '[description]',
         },
         {
             title: 'Artist Alley',
             type: 'general-open-hours',
-            hosts: [],
             location: 'Artist Alley',
             start: new Date('2021-11-14 10:00 AM EST'),
             end: new Date('2021-11-14 7:00 PM EST'),
