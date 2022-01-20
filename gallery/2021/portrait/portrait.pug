@@ -1,150 +1,127 @@
-include mixins/active-link
-include mixins/nav-active-link-dropdown
+extends base
 
-block variables
-    - var hasSplash = false
-    - var title = ''
-
-
-doctype html
-
-
-html(lang='en' prefix='og: http://ogp.me/ns#')
-
-    head
-
-        // Meta attributes
-        meta(charset='utf-8')
-        meta(http-equiv='X-UA-Compatible' content='IE=edge')
-        meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(name='description' content='Bewhiskered Website.')
-        meta(name='author' content='North Carolina Anthropomorphic Society, Inc.')
-        meta(property='og:title' content='Bewhiskered 2021')
-        meta(property='og:type' content='website')
-        meta(property='og:description' content='Bewhiskered 2021 Convention Website.')
-        meta(property='og:site_name' content='Bewhiskered 2021')
-        meta(property='og:image' content='https://2021.bewhiskeredcon.org/img/bewhiskered-mission-patch.png')
-        meta(property='og:image:type' content='image/png')
-        meta(property='og:image:alt' content='Bewhiskered 2021 Apawllo Mission Patch')
-        meta(property='og:url' content='https://2021.bewhiskeredcon.org/')
-
-        // Favicons
-        link(rel='icon' sizes='16x16' href='/favicons/favicon-16x16.png')
-        link(rel='icon' sizes='32x32' href='/favicons/favicon-32x32.png')
-        link(rel='apple-touch-icon' href='/favicons/apple-touch-icon.png')
-        link(rel='manifest' href='/favicons/manifest.json')
-        meta(name='msapplication-TileColor' content='#da532c')
-        meta(name='msapplication-config' content='/favicons/browserconfig.xml')
-
-        // Page title
-        title Bewhiskered 2021 #{title ? `- ${title}` : ''}
-
-        // Bootstrap core CSS
-        link(href='/vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet')
-
-        // Custom fonts for this template
-        link(href='/vendor/fontawesome-free/css/all.min.css' rel='stylesheet')
-        link(href='https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2' rel='preload' as='font' crossorigin)
-
-        // Custom styles for this template
-        link(href='/css/main.min.css' rel='stylesheet')
-
-    body(id='page-top')
-
-        // Navbar
-        nav(id="navbar" class=`navbar navbar-expand-lg navbar-light fixed-top ${hasSplash ? 'navbar-splash' : ''}`)
-
-            a(class="navbar-brand js-scroll-trigger" href="/")
-                picture
-                    source(srcset='/img/bewhiskered-logo-white.webp' type='image/webp')
-                    source(srcset='/img/bewhiskered-logo-white.png' type='image/png')
-                    img(src='/img/bewhiskered-logo-white.png' alt='Bewhiskered')
-
-            // Navbar links
-            button(class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation")
-                i(class="fas fa-bars")
-            div(class="collapse navbar-collapse" id="navbarResponsive")
-                div(id='navbar-links-container' class='ml-auto')
-                    ul(id='common-links' class='navbar-nav w-100')
-                        +navActiveLinkDropdown('events', 'Events', [
-                          { href: '/events/schedule',        text: 'Events Schedule', },
-                          { href: '/events/guests-of-honor', text: 'Guests of Honor' },
-                          { href: '/events/charity',         text: 'Charity and Charity Auction' },
-                          { href: '/events/dealer-den',      text: 'Dealer Den'},
-                          { href: '/events/map',             text: 'Hotel Map'},
-                        ])
-                        +navActiveLinkDropdown('about', 'About', [
-                          { href: '/about/bewhiskered',          text: 'Bewhiskered' },
-                          { href: '/about/faq',                  text: 'FAQ' },
-                          { href: '/about/staff-volunteer-info', text: 'Staff/Volunteer Info' },
-                          { href: '/about/artist-alley',         text: 'Artist Alley'},
-                          { href: '/code-of-conduct/member',     text: 'Member Code of Conduct' },
-                          { href: '/code-of-conduct/volunteer',  text: 'Volunteer Code of Conduct' },
-                          { href: '/code-of-conduct/vendor',     text: 'Vendor Code of Conduct' },
-                          { href: '/about/covid-19',             text: 'COVID-19' },
-                          { href: '/about/what-is-a-furry',      text: 'What is a Furry?' },
-                          { href: '/about/privacy-policy',       text: 'Privacy Policy' },
-                          { href: '/about/contact-us',           text: 'Contact Us' },
-                        ])
-                        +navActiveLinkDropdown('forms', 'Forms', [
-                          { href: 'https://forms.gle/AdeBRth8PEHh8S7P9', text: 'Panel Submission' },
-                          { href: 'https://forms.gle/b1KEsrQcYCLdQmDd8', text: 'DJ Application' },
-                          { href: 'https://docs.google.com/forms/d/e/1FAIpQLSfC9VPeykSYEBwwKWm7yJff7zSerPESryPIs7HUadZN5636fw/viewform', text: 'Remote DJ Application' },
-                          { href: 'https://forms.gle/F35n6iALsLUceHj59', text: 'Volunteer Application' },
-                          { href: 'https://forms.gle/btC6TvuzDy5u7L4U8', text: 'Dancer Sign Up' },
-                          { href: 'https://forms.gle/ske1q3wjSsppGxA8A', text: 'Dance Battles Sign Up' },
-                        ])
-                        +navActiveLinkDropdown('registration', 'Registration', [
-                          { href: '/registration',                  text: 'Member Registration' },
-                          { href: '/registration/dealers',          text: 'Dealer Registration' },
-                          { href: '/registration#registration-djs', text: 'DJ Registration' },
-                        ])
-                        li(class='nav-item')
-                            +activeLink('/hotel', 'Hotel')(class='nav-link')
-                        li(class='nav-item')
-                            a(class='nav-link' href='https://ncanthrosociety.com' target='_blank') NCAS#[i(class='fas fa-angle-double-right')]
-                    ul(id="navbar-block-links" class='navbar-nav w-100')
-                        block navbar-page-links
-                        li(id='navbar-block-links-overflow' class='nav-item dropdown')
-                            a(id='navbar-block-links-overflow-toggle' class='nav-link dropdown-toggle' href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') More
-                            div(id='navbar-block-links-overflow-dropdown' class='dropdown-menu dropdown-menu-right' aria-labelledby='navbar-block-links-overflow-dropdown-toggle')
-
-        // Main body
-        div(id='content' class='container-fluid' role="main")
-            block content
-
-        // Footer
-        footer(id='footer')
-
-            div(class='icon-box')
-                a(class='icon-link' href='https://twitter.com/bewhiskeredcon')
-                    i(class='fab fa-2x fa-twitter' title="Twitter")
-                a(class='icon-link' href='https://www.facebook.com/BewhiskeredCon')
-                    i(class='fab fa-2x fa-facebook' title="Facebook")
-                a(class='icon-link' href='https://www.instagram.com/bewhiskeredcon/')
-                    i(class='fab fa-2x fa-instagram' title="Instagram")
-                a(class='icon-link' href='https://t.me/BewhiskeredCon')
-                    i(class='fab fa-2x fa-telegram-plane' title="Telegram Announcements")
-                a(class='icon-link' href='https://telegram.bewhiskeredcon.org')
-                    i(class='fab fa-2x fa-telegram' title="Telegram Chat")
-
-            p Copyright #{ new Date().getFullYear() }, #[a(href='https://ncanthrosociety.com') NCAS].
-
-        // Bootstrap core JavaScript
-
-        script(src='/vendor/jquery/jquery.min.js')
-        script(src='/vendor/bootstrap/js/bootstrap.bundle.min.js')
-
-        // Plugin JavaScript
-        script(src='/vendor/jquery-easing/jquery.easing.min.js')
-        script(src='/vendor/lodash/lodash.min.js')
-
-        // Google Analytics
-        script(src="https://www.googletagmanager.com/gtag/js?id=UA-148960561-2")
-
-        // Modernizr
-        script(src='/vendor/modernizr/modernizr.min.js')
-
-        // Custom scripts
-        script(src='/js/main.min.js')
-        script(src='/js/google-analytics.min.js')
+    // Main body
+    #content.container-fluid(role='main')
+      #noslide.col.text-center.mb-2
+        a.btn.btn-lg.btn-outline-primary.w-100(href='https://photos.app.goo.gl/nRvXe9vyWiYaun1J9') Non Slideshow Gallery
+      script(src='https://cdn.jsdelivr.net/npm/publicalbum@latest/embed-ui.min.js', async='')
+      .pa-carousel-widget(style='width:670px; margin:auto; height:880px; display:none;', data-link='https://photos.app.goo.gl/nRvXe9vyWiYaun1J9', data-title='Bewhiskered 2021: Portrait Photos', data-description='117 new items · Album by NC Anthro Society', data-delay='3')
+        object(data='https://lh3.googleusercontent.com/xltNxxaQdzGA9tKbZ0rwN-FnDABOltHTC5gvPq8M57iYI7SIfMTLEbd4bsgESAD6WmtinxZUP7q46HDQpOLrBJq7wxbFeB5YG8qeYvN_VFMqtywPkgqjS6FCEN9kkXVIsXu11Q48iQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/ycD8LU82slYMEt2W8DuWmiuF3Rd2ltDTTHzwVAFwS1kphpP29NkugzoRmVwA04W3eF4yXW-A8x9ms-zroZyXWv3ClqG56f26MMs_U4FzhZR5PstyNnKBiu9t_rTIOFojZpePRW443g=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/Idu1gFdTYQFWiY0a-D3xfo_x0hAhl9RkWDSmNb8mtS7pf1tLJVkWohpmnai-v5Nc2xp6rFqajqmt18Vhw_cZCtQH-6mTb7orciId7QTW34_fkIzurC8ETHPHyN9PeagmegxL7xWp_w=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/O9pqZ1AOzWFH8XBzZ-u2ZqnQN3C9Rtx74ntrWDeHUFEv-Ih9pN9w78NqJ80rfC1rlZ8bRen9s6AfvknLznY7iMfbkI6p5Vv6I9YuGkc00rIpZHguTn4MfaDCFbvTOGFdmC-1nqzggQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/mEaglOz0nuQrrJaNBncUco5aV6eyT5U-sQF3a8fGsbqh04AiyvzRkfsy0SzKcZnkh6r6RXH6OD1E1E5f-uPccNjAALqCsZLd9XNPsxcTokjTSl58xKAVk3GHuH6wiv6vSSfTiA_l6A=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/CsV9wb5EHx1kObXvFW2wBThxAMqG_7w2jvn4lBBobI99DsElauVBZAZYK93qiWuwCkBP2rvwRx38NVjNgI4fCPrFDW7n9DWVJLNVRWPgIAQd8ekLnGS2ndaN0LGVfJgZ3aoKKxK9rw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/pWJnDXoV4GrbvzJGyYyaY-IbKiv6MHycOk_PswkLHG-KveXlukRcee4BMhvsSAphtuZPbSXG67SdtgxbYmK_BC9VNZtKyJ_lMGNmV42yZOEwfZ5ZoZB58zG0gFNg17iMqTd8X_1GkQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/GBLKLhp32uuWCw3JhPbpUo4EaMl2PGRO-ag2O1o70MFS6a5N5zpgp5FQhmN8Y6Mb8z_g5heSkpMzE39PaUIkl_ZGf8m0mZ1PSEE31BEveqLYYLoA2OOMGEry6CFc9qpvMnDf812DFQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/ODp5wOvV4BBCHEsWTsqGNn_iyDkYmKK8jsh_hV3g7asBauyT-wK_gb0rquEZGanphCv6wiLgW1SGMv0Ere7PI7LjCZvQM1BN0wBtHMufLfD-zcqCj1YLr59S3Q35Q-AjvPE7S50u6w=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/g-nTwVe-zlYWLo4qzDhBY_xKBCit8QRHoJWP6gLsh2iBAirNxA4_w68YIX0EiZT4Jv40fux5gYXnku9zYxl_XQmSX1a04AD-hJ5Ikot4k62GJDpKStDbs57Vljisdk00K4O6HCIjUw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/kBM_AorKs4El8WbyOqfpgVl-KbLcuF11OivdBkjavad-PR2OcfseQxLpcBEhQh7ge7xAZRBstbvPOMVZqyN_3VPw2ATz-UWxyvqBP1u4EqxbcbFFvoYtdx9d3jBa8CaX4nQuZPJd2A=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/84396Jen0miNv6f_wCNWPlFweCPbcxbA0LID4x8NFBSiuq3SbV68dw78YvBiaaPLN0o4qLc08xwD4Mu3GovVzJh-8Vj8fxDFepdSJ1_OI-OCeOR71r6fmV3OgLxTzvVBZWktN8kcvg=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/qqVif-0AB9IRIvAZ8CNcPIPSDimoopznl5yHlduu0FWBGxGmPrlU9JLGbRvlYOJ6SKos4ezkwQTljTi1paGnsheT3D8shAI3hKpI0nLBPZ0TkN4MITjqS-KC4EinHlmBz2oskrIHog=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/hLp-HJs_mEGDk1__DXKqlUl4m5oz7lf-LLnzgquiekgjGxdc00X5cCBwW7M8vygViNPBvwwh_K2L8euBtVvoBJenB3CbZ4PQmedGqNWzuu-aHCd4CJOLlZqpD49Ad0723VshIuqzvQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/zSvqqXojT8UMJtXwz0HNMRVBb-jmmWtKjBxZClwefVP6upaIJ4Dr6WzDIm8wddQ5wGQVAE1UtnFZXSWqwchqcAap2hbdiz3DbOIvZ2sbxrX-OWt144P6T23SQVMnLvPmb4goRszM8A=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/2bj6muU5Y_6vyEU4bNeei1oqDcXcyAhaygOwmcIHyJZ7s3u4OA9iu6hOLZrRUoy9rjlZHk1QJ1mzQjEbBniew_H4JuDwUsLuBR4_TLmF-UPyLoOXd_O25RZxUUgvEg868iBzbynB4g=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/S82xOV89Dox6pAc2IgSW845d0qc_F8xBqHEPCUfUiCadv0ZLylUnsZO6Y9uZO8QmDBgUiKoVpNltczxbIcHXdXZqANNp5MOmp8g25PrJmsMfrfqqI3dYK3UPqI0fon9T1zjpZgV9tA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/XtB8s9KP1zNpB4DAYWimAE1eAKyh7abAX9kgK5OJBfdq8Zx3hhmesp0-VfyZIEDv6dbCgQhMZOIc6dtjIR-oOF3i5ggwMISczaczLAv01IRwMii9vviLHwC-Gv-Cv1lnX52ngSEL5Q=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/-d8LCB51BEsthSs4-cZiq_mKmdOngWOVCcv1XqwSdpddtRmzn6aw4adt_y0KLQXc_15zt2JxOydp4FUWTBNxbrJVCnsRimXkVdnAGpUg0zh7X87zippx5xrEHRhgnSBkvq4M4rFVHw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/tUKU49QFAmwP_UUeEdpwA-FTw4XQ3HVPOThAe_n6sM9Xzj1hkUU-SJin0YHBvbiaJBiYbDXXIjOFzeoKaq0RhCQ-I48lHXI5NUUCyyoaInmQsTDNb0-9LN-oA7wO4E64kqGOy8wBrw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/9EAne0ayJnJZiNW6z0_S49d1Kvbr7xdQ8VYDzEMk0ZJAu63rDydB6iytBINvxHQ16pymNsEUxuxHAMPilwd_VliNq7jI_3b94y6noyI7UVisIozlVbgFSl4HbuJSlKbwhyrwzf44LQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/Z-3e4XS7ovoueLyZiro8bv3DcOyPvLVUZ-5xYQJvD1akMz8iT8G71Zwb5ncHaCdybz_qZFSqgAfW0WSv7gqHoD7Pki7yPaxc_TF041qolmoCYVEU6mfBaA2hp0kZdxnNXSqQtFPBfA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/6IURXxgwxYC0VokgsmB8TSYhc-kLSdU7Yt7ukUNjo2Rq9cwOzrMXcFJYb9FrCviy82k_NNZwOuUUDpgz1vVVcZq4NKTKtZqegOXWwIwNFwlJPibxzd4hheuwYQv0bYNzVmETuGJDfw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/HBJZHxfYh7R5pwJeNOUVnX8hy0tR87ZbrSUu482eekSjh2SiVmJkOX9znokOm7kU0pZyazS3iwRjMW_SKkBZxIQPbe9Mk2bwDUzJcHZf3CTPR5xEgwsA6KD3HkjPL3RmyCJSEvlkSQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/10QfKDSKKfZSVV4ixeYKjzcAAR4A8GxBhsAnXQd8eTR7rlwBNQAXU3SZIqqhn2WX1whcHs50gXWJBDAy_5fuZZgEz9LbS-_8AC9iN1KHjL5W16a_3QaCzJfZmk7oE7owZE2idoz80A=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/jwSxiyNJOOBefHSXO51hJIlIiUKXbAnuClGBL1a3iN26R5icfYyKhDwGC2H1EXRyJdfHPB5vO2XpWCTaifu7Z6cykARPlKL6FpzyuUgpYGDpqgpbRZzprZKbmv8Y-43E_cE7LJ60FQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/2gmSgR99pyYSayBs52FW5dyz5mQZzxG-uXOUwjdzQ6Ysbhf_-M4Jhun1Fsw_B02WGaHithItT2Ivu-1oRZyoDz8G3RP4nnEwxuFfimAF1NNfl-LVrtQzYx8KlRk74YUVBPS7ALqovQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/JJ4rufE6aTBvSex-KJY7RB3z4xLvzGw598aKC9fiSJThIZBG0MjYyt7EpbeDka4sXKk6Oh5O6ENWu4xEAIbf85wnxtMLC0ZCUVwEpUHYeqJiW4KhQRjg4DyQHogQlzbyFQMjqbdv2Q=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/EJ-vH_bw5ua7ymmYCwwisuavzeRgPVH1-TwByqhLeuR0Sp3oA3uQCcwBZXt390xwqhMCLHddbuWsMj-gPyFtAr0Kwu2DZJvjo7edXVX0StXBDbxIppDwhivzOLoVFapiyFStvG0Wsw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/ASthrx4SNwbGbyh03BpeA_1NiCt6w48WZf19aTg0JcF5eMsREmmHRqTcQnjTbWrVk0pUXJdN1jz-Kb3A0eDkxaHYy4D03SFgH4ezl8p95P8TsuVgslzC2wteeXUoziHAWbYwfgeAJQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/eLqAhPKPqJm6xAzb6K25tgrzzy9xP_rwF2vHb9eHfDelZ27FIKtWevLYve_b82-1uwKBnKmi2s8CjJr-NfhY45KdSmsHctwmEXvgKv0XCp0omK9H3CngDZqgUm7spJbJmR3wwLNX-A=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/7mpwmYlE5YhoLatkgjWisLp0GkkkzpDsEa9XWF3KiyuM6mvzyueSKc-up1fRXP950xyzX1KWTgF_0chnzv97rcK49FZhhuGqr8SCQl5eCpvI7Iu-uUbim0QEOmYon6Csv0Pq39bx6w=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/gZG3zc5SHspuE6ceDFnMBRmQycjI6CNjimjMSxXiZ7tn9yALwMQIbWBm0xPOREWz-kuuY_CCvzx0S50NiuoSqW1Q31V2vQ6X_uPjelYpydwTxsirHPK_Zf7TkEzJelbai8NhiIS1Zg=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/Z1D6xcwzZSZq0Nx8Zb2oZKxBvldWho0lBT54BWkFmWsGi_YAT5f46Pq1zk5phToVFRd6C8RKOf2Hxk0g1dSdP5owj1rGTRC5EiRIV9e17vieJ5GWik92NL9_6Pz8OcpHrANKypBOsg=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/7Dn33iWRL0W32S0AoBvoZlfLFGwf90SlwF0yGmmuiXIdiKNgweepTxFlj93BTmrcdoAQYz6tYKTZ1-LU3q9ydhrolc7aRiYgImhDqvcmRnoGIXMMSJiLHh_qpTW_Qgak4FTZ8MPp_Q=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/gnGUhNa3bVDoG3rtb-fmnmPpR8Ht-j_6szzrjUQJyJzhzLRRF3r5rrL50vqAYVWz726C85LF_Tff3PgXkyD-PNrisqXnfhkjl9vYRz7W1KTpwew2rjVb8ZwDm-3AEpB546KDpthzyA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/FqpLiVv5fqOtvSn5T4oVnC6F0VvGs7ZA0wwaSTnQ1DdfPTeAxm40emboe7OPcN7QUHnsGF6sn4w61xI6DJNARUatsfmAVWUrm6y_lWu5kfMVUHAp7awhAHMvyOlZJhny9huaKMNhHQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/dcbDT6Ks0rDzS9tuGM3OI9X6GNRPcmlepT8uAH3yg9oksMZUY7IBcngR6wLMcywlEiL98XAqQJMs5k7rSprepatr86MBT8QQrCFAwGwZNFia78NtsUIrUDFF4PRyf8h6j6Fq4kczTQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/u3nNlDmd8yx7v9RmmMvnh6KHMhZX6GIemaRhzg-noaB1gojHtnUiZubPB58zT0E-Oyot4jM89HVTaDhPybYndcLzpDHLJeBUq9CK0iaWVB0_oxMcXmTf3Cyt07ZT_7pwhqZVQAkQIw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/zGQgtzNNlKy-9nag7ouynPnunTNNM1IbbWKrEYzck_P0eU_8kjyckWgUOicTacvgcOJzksUcd46rlhoMkEs_Ay8St0NuVwVn7X17rKMWen-zm7OzWky0Gv_vSRNgJHwjyxbYY5T9nQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/-tP4_bPbIYu0ILY6XQYjHIUcJGw5yiTO5XrxLEl7e0nDA0IEFlPAUgMF9ZLvLjx0plQ8vP9aEtmiBTfEAUoayeEFkMgTSNkW36FACHkHyzMqpr2LX5THnyDb1l5tytp34OXieJkmFQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/BburODCCCZkaQGJ7eJK0yMGfFEqp3RNKFTmBIrg3qHIBM0T6cmYXKBVk0Sz_ulTExQus6O2e7djdQy5TR6D7T6eZfX9455K0flY3xxSBsd1dU8WGyUGMzKDW7gwKENRPj3hEfnQu0g=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/Jl-2Hu5eGJIYamLdr7rg1sH7la_yytLA762UZoLFUtjBYegoFyWYOHqPnFX6_dAT1_sfbPMkAug4I4FlwkDpy_XYhHdxHU5OpAMLiQfxhzjV_xsJqS4chEJZ32oertiSswf-vMuQgg=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/AtlgOIieiFk4oBrOEGrapQ-gByh_CiZ42OWpufUnrYhfqARa3KjNCV6l4cClKQhN0H9R3Vj-gMGs49AOaoIv3_xXnBqNCNV1r-2K1nPRFl0FoZ-pN-Vqrl0Wrptw7SnoVCihX_aj8w=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/cYOrqxlWWJntNtfBDGXwqW50oZHdvF84Z35xqOzyCXVE_fBm2zlesWIdlA5-ly_Wfwj4DNpW3RmE65syjKm1eKpUbC21Cse-QtACzBGSMO2KxpmWC3L-vDJafGWi14vmd0Rn1fo4BA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/yBxcF4YENWK61SwX-ez_2UuTatNhESsXTLf5aqbDjJhSSDN3HAa6QKKhYjxjRjWD55CIH8m-xAYqlaC-82FoBPXxQv0yUGiups2g2MlS2i2BB8iFG1eeNrO08TeNSfWLLwUWveAUmA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/WOqkJ-pkg-g6zjh0Xjo6lnbxcalybH1TQG1rKcu5PS9OW2rQ7n5L_vK4IeUPV2g2jHVnYATv1RRnYr9VpGJTD4f2WsGIO3RyGOOnGizbpmGuAbdNsoc78AIISqm_chpc4G-os10cmw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/JwBtufsmdusGjumQYr1rN9zz9EH-rcOiSaqL0Y3dUf2cY4RcX35PpB8Cjj6-euZXRUKAE4_Ay9Qd28oGmtSOQYVDsDak0Pz6ArW2GF_mLPGeN7QeMTDsWpiejyB_p-qmEgW8gfAoPQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/3dXDnZQ2w6o2xOYYVx0eKMDpsdAZnkkf0hSCdrg49FOdCRcMglLLCuV3E2ujSoZnkjrNbMTL5hwyfvmDuXdKSqr9lQw960QuvZ2mkd4Wst4KJqGE1jxuulU3F5DSJtt770Iy5kwB3A=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/mDEnRfCIazLrjUfrIzgryFG6yPDMO6gDroIH-6731gkCdEVdJ_Lg5wn6Wv7RRm6e0rMB9pUxu5tdmtvLR_wwq1gY-1CBgM-Ow-RKAShJLC-a3cQ7VQyPdjadR1Cuh--M_8vjVlVLOA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/q2U50GuyHAtTgLpayIs4paS3u9U4XIheG5wGPk6NPBCb3QoA1ib30dX5POn5_O92YNtJGe7vEc6Kp6ya45j07HOdJVllBoqFkwRVPPw0gNYVNzNShhqHm4rDirSZqACiPeZKI052bQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/8jmwhfpOEI9lNP9VdxzD4CqlJi9NRagPgfPIcYmB3JQSBv3ElSSv_dl1nPco9LoiOjAKdbTQ-jyVbRIV0lB_Q3Mef_fBBxWEQlgLgDn6OJCt62ZbQQ5xQQY2fSyDoc3YksE36d-yCg=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/3wrnAEOT-P2PjQdlCTq2Rtffa2OiY1fq4vpWOiz3DJT01_s-rpglwspildUlzqEcm3MXUkV4_OyUhOLf4KNoANjP-4y9dcM18_OVdVCd1gvgOgJrVhRFFOmn0F8XFu9K6iLfSO_Wwg=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/PSLb2wOljyUilWTds6a613oZbURo9fg8DyBrxzOdMSu4_lcXdO2gSz5w4BRj9Tdo6In-K_j211r3tBHz4lDSgBZ8KL2n38GeAz_kq1P6_JMVfzFRaC5WsJYqLvWvsRZQ2864pBc8LA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/CEsN2sXdGv6M6yyklY-CTMIKBEASHECTqVOq6ffeP8P2uXXq4Vw9CZIUj5gn8HDGxuXECyamb4qvwiRF1syvtyomOnzU3a1Oc_62Cf3ra6jzgClGTJzdhAErJEMLbI5hxDrbZuM7AQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/pDTVTjIR77bDoXXUYbGXjD35aOMfmNd6sIZkmkfOfgTOD5MK6gdxo9qRVVZIY9Nc479D2tEcddLqcaajuXBfFMSQYVOW5JiAqf5mNuPqYZUPiw18mYxc8X2Kme-AqqPlQUi_ihFS_Q=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/hNR34HfVvxCYrtpEEowk9MBoCFFAVXl9Tp5X3FQ4P01eqcLf-VJRqkjbMkBfpaBs8-QevkVVeA2aKhVgPoQ0UGxXsWXieWfPg50uuF7VxuHNbAc82O6tLqPIxG6Mlrpgn-D3zL8WkQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/fqLyRXJi2pARcIWBc-pCro4Oeu03cKfsL47WtP0iplLPg8n7artJ86XrLiSNG9kd4AE9D95WTXwgsRnjP2WO4KuhoQSlDOrfc-g6fhO0UUTpV4u62ZiZ0erJMc_4MzWR_7y-CuEH0g=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/5ioimh9p4ibgheaw247wr10wUknja1s8tp0jrJxiAvWjtzcCzGvMPKKfoihkms86BUxMTc5F340h9udj_Hy5q6tPqEYVudoPpm2jzoLbqd1SS1_xmk9BRy6CCdadfHWtb5dFK-Gh9Q=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/VSGoe-zoDIiRQC6KHdKzIQ6Az4cFRgq7vSwF-TYoVRj5U0uce3y7LUq0RdfRYmvOVu74DYin7MS3Ngtf8ZEKYh7PBxu1XantSp_xlSqvjOjyX_WRAn7yXizi7YfS64VxE5EEXTwBRw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/E-scQQOGd9bl0Bid2Vk8FEdYn9CH8iroWd1OO1jeuqbNDbSoqW3hAiflAgMFIcPsZ1GVLu_mz1OoNK7mOkBvvbzo7MFUO_8-5pjjFLk16-Ga5YQYqwqDUvibRwukr8IMpu8VMXf_NQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/y46XxLjyneJrKzwgE2lqURTchyGCcuAJHoQrne-Y79j8ypGgh9zoJGqKBn-Fxoxa7M1OZ1rnAIQ62Bqq-2N_yxSPubowM5Y2ex-9H66bv1f8qwRS1irTZpBnciEKqCpiGfQTCqTIRA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/wJ_hMC-6BuhCFTDBNYZimneL3oktmeJaAuD5dbFDFsvCnO42fbMAatCddS8Ad7GdYlYnIohiR_KdJcdgYoJAYhAdGdYw8fe-I3P0Ye0dbpDgoiojVem0hOM0sFwPYSqBLinIcsMQwQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/f-btEtk--uuPv5uYIN8u1GjF6FtS8xsL6nWRBdDAkhbbCG5Flc3mZ89MVTSbqAHWNUR8eb7t3L2KTFoYiMwidEvoitzC3XoOWYLxZnoou0CKK4gPycfNeOiiIfoXlDSBwrFMK4leVg=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/f_YAPi5zbbBjnqRfvn2RsuwWZ2ccOqbtT4tD2YEn5i5lZcPTqVwSENPq-QLrR7jJU1slCrM_grOe1ZwdGAidfTd3T7L4pMs25x9TImZHC5FdhKV8a9LQf1PmNGS9AHq-NlYBXiYe0Q=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/yjJKzUko6G4SkbVM7BtnZ-rLAXGOZ9zC3yOkxOro1ejuZGR2mnKJQFpPyE-x75kG4qDrCya39m7k1nUftsgLjsj_9Ggaxsw0n0UC0-Z02pPa0cSWX8y5nxTOEiBEyzPe0rJ8cF5Wdw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/fjJqU6jLFGLA-pGWLXZnMWNfXMY6NDX-L5MPe8-Fn7eX5ipywrOANWTsN6ZCQ0FBllRzGYS4Po_FPZNe5QYYvpT3z96BeEnPzWGk1_r2gKhjJz2zhUAxWs8RYHxpRNGt70nVxbCOLw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/y13myxI0XvQUYCDQq3h0DshrNmpnAmEaFfJTC_-RBunJ6ErU0ejw1LocyhWs93biqGZSqxmz4voq2PKp6F9AD3zj9-rMTSu18SzhGCnLtwV72TqWQXia8OCRZKfqTn0MGsSU1mNg7Q=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/wjLZuNiw4U_fMckFsiqCmjs_jBhVeqFyko_JwgZLEpiGENd0GiTbPcB1EO5aiaJEZr_UbCLVzu8wyLgcwlFialouithVlGe0nwZILb8a6DN7vOKuXAqenb5BgH8ybAZB_5ZAizkoZw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/_pcRm3OP2C9bWLNIvGtZg1STQQ44t891oQtC8yL2ZDjyc1mMGEBuU1ebH3S78xk3-Yg2yvT0Bm5DGbO1qMKtlKyutx0AIMATP6dSNsyVg9xKGjRWHkYzHPSQErRFb0a7sak7mNjAfA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/2vtJU6CDkfSP9Hxs1wSJUfR_q1wTXeY-itvjnOcdLUNj9sg__ojLkxz-1EklGhvR56J5jcf2P2u9OKpdUJFz4hoK99cu_aaZmCg_ErkvwkqmEa3l8V2Cp87gxQTcn15nPyeLEjPn4Q=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/BPl0R6SqsOA-30vPkf4i86AxVe8_JJS-PASLdTOCgiBEZB-C0tlUH1iGuQhP_PxLIitxShMeNRQUgKIwNG0N6ghNpLmm3Po58AVIU3MQ1u0jC7iR9ZSBzr2GCmIhJQx2uvFPZwOJxQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/BLbOSsfHGiuBz5V7G9KrlRXWeYeIgkTHjdtKLL_fMSRMo6p5Fz7mKRwUFE9G56ozSro_c1ETsdWb_IU8rwc5S7OwpT_izp8tpZxRSLX06PnWxaNEN1SRfZ4Eh6g0SjSPF-Oj5mWxvQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/dtN5PxM0FHmzXwetiaGzRs8mAXlQ3InoJy9IIdQp2Z2G0FEOjwh27PUmWCm-OjNViWx2Z8gd7PaMRjgkNnJ5d5qqUXkas2LhKDL2GXvnAopPBZ4EY9w1xS3PwBHoi66d8HCrEgJgnw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/lWK5IUkQPZrnomogYrlJuF0lvz5gFmMa7twJpyvkNFzowCk13fluVOx8GoayrtQox0gURRTPZlh6PF7EoDNhsJRl8JDQuFRRX92IeYQO6CBk0T8jt21il971e2GFNXuiBPoAWH2Bjg=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/7OySE9twurfm7vQAaMmnDNeT3S00myZkAms5U6kjxCqcTYgDS7TAhlrkYzxQnfFqJ4HS3X7Cwn2vcFZnh37VY1vYaFYUo-z4pic9-JtRND8582FK7SjdepgQRJLmsiA2gLCFcCCOcA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/YSDntMj-Npx_dYvk8kLUBeYB8rXRnFWD9Us8wyCQ7IlhnuY1lf8PI5lkapFW4Tbhlsih4K8LiLlEkRM9K2mDJ1E_XHl94ApSpr00vjLaCfGCvPy4bNjAXngElU1p5AKnwdAUtRSYbA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/QWQs2zYnK7QtgL-cD_owGtmEtxiQU_db59hzO0fZrDiSqiDVxI8sOlbZy8zlwdVpyC-VVqILAArcJWNFpepAVR_Gj-ZPMP9ZMrjIdL_sW5-Dfr7mjtiV9FB8n2BLUhp6LgscnB5tvA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/dKIc5mgkoLh1OE8o4-J3RHgcsl4EB0K_7glMIy0XbgCXqC2BiGqaqePNywSQHFkJf2tLg6d8-keuPB3UuAuF1201tbX-UsVhGC_FAWUKwD7yjqcKna3f7EnO7LxGVPgAdBdAhqdBUw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/xG9jfLXvSyhrG-B9bGXln0M9XIN_j2RG2WgQa_tQjQpGk8qKtwas8UnDg8dRlzrm8tghJkByLDug3dA5JRRg7yJ3eEjzDvVTeU9IF9HhnonqVBGvYiYr3l-R_IPAyqqRsuZeqnfLjw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/ri_7anNvlpqROHcuBOIgdEK9usx73TCH0wTsf83Us2YH5WUZ6eXJ11zNHouTkePiXzgPipeQyJozsEP-V2OTon1wjmXhwd6a3fZl2_HJzZvJDlb2MeBfLpViY8UE7XimsGdAZZ2Kxw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/ThwRzY6vI3gJoSbs9JFoca5cFIMnArouVHa8FApFqKvu2Qugpqcc6BRLEkcFrGxUDNKgSabT3FGYqDeLAaxIEb-TjOYGcwQxyjJS1etF4exIv0oYYW5wGZuJHojjgKV-w0tMu3RNAg=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/nqS-ameXygNrzg_7iBDIA-4eyQf7hlz5XcuzcOTfCM25hSRny4x-DjkNeo3ahJ5YxmDnV3Q79f7U2wFhV0xIE4cd--fOIFCIRlAAXKPenFuDCHsQzg9s51Ebs0AYV-vvyNwdA871TA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/vXGMbfX-jDiHPK1WVUDDtSliXkBREM9v7FWQUxfuB1pE330_8GZp_rCRnVy7Urxfvs4_ORHB01mLjAgTamobb7yTH6acgB5MtdrdSKlIBLh2RKqRDvQ09iA6EL_qQaM-kAB8ZlLK3g=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/lCltkH1XMGC5DVcyyCoC2sriEiTxlDdg9wMPccmfqPKI-hohLJd1a2b6ttO6DQGrxnF_CiSDojLd7AGAfdkmG9CO2fLdWmQSuIvjckTRKZFQRVD8oe1I1jkmhNYixeiaA0KvHSXiIw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/4WlMK8ITy68ZX6qpI74P1zxW2YeYIjSafmLUYM82lsUnLIxbgSJztE7xBQmTIDCOecCtoQsLULMzpPEwZlBV6As3kq604GzGmTKRe6AAIkJtekhnVZXTt_YAxwjKnjir_-3l2LepxA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/7hxOhyYvzjFuJ01FwrmBbAaQsslzf8ATh84Cp-7yyQJodnP9QSxYoGbM8nn-iYZd0f0t-cZWrgs48Wv8tdRr_upTM1QzALOy_8jxohril535oGz_eanG-vi7YtVHwgB4kwIPzH971Q=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/_a5vI4hbvHkdl8np9MMhdNaNCZaBra-Ggf5Bwl0SDEH1fIdITzECEczZmkk64Lnld82h5wpqO-XBbmECvLUhtnXmz1rCXfoNuNfrMC25pm4DUX800v-yKCY8kGB3SBm7v4m0fe3Fjw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/vPlL3RgdBGValDw_Aj6f6zJ4HZXZE4cBgeEi9XS9Uo1VI3zIPtdnyxgtOEtHARWy-zZspwxMKHjH0DfEtidM1dEJFWlPeJ9jSoMg66-tknwbV9d_pRNdf-LPY6u36RFyO-QKRqwfmQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/SeR0h_twoQ3JGQjtLcPZB-nSmRk2S4ojzDC4JzmHYNqqy4jFjvyxwx2IcnCCyyKaXgDeAy27jnue9lg_zT8fG3xAgTFXBubooOozkSN46oik4hQvbppIOwTubGVrsjVa6zGX4QBSZg=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/eZbCeo-Aab9alCprhXng5bf6ma9N4Qu2MvJ52TK5wFf1yU9dvIcj2AOYaa5QdaZs2BdA8N5UEhdNXFU7D2mACaL3k3wWd5M04e5q4MLRaOgRMLLCnragtsEdRWQUCexPFvDD1BJ6_A=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/t1JJKnPVZVDaEar378S79AvCouonrQL0OHbAhPQoqjD6SHrLmGgIzeqCNe6rfIrpgIZzkVY2hgeYU6uYxrP-nUyIYeKf9r4qISZ7F_7h8NNL7dSlIsn2QXI9Y-pMcBrDt8twHqVFAg=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/nNSeOH-1G2JWjYZnKemgqA0JrPOvv9ndOTIIW2Z1zWM8H8MKovtuP-4HzAv7EaoM69Ixk_B-MJ-3ZaPVv1OUfz6ysr7rClPyRYCfMvuNfmWKnR__lw1Q3mLJvHD5zMfiyGJC_tWhOw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/u8Rvc4pmHHQhbfNO5aX51_qUz-fANRXqlxV5nmm3V4Fa7wzSlfPzTDcj6vnHSUYRzhQ4RM1XfjVwGtIFzndzJV4za81judMUgvEzMS3u-nDQ_OX0705QI0fAC_5L2oqBCAgRWQvzdA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/aGJjdtCuveV0WcElIPDYTYLd7YC39wu-zl7RSZNQA1xog3zS-9zqTvjc1cEMd8IQfmIpGCTzKg999kP_2BHasFwmEm_JmybtNXOXJmlNouSMJ_2kPTojZAOj6wjoib29ARnBwks6vg=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/6OzJZtILUNE-g6qUE36T-uchD0qi7URTOX0f2-qTRawAXnUEhOhas5r2yEHrp0r7r5pk-xx4uWIou_VVJVKP_5a-gsPqxfeUU9JuV5lrXBwoIST9A2RVDICSgtBIv6iO0-oWGB7Z4g=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/VQ-uysUzNEJVzsDwLYeo_YlTl7l9blgtNIqRyFmEtpMjYOBp06zrRFb-FJNsLpc4Zvri3MR0f_GVGUrjRu5dw8WQrTVG3pIIIk8Nap9NLKmfSwHff2vnqv2mZYs8_CTliTQ61Yfdlw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/2uFraHJDkrYLa-JovDYRh5SneeF8wenOqO39rdHgOS5YiaD9jONxVshRbIoYBiuH3qKhx_Sci3bv9oJRGTvMNi5kwfRXx0kGAax1UeZboZXC5S6V0g5Ut18_K0oWRJ97DiK1mqhTeA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/0R-R_OkFYH0xJPUm0kKflOFyhjh_0bWpWIRt9AFf2qLxIDIb24X9o5IMa9D64sfe1q-7pI4p203_5_d-L9mut8wkfcVeYOPrt96xX4r55zFvXE5bkyyVc0I_GIQ6fhl-v8TDhkB6wg=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/HZ05zoWAV-WyiRxhC5mAgZAro8qirfAANaL9ieywtCKMrtsxd3GOUvo_bbvmmbrHAh0k3VkrFChsyEhWh165XYDyoVYPJ5IUUwn1zp7dk5B_Tsy6IdQ3elogy1h10Vz_A3S24lMFZA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/RYX6OXufrl_3cNv8jBxMvSc5r8HCsQHkrRmmMcUTA77xJ8pS54eW_ARInVTZEfFJR97J4L5v1XmKcrzOe8f25fWxAj-QVI1kJnwpu5U30lXEpZBqzTw-7E6Kqp7lqjb1l6nElWeygQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/qnY6cVwHwWB384Z85fLDgsImqoOmQHE2aB2Yx_nBr756ckGRj2_TPRFqrLje7TVON1jUf_2siTs0vLx6ZY-4TOIMaz_h933czQpIG059D4RPcUeK2K3B11Q3WS9bhofo8A-F_K-SoA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/EZtnzWyP2t_AXLOeuvDMz2ggy1ctKtXhN7dCZkwASGOQtl6Wn7jJu3oKp_CF2yG50BGueI-MH-G16QK5U7NHS8gIyjCUH07E6bC9gXwPXUaRBFpG1M3b86w7V66IFzHvYsB1IF00VQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/kAIrRaGA9F3HMClgANvrLCSP34CgaLuUy5c9crkzVA06-sANOcZgkdXMCSdw-8_rl4mY_vsS-JuQE_LSfMmi8Ou731zzhZFj9axK1Nu6mhLmKO4k0VJHplZeZkagPetQj1c0XEIoxg=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/RLJ7Wg8vr66elh3Eo9cw_0vJaseu0SNbuXUtMW-sLl3y5viOU1ahajoyrKkh4-zyBJxj4Xs5IHAa2WTDSV4gnJ7Vb8fBKN-DaG6ETHyko5bfBy_h52ncBiKXqZRh61jxMxfO8UOesA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/gVljE0AxxpDZdlu5n14mD9GbjULj1mVHPvold7zowIjQbmERj4OWtUTZo4QwBcvxP51rAntcqJXyou87a5O-ZOYsC7JpjKIEJOX5u6KkDEI3mGpcynMR4X-rVMCJQZRbmQLcSM2gtQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/3wWeTn7k05zy0sO_KQeDL3sjVClD6w8WiZnsZnFxNHy-BfUWu-lBNgJ5Irup86uwPSyDKp0k1euIzCtVQxjcTTD0c_Mswz5OL-aoNphBGHm1MrmH2ig1yyz2fdCDzLuuv5d0zJkqXA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/C2X6a5bHoeCIfMAPekW7Y7DeF-DqiK_OkQd_-U21zqfYWKzYEtzSxLByG27h97SJY9z_5kGCywSyBsiUMeKRwHr2RsuPcYEZiSAL7os7yXtYqFg2LO0y5hMZIdo8vWvE6-Tj5GIo_A=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/0AXgj4Zvo1ryuP0gCVf5Wj9IKB85W9bImkGoH3gwfuJXc7q94d2bZtb6YtBCtk1dlT_oezGWIq_WlDAEsPxTpygPnJGiRwjI56Z0uzUa64vDOtSJnT_19tr13VTkvMiGyLSotC9M2w=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/nsI4lTtwXOtGFrxorKRpHUtHk0-09PTiakVeMwlZGu5Tr4yS85RbpDLsp7BSCfJxJQkcwIFB3WpfX7onhCVSVE_izNsZJ4e3SNMTi8DJD74aDM18KaWxzKMemJGr4ngcUy78AMX5Pg=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/FGXCtv0dW9kGLwOsfwYFzgcHAcuONVU6JA3st-l5yoSdHTtT2E_WAOvuSHM6sjjSK7_U_xU-p-B72PVTv_7xqf5mhsR1K-MpWHtGanITzE366xposIb8JRXMC8wbrrwGDS6LG0GxPA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/QxEuWZCSMWkxEBhpaCgXvdoZCAXQFUSNd8Vw67HzKYbEixkWZw-ryZHKCmdpsCcOMsppSSV819VC4A8OEmNsFO1R2AZ30ILjZqor_zVIoOg1BZgQQ59HLuWyJS44TS_Im_GE8yYj0A=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/j3QLGIiG5ofXi5-vn0wD7faKzzMKnuUY7a0hSgAOC_DPyZvM4O2-v0XNScF2wQY9QgaQGJpft6B-dcrjP5Na_Gy0vGD2ZIu7fpIYsvaZ6hsyiwGqCteFboCP9rxgEvHtT_fYL0w1_A=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/-rshdjORmHb7tCea9MwWdgq7YHE8xkSazAkMOvEMr7h4gYKFOGfFU0pwz_VCxq2Sl57WWpqG5Rxgs91AH7T53Z5Q-akfhtiT8gpb7WkOw3Jp8YJntB8Y1VNXqogbbq6LPAqBoGoDJQ=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/vh1mmj7GrL4PW2AZ03vPbrzgA-WcOwtnd-RKk6EZ-mEUX8WW4m4vLoNx09n8GCnFQM8XXWQf6cdLh4KmtNo9oPJButfp3NAnIUSuV8uT4jg0CTZ8E4IxIRqCbx76ycW4_PHwjj40sA=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/fijY1mTvO7ZqKTkz1zmREF4hxMLhR8Wd4_VNsmhkxdFJuUiAutJrHolk6KbOX_xL4HIRhb68k4FQGE0CQgv62V0ffiRRjXlB5FbS9eYrGgfMW5kbTUF1aWGw4Tx8Hu_lNXIPPyfwHw=w1920-h1080')
+        object(data='https://lh3.googleusercontent.com/I7c7MEQq7BZniaGR3EMhwSsAzNee8eSqL5Ttl5BnPHDieZyHkK-OL1DmyVjQpYTrPnunZmbV80X6ytUoiSnx9vpMXlqYiJiCAwmHSsqKrjQU5BBf4g4QYta-cDMl6tpbxFpcuV2CuA=w1920-h1080')
+    | &#x9;
+    script(src='https://cdn.jsdelivr.net/npm/publicalbum@latest/embed-ui.min.js', async='')
