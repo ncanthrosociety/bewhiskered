@@ -1,0 +1,150 @@
+include mixins/active-link
+include mixins/nav-active-link-dropdown
+
+block variables
+    - var hasSplash = false
+    - var title = ''
+
+
+doctype html
+
+
+html(lang='en' prefix='og: http://ogp.me/ns#')
+
+    head
+
+        // Meta attributes
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description' content='Bewhiskered Website.')
+        meta(name='author' content='North Carolina Anthropomorphic Society, Inc.')
+        meta(property='og:title' content='Bewhiskered 2021')
+        meta(property='og:type' content='website')
+        meta(property='og:description' content='Bewhiskered 2021 Convention Website.')
+        meta(property='og:site_name' content='Bewhiskered 2021')
+        meta(property='og:image' content='https://2021.bewhiskeredcon.org/img/bewhiskered-mission-patch.png')
+        meta(property='og:image:type' content='image/png')
+        meta(property='og:image:alt' content='Bewhiskered 2021 Apawllo Mission Patch')
+        meta(property='og:url' content='https://2021.bewhiskeredcon.org/')
+
+        // Favicons
+        link(rel='icon' sizes='16x16' href='/favicons/favicon-16x16.png')
+        link(rel='icon' sizes='32x32' href='/favicons/favicon-32x32.png')
+        link(rel='apple-touch-icon' href='/favicons/apple-touch-icon.png')
+        link(rel='manifest' href='/favicons/manifest.json')
+        meta(name='msapplication-TileColor' content='#da532c')
+        meta(name='msapplication-config' content='/favicons/browserconfig.xml')
+
+        // Page title
+        title Bewhiskered 2021 #{title ? `- ${title}` : ''}
+
+        // Bootstrap core CSS
+        link(href='/vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet')
+
+        // Custom fonts for this template
+        link(href='/vendor/fontawesome-free/css/all.min.css' rel='stylesheet')
+        link(href='https://fonts.gstatic.com/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2' rel='preload' as='font' crossorigin)
+
+        // Custom styles for this template
+        link(href='/css/main.min.css' rel='stylesheet')
+
+    body(id='page-top')
+
+        // Navbar
+        nav(id="navbar" class=`navbar navbar-expand-lg navbar-light fixed-top ${hasSplash ? 'navbar-splash' : ''}`)
+
+            a(class="navbar-brand js-scroll-trigger" href="/")
+                picture
+                    source(srcset='/img/bewhiskered-logo-white.webp' type='image/webp')
+                    source(srcset='/img/bewhiskered-logo-white.png' type='image/png')
+                    img(src='/img/bewhiskered-logo-white.png' alt='Bewhiskered')
+
+            // Navbar links
+            button(class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation")
+                i(class="fas fa-bars")
+            div(class="collapse navbar-collapse" id="navbarResponsive")
+                div(id='navbar-links-container' class='ml-auto')
+                    ul(id='common-links' class='navbar-nav w-100')
+                        +navActiveLinkDropdown('events', 'Events', [
+                          { href: '/events/schedule',        text: 'Events Schedule', },
+                          { href: '/events/guests-of-honor', text: 'Guests of Honor' },
+                          { href: '/events/charity',         text: 'Charity and Charity Auction' },
+                          { href: '/events/dealer-den',      text: 'Dealer Den'},
+                          { href: '/events/map',             text: 'Hotel Map'},
+                        ])
+                        +navActiveLinkDropdown('about', 'About', [
+                          { href: '/about/bewhiskered',          text: 'Bewhiskered' },
+                          { href: '/about/faq',                  text: 'FAQ' },
+                          { href: '/about/staff-volunteer-info', text: 'Staff/Volunteer Info' },
+                          { href: '/about/artist-alley',         text: 'Artist Alley'},
+                          { href: '/code-of-conduct/member',     text: 'Member Code of Conduct' },
+                          { href: '/code-of-conduct/volunteer',  text: 'Volunteer Code of Conduct' },
+                          { href: '/code-of-conduct/vendor',     text: 'Vendor Code of Conduct' },
+                          { href: '/about/covid-19',             text: 'COVID-19' },
+                          { href: '/about/what-is-a-furry',      text: 'What is a Furry?' },
+                          { href: '/about/privacy-policy',       text: 'Privacy Policy' },
+                          { href: '/about/contact-us',           text: 'Contact Us' },
+                        ])
+                        +navActiveLinkDropdown('forms', 'Forms', [
+                          { href: 'https://forms.gle/AdeBRth8PEHh8S7P9', text: 'Panel Submission' },
+                          { href: 'https://forms.gle/b1KEsrQcYCLdQmDd8', text: 'DJ Application' },
+                          { href: 'https://docs.google.com/forms/d/e/1FAIpQLSfC9VPeykSYEBwwKWm7yJff7zSerPESryPIs7HUadZN5636fw/viewform', text: 'Remote DJ Application' },
+                          { href: 'https://forms.gle/F35n6iALsLUceHj59', text: 'Volunteer Application' },
+                          { href: 'https://forms.gle/btC6TvuzDy5u7L4U8', text: 'Dancer Sign Up' },
+                          { href: 'https://forms.gle/ske1q3wjSsppGxA8A', text: 'Dance Battles Sign Up' },
+                        ])
+                        +navActiveLinkDropdown('registration', 'Registration', [
+                          { href: '/registration',                  text: 'Member Registration' },
+                          { href: '/registration/dealers',          text: 'Dealer Registration' },
+                          { href: '/registration#registration-djs', text: 'DJ Registration' },
+                        ])
+                        li(class='nav-item')
+                            +activeLink('/hotel', 'Hotel')(class='nav-link')
+                        li(class='nav-item')
+                            a(class='nav-link' href='https://ncanthrosociety.com' target='_blank') NCAS#[i(class='fas fa-angle-double-right')]
+                    ul(id="navbar-block-links" class='navbar-nav w-100')
+                        block navbar-page-links
+                        li(id='navbar-block-links-overflow' class='nav-item dropdown')
+                            a(id='navbar-block-links-overflow-toggle' class='nav-link dropdown-toggle' href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') More
+                            div(id='navbar-block-links-overflow-dropdown' class='dropdown-menu dropdown-menu-right' aria-labelledby='navbar-block-links-overflow-dropdown-toggle')
+
+        // Main body
+        div(id='content' class='container-fluid' role="main")
+            block content
+
+        // Footer
+        footer(id='footer')
+
+            div(class='icon-box')
+                a(class='icon-link' href='https://twitter.com/bewhiskeredcon')
+                    i(class='fab fa-2x fa-twitter' title="Twitter")
+                a(class='icon-link' href='https://www.facebook.com/BewhiskeredCon')
+                    i(class='fab fa-2x fa-facebook' title="Facebook")
+                a(class='icon-link' href='https://www.instagram.com/bewhiskeredcon/')
+                    i(class='fab fa-2x fa-instagram' title="Instagram")
+                a(class='icon-link' href='https://t.me/BewhiskeredCon')
+                    i(class='fab fa-2x fa-telegram-plane' title="Telegram Announcements")
+                a(class='icon-link' href='https://telegram.bewhiskeredcon.org')
+                    i(class='fab fa-2x fa-telegram' title="Telegram Chat")
+
+            p Copyright #{ new Date().getFullYear() }, #[a(href='https://ncanthrosociety.com') NCAS].
+
+        // Bootstrap core JavaScript
+
+        script(src='/vendor/jquery/jquery.min.js')
+        script(src='/vendor/bootstrap/js/bootstrap.bundle.min.js')
+
+        // Plugin JavaScript
+        script(src='/vendor/jquery-easing/jquery.easing.min.js')
+        script(src='/vendor/lodash/lodash.min.js')
+
+        // Google Analytics
+        script(src="https://www.googletagmanager.com/gtag/js?id=UA-148960561-2")
+
+        // Modernizr
+        script(src='/vendor/modernizr/modernizr.min.js')
+
+        // Custom scripts
+        script(src='/js/main.min.js')
+        script(src='/js/google-analytics.min.js')
